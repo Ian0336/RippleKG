@@ -1,0 +1,39 @@
+services:
+  arangodb:
+    image: arangodb:3.12
+    environment:
+      ARANGO_ROOT_PASSWORD: ${ARANGO_ROOT_PASSWORD:-ripplekg-dev}
+    ports:
+      - "8529:8529"
+    volumes:
+      - arangodb_data:/var/lib/arangodb3
+    healthcheck:
+      # arangosh ships in the image; avoids depending on curl/wget being present.
+      test:
+        - CMD-SHELL
+        - arangosh --server.username root --server.password "$$ARANGO_ROOT_PASSWORD" --javascript.execute-string 'db._version()' >/dev/null 2>&1 || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 30s
+
+  api:
+    build: .
+    depends_on:
+      arangodb:
+        condition: service_healthy
+    environment:
+      ARANGO_URL: http://arangodb:8529
+      ARANGO_DB: ${ARANGO_DB:-ripplekg}
+      ARANGO_USER: ${ARANGO_USER:-root}
+      ARANGO_PASSWORD: ${ARANGO_PASSWORD:-ripplekg-dev}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+      - ./scripts:/app/scripts
+      - ./data:/app/data
+    command: uvicorn ripplekg.service.api:app --host 0.0.0.0 --port 8000 --reload
+
+volumes:
+  arangodb_data:

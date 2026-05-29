@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RippleKG — demo</title>
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style>
+    :root { --fresh:#2e8b57; --stale:#e08a1e; --bg:#1e1e24; --panel:#26262e; --fg:#e6e6e6; }
+    * { box-sizing: border-box; }
+    body { margin:0; font:14px/1.5 system-ui,sans-serif; background:var(--bg); color:var(--fg); display:flex; flex-direction:column; height:100vh; }
+    header { padding:10px 16px; background:#15151a; display:flex; align-items:center; gap:16px; }
+    header h1 { font-size:16px; margin:0; }
+    header .legend { font-size:12px; color:#aaa; }
+    header .legend b.fresh { color:var(--fresh); } header .legend b.stale { color:var(--stale); }
+    .toolbar { display:flex; gap:8px; flex-wrap:wrap; padding:10px 16px; background:#1a1a20; align-items:center; }
+    .toolbar input, .toolbar textarea { background:#0f0f13; color:var(--fg); border:1px solid #333; border-radius:4px; padding:5px 7px; font:inherit; }
+    .toolbar textarea { width:280px; height:30px; resize:vertical; }
+    button { background:#3a3a48; color:var(--fg); border:1px solid #4a4a5a; border-radius:4px; padding:6px 12px; cursor:pointer; }
+    button:hover { background:#474758; }
+    button.primary { background:#2e5d8b; border-color:#3b6ea5; }
+    main { flex:1; display:flex; min-height:0; }
+    #graph { flex:1; background:#15151a; }
+    #panel { width:380px; background:var(--panel); overflow:auto; padding:12px; border-left:1px solid #333; }
+    #panel h2 { font-size:13px; text-transform:uppercase; color:#9a9aa8; margin:14px 0 6px; }
+    table { width:100%; border-collapse:collapse; font-size:12px; }
+    th,td { text-align:left; padding:3px 6px; border-bottom:1px solid #333; vertical-align:top; }
+    .pill { padding:1px 6px; border-radius:3px; font-size:11px; }
+    .SKIP{background:#444;} .PATCH{background:#2e5d8b;} .REBUILD{background:#8b2e2e;}
+    .muted { color:#888; }
+    code { color:#cdb; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RippleKG</h1>
+    <span class="legend">node/edge: <b class="fresh">■ fresh</b> &nbsp; <b class="stale">■ stale</b></span>
+    <span id="status" class="legend"></span>
+  </header>
+
+  <div class="toolbar">
+    <button onclick="reset()">Reset schema</button>
+    <button onclick="loadGraph()">Reload graph</button>
+    <span class="muted">|</span>
+    doc_id <input id="doc_id" value="demo" size="8" />
+    sent_idx <input id="sent_idx" value="0" size="3" />
+    new_text <input id="new_text" size="28" placeholder="edited sentence" />
+    <textarea id="triples" placeholder="intended triples, one per line:&#10;Head, relation, Tail"></textarea>
+    <button class="primary" onclick="applyEdit()">Apply edit</button>
+    <button onclick="tick()">Tick (refresh)</button>
+  </div>
+
+  <main>
+    <div id="graph"></div>
+    <div id="panel"><p class="muted">Apply an edit to see the M1 delta + M2 decisions here.</p></div>
+  </main>
+
+  <script>
+    const nodes = new vis.DataSet();
+    const edges = new vis.DataSet();
+    const network = new vis.Network(document.getElementById('graph'), { nodes, edges }, {
+      nodes: { shape: 'dot', size: 14, font: { color: '#e6e6e6' } },
+      edges: { arrows: 'to', font: { color: '#bbb', size: 11, strokeWidth: 0 }, smooth: true },
+      physics: { stabilization: true },
+    });
+
+    const color = f => (f === 'stale'
+      ? { background: '#e08a1e', border: '#b86f10' }
+      : { background: '#2e8b57', border: '#1f6b40' });
+
+    function setStatus(msg) { document.getElementById('status').textContent = msg; }
+
+    async function loadGraph() {
+      const g = await (await fetch('/graph')).json();
+      nodes.clear(); edges.clear();
+      nodes.add(g.nodes.map(n => ({ id: n.id, label: n.label, color: color(n.freshness) })));
+      edges.add(g.edges.map(e => ({ id: e.id, from: e.source, to: e.target, label: e.label, color: color(e.freshness) })));
+      setStatus(`${g.nodes.length} entities, ${g.edges.length} relations`);
+    }
+
+    function parseTriples() {
+      return document.getElementById('triples').value
+        .split('\n').map(l => l.trim()).filter(Boolean)
+        .map(l => l.split(/[,|]/).map(s => s.trim()));
+    }
+
+    async function applyEdit() {
+      const body = {
+        doc_id: document.getElementById('doc_id').value,
+        sent_idx: parseInt(document.getElementById('sent_idx').value, 10),
+        new_text: document.getElementById('new_text').value,
+        intended_triples: parseTriples(),
+      };
+      const res = await (await fetch('/edit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+      })).json();
+      renderResult(res);
+      await loadGraph();
+    }
+
+    async function tick() {
+      const r = await (await fetch('/tick', { method: 'POST' })).json();
+      setStatus('tick: ' + JSON.stringify(r));
+      await loadGraph();
+    }
+
+    async function reset() {
+      await fetch('/reset', { method: 'POST' });
+      document.getElementById('panel').innerHTML = '<p class="muted">Schema reset.</p>';
+      await loadGraph();
+    }
+
+    function renderResult(r) {
+      const dRows = (r.evidence_delta || []).map(d =>
+        `<tr><td>${d.delta_type}</td><td>${d.scope}</td><td><code>${JSON.stringify(d.triple)}</code></td></tr>`).join('');
+      const cRows = (r.decisions || []).map(c =>
+        `<tr><td><span class="pill ${c.decision}">${c.decision}</span></td><td>${c.target_type}:${c.target_id}</td><td>${c.cost}</td></tr>`).join('');
+      document.getElementById('panel').innerHTML = `
+        <h2>Edit · step ${r.step}</h2>
+        <div class="muted">${r.edit.doc_id}:${r.edit.sent_idx}</div>
+        <div>old: <code>${r.edit.old_text ?? '∅'}</code></div>
+        <div>new: <code>${r.edit.new_text}</code></div>
+        <h2>M1 · evidence delta</h2>
+        <table><tr><th>type</th><th>scope</th><th>triple</th></tr>${dRows || '<tr><td colspan=3 class=muted>(stub: none yet)</td></tr>'}</table>
+        <h2>M2 · decisions</h2>
+        <table><tr><th>decision</th><th>target</th><th>cost</th></tr>${cRows || '<tr><td colspan=3 class=muted>(stub: none yet)</td></tr>'}</table>
+        <h2>cost</h2>
+        <div>this step: ${r.cost.this_step} &nbsp; vs full rebuild: ${r.cost.vs_full_rebuild}</div>
+        <div>stale: ${(r.freshness.marked_stale || []).length} &nbsp; refreshed: ${(r.freshness.refreshed || []).length}</div>`;
+    }
+
+    loadGraph();
+  </script>
+</body>
+</html>
