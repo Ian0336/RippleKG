@@ -28,7 +28,7 @@ services:
       ARANGO_USER: ${ARANGO_USER:-root}
       ARANGO_PASSWORD: ${ARANGO_PASSWORD:-ripplekg-dev}
     ports:
-      - "8000:8000"
+      - "8001:8000"
     volumes:
       - ./src:/app/src
       - ./scripts:/app/scripts

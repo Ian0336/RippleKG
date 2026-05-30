@@ -1,0 +1,15 @@
+{
+  "P17": "country",
+  "P19": "place of birth",
+  "P27": "country of citizenship",
+  "P131": "located in the administrative territorial entity",
+  "P150": "contains administrative territorial entity",
+  "P155": "follows",
+  "P156": "followed by",
+  "P276": "location",
+  "P569": "date of birth",
+  "P580": "start time",
+  "P582": "end time",
+  "P710": "participant",
+  "P1344": "participant in"
+}

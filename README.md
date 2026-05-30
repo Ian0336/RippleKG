@@ -25,11 +25,36 @@ docker compose
 ```bash
 cp .env.example .env          # adjust the password if you like
 docker compose up -d          # arangodb + api
-docker compose exec api python scripts/init_db.py   # create the 8 collections + indexes
-open http://localhost:8000    # demo page (empty graph until ingest is implemented)
+
+# T0 data: download the Re-DocRED dev split into data/docred/ (git-ignored)
+curl -fsSL -o data/docred/dev_revised.json \
+  https://raw.githubusercontent.com/tonytan48/Re-DocRED/main/data/dev_revised.json
+# rel_info.json (P-id → readable name) for the demo docs is committed; the full
+# 96-relation file ships with the DocRED Google Drive distribution.
+
+docker compose exec api python scripts/init_db.py                                  # 8 collections + indexes
+docker compose exec api python scripts/ingest_t0.py data/docred/dev_revised.json 5 # build T0 (5 docs)
+open http://localhost:8001    # demo page — a real KG (pick doc0)
 ```
 
 ArangoDB web UI: http://localhost:8529 (user `root`, password from `.env`).
+
+### Re-run / reset the data
+
+`scripts/ingest_t0.py` is idempotent — it truncates the 8 collections then reloads, so to
+rebuild T0 just run it again (change the file / doc count as needed):
+
+```bash
+docker compose exec api python scripts/ingest_t0.py data/docred/dev_revised.json 5
+```
+
+This also clears `evidence_deltas` / `refresh_decisions` (back to a clean T0). To rebuild the
+schema as well (e.g. after editing `schema.py`), reset first:
+
+```bash
+curl -X POST localhost:8001/reset
+docker compose exec api python scripts/ingest_t0.py data/docred/dev_revised.json 5
+```
 
 ## Layout (modules ↔ owner, see proposal §7)
 
@@ -38,8 +63,8 @@ src/ripplekg/
   models.py        shared contracts: EditOp / EvidenceDelta / Decision / EditResult / GraphView
   config.py        env-driven settings
   db/              ★B  client.py · schema.py (8 collections) · repo.py (the team seam)
-  ingest/          ★A  DocRED → T0 graph
-  edits/           ★A  synthetic edits (option A: intended_triples)
+  ingest/          ★A  docred.py (parse) · loader.py (build T0 graph)  ✓ done
+  edits/           ★A  store.py (load synthetic edits, option A)        ✓ done
   mechanism/       ★C  pipeline.py (§10 entry, wired) · refresh.py (§11) — add delta.py (M1), policy.py (M2)
   baselines/       ★A/B2  B0/B1/B2 (optional, empty)
   eval/            ★D  metrics from logs (empty)
@@ -49,11 +74,11 @@ scripts/           init_db · ingest_t0 · run_edit
 
 ## Status
 
-Working scaffold: infra + contracts + DB layer + FastAPI shell + the demo page run end-to-end
-(`docker compose up`, `init_db`, `POST /edit` returns a valid `EditResult`). The
-`ingest` / `edits` / `eval` / `baselines` packages and the M1/M2 parts of `mechanism` are
-**empty placeholders** — each owner adds their own modules per the guide below and the
-milestones in `docs/thought.md §16`.
+Working scaffold + **owner A's data foundation done**: Re-DocRED ingest builds the T0 graph
+(`scripts/ingest_t0.py` → entities/relations/provenance), and the synthetic-edit loader
+(`edits/store.py` + `data/edits/demo.json`) is in place. Still **placeholders** for their owners
+(see guide below + `docs/thought.md §16`): M1/M2 in `mechanism/` (★C), `eval/` (★D),
+`baselines/` (★A/B2).
 
 ## Implementing the stubbed modules
 
@@ -61,21 +86,8 @@ The folders below are empty packages on purpose — each owner writes their own 
 shape (import the shared contracts from `ripplekg.models`, and do all DB access through
 `ripplekg.db.repo` — never talk to ArangoDB directly from these modules):
 
-**`ingest/`** — DocRED → T0 graph (owner A, milestone M2)
-```python
-# ingest/docred.py
-def parse_docred(path: str) -> list[dict]: ...     # parse sents / vertexSet / labels(+evidence)
-# ingest/loader.py
-def ingest_document(db, doc: dict) -> None: ...     # write sentences + entities + relations
-def ingest_dataset(db, path: str) -> int: ...       #   + provenance edges (mentions, sentence_supports_relation)
-```
-
-**`edits/`** — synthetic edits T1..Tn (owner A; option A = each edit carries intended_triples)
-```python
-# edits/store.py
-from ripplekg.models import EditOp
-def load_edits(path: str) -> list[EditOp]: ...
-```
+**`ingest/`** and **`edits/`** — ✓ done (owner A): `ingest/docred.py` + `ingest/loader.py` build
+the T0 graph from Re-DocRED; `edits/store.py` loads `data/edits/demo.json`.
 
 **`mechanism/`** — the core (owner C). `pipeline.run_edit` already exists and has a TODO block
 showing exactly where these plug in (M1 → M2 → freshness → refresh):

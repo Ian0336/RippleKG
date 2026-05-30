@@ -5,6 +5,7 @@ traversal. It contains NO maintenance logic (that lives in ripplekg.mechanism).
 """
 from arango.database import StandardDatabase
 
+from ripplekg.db import schema
 from ripplekg.models import Decision, Edge, EvidenceDelta, GraphView, Node
 
 
@@ -116,3 +117,17 @@ def set_freshness(
     db.collection(col).update(
         {"_key": target_id, "freshness_status": status, "last_changed_step": step}
     )
+
+
+# ---------- bulk writes (ingest) ----------
+
+def bulk_insert(db: StandardDatabase, collection: str, docs: list[dict]) -> None:
+    if docs:
+        db.collection(collection).insert_many(docs)
+
+
+def clear_all(db: StandardDatabase) -> None:
+    """Truncate the 8 collections so ingest can re-run idempotently."""
+    for name in schema.DOCUMENT_COLLECTIONS + schema.EDGE_COLLECTIONS:
+        if db.has_collection(name):
+            db.collection(name).truncate()

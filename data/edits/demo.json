@@ -1,0 +1,31 @@
+[
+  {
+    "_comment": "Edit 1 — CHANGE RELATION: doc0 sentence 0 birthplace/citizenship change. M1 should see place_of_birth + citizenship as removed+added; M2 -> PATCH/REBUILD.",
+    "doc_id": "doc0",
+    "sent_idx": 0,
+    "new_text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer .",
+    "intended_triples": [
+      ["Wilfried \" Willi \" Schneider", "date of birth", "13 March 1963"],
+      ["Wilfried \" Willi \" Schneider", "place of birth", "Kraków"],
+      ["Wilfried \" Willi \" Schneider", "country of citizenship", "Polish"]
+    ]
+  },
+  {
+    "_comment": "Edit 2 — PARAPHRASE: doc0 sentence 0 reworded, same triples. M1 should mark all unchanged; M2 -> SKIP.",
+    "doc_id": "doc0",
+    "sent_idx": 0,
+    "new_text": "Born on 13 March 1963 in Mediaș , Transylvania , Wilfried \" Willi \" Schneider is a German skeleton racer .",
+    "intended_triples": [
+      ["Wilfried \" Willi \" Schneider", "date of birth", "13 March 1963"],
+      ["Wilfried \" Willi \" Schneider", "place of birth", "Mediaș"],
+      ["Wilfried \" Willi \" Schneider", "country of citizenship", "German"]
+    ]
+  },
+  {
+    "_comment": "Edit 3 — NON-EVIDENCE: doc0 sentence 5 supports no relation. No evidence delta; nothing invalidated.",
+    "doc_id": "doc0",
+    "sent_idx": 5,
+    "new_text": "In July 2012 Schneider agreed a three - year contract to coach the Russian skeleton team .",
+    "intended_triples": []
+  }
+]

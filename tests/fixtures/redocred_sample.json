@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Sample",
+    "sents": [
+      ["Marie", "Curie", "was", "born", "in", "Warsaw", "."],
+      ["Warsaw", "is", "the", "capital", "of", "Poland", "."]
+    ],
+    "vertexSet": [
+      [{"name": "Marie Curie", "type": "PER", "sent_id": 0, "pos": [0, 2]}],
+      [
+        {"name": "Warsaw", "type": "LOC", "sent_id": 0, "pos": [5, 6]},
+        {"name": "Warsaw", "type": "LOC", "sent_id": 1, "pos": [0, 1]}
+      ],
+      [{"name": "Poland", "type": "LOC", "sent_id": 1, "pos": [5, 6]}]
+    ],
+    "labels": [
+      {"h": 0, "t": 1, "r": "P19", "evidence": [0]},
+      {"h": 1, "t": 2, "r": "P17", "evidence": [1]}
+    ]
+  }
+]

@@ -9,7 +9,6 @@ build/
 .ipynb_checkpoints/
 .env
 
-# Raw dataset dumps (large); keep the folder, not the data.
-data/docred/*.json
-data/edits/*.json
+# Large raw dataset dumps (downloaded); keep rel_info.json + authored edits.
+data/docred/*_revised.json
 !**/.gitkeep
