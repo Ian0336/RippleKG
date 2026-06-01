@@ -12,10 +12,13 @@ from fastapi.responses import FileResponse
 
 from ripplekg.db import repo, schema
 from ripplekg.db.client import get_db
+from ripplekg.edits.store import load_edits
+from ripplekg.eval.metrics import summarize
 from ripplekg.mechanism import pipeline, refresh
 from ripplekg.models import EditOp, EditResult, GraphView
 
 STATIC_DIR = Path(__file__).parent / "static"
+DEMO_EDITS = Path("data/edits/demo.json")
 
 _state: dict = {}
 
@@ -49,10 +52,27 @@ def get_sentences(doc_id: str | None = None):
     return repo.get_sentences(_db(), doc_id)
 
 
+@app.get("/edits")
+def get_edits():
+    if not DEMO_EDITS.exists():
+        return []
+    edits = load_edits(str(DEMO_EDITS))
+    return [
+        {
+            "index": idx,
+            "doc_id": edit.doc_id,
+            "sent_idx": edit.sent_idx,
+            "new_text": edit.new_text,
+            "intended_triples": edit.intended_triples,
+        }
+        for idx, edit in enumerate(edits)
+    ]
+
+
 @app.post("/edit", response_model=EditResult)
-def post_edit(edit: EditOp, refresh_mode: str = "deferred"):
+def post_edit(edit: EditOp, refresh_mode: str = "immediate"):
     _state["step"] += 1
-    return pipeline.run_edit(_db(), edit, _state["step"], refresh_mode)
+    return pipeline.run_edit_transactional(_db(), edit, _state["step"], refresh_mode)
 
 
 @app.post("/tick")
@@ -76,6 +96,11 @@ def get_deltas(step: int | None = None):
 @app.get("/decisions")
 def get_decisions(step: int | None = None):
     return repo.list_decisions(_db(), step)
+
+
+@app.get("/metrics")
+def get_metrics(step: int | None = None):
+    return summarize(_db(), step)
 
 
 @app.get("/")

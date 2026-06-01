@@ -16,10 +16,10 @@
 
 ## 2. 端到端系統流程
 
-實作管線應支援以下流程。Step 1–5 為**同步脊椎**，在單一 ArangoDB transaction 內完成；Step 6 為可延後的 refresh 執行。
+實作管線應支援以下流程。Step 1–5 為**同步脊椎**，在單一 logical edit step 內依序完成並持久化到 ArangoDB；Step 6 為可延後的 refresh 執行。第一版實作尚未包成 ArangoDB stream transaction，transaction 可作為後續 hardening。
 
 1. 載入由 DocRED / Re-DocRED 建構的 `T0` corpus-to-KG state。
-2. 套用 synthetic edit step `T1..Tn`（每步含 `intended_triples`）。
+2. 套用 edit step `T1..Tn`。可直接使用 authored `intended_triples`，也可由 edit generator / LLM extractor 先產生 `new_text + intended_triples`。
 3. 偵測 changed sentence（依 `text_hash`）。
 4. 沿 outbound 1-hop provenance edge 找 affected mention / relation evidence。
 5. 以 canonical triple 比對舊 evidence 與 `intended_triples`，產生 `evidence_deltas`（M1），同步更新 provenance edge，產生 `refresh_decisions`（M2），標記 stale。
@@ -41,12 +41,12 @@
 - 保留 document title、sentence text、entity mention、entity type、relation type、evidence sentence index。
 - 將每份 document 轉為 deterministic `_key`，每句轉為 `{doc_id}:{idx}`。
 - 從原始 dataset 建構 `T0` 圖（直接寫入 8 個 collection，不跑抽取）。
-- 將每個 synthetic edit 儲存為 structured metadata，使 demo 可重現。
+- 將每個 authored 或 generated edit 儲存為 structured metadata，使 demo 可重現。
 
-每筆 synthetic edit 至少包含：
+每筆 edit 最終都會被正規化成同一個 `EditOp` contract：
 
 - `doc_id`, `sent_idx`, `new_text`, `step`。
-- `intended_triples`：該句編輯後預期支撐的 triple set（選項 A，主路徑；可為空）。
+- `intended_triples`：該句編輯後預期支撐的 triple set（可由 authored demo、heuristic extractor 或 LLM extractor 產生；可為空）。
 
 Demo workload 至少包含三種 edit，剛好打到 M1/M2 的三條決策路徑：
 
@@ -56,9 +56,21 @@ Demo workload 至少包含三種 edit，剛好打到 M1/M2 的三條決策路徑
 
 ## 4. Evidence 來源
 
-**第一版主路徑為選項 (A) authored triples**：synthetic edit 直接帶 `intended_triples`，不跑抽取。理由：extraction 不是貢獻核心，authored triples 讓 M1 有確定的「新 evidence」可比對，extraction 品質不會變成主要工作。
+主路徑的 M1/M2 不直接依賴任何特定 extractor；它消費統一的 `EditOp(new_text, intended_triples)`。目前提供兩種前處理入口：
 
-可選 (B)：對 edited sentence 跑輕量 LLM extractor 產生 `intended_triples`，介面與 (A) 相同。有空再加。
+- authored triples：`data/edits/demo.json` 直接帶 `intended_triples`，適合可重現 demo 與 oracle 驗證。
+- generated edit：`extraction/editor.py` 接收 `doc_id + sent_idx + instruction`，產生 `new_text + intended_triples`。預設 `heuristic` provider 可離線測試；可選 `anthropic` / `openai` provider 在設定 `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` 後呼叫 LLM。
+
+兩者進入 M1/M2 前完全等價。Generated edit 會再經過一個 deterministic semantic verifier：若舊 triple 的 head / tail 仍出現在 edited sentence 中，即使 LLM extractor 漏列，也會補回 `intended_triples`。因此目前路徑是：
+
+```text
+LLM/heuristic candidate triples
+  -> verifier keeps still-supported old triples
+  -> final intended_triples
+  -> M1/M2
+```
+
+這使 extraction 品質不會直接污染 mechanism code；報告可以把 LLM 視為 A/C handoff 的一個 provider，把 verifier 視為 M1 前的 semantic guardrail。
 
 `T0` 的 evidence 直接用 DocRED `vertexSet` / `labels` / `labels.evidence` annotation。
 
@@ -114,7 +126,7 @@ Document collections（維護，2 個）：
 
 ## 7. Change Detection
 
-對每筆 synthetic edit：
+對每筆 edit：
 
 - 讀舊 `sentences/{doc_id}:{sent_idx}`，比對 `text_hash`。
 - 若改變：in-place 覆寫 `text` / `text_hash` / `last_changed_step = step`（舊文字不另存版本；變化記在 `evidence_deltas`）。
@@ -122,7 +134,7 @@ Document collections（維護，2 個）：
   - `mentions` → 舊 mention evidence。
   - `sentence_supports_relation` → 舊 relation evidence。
 
-這組「舊 evidence」即 M1 的左邊。整個 edit step 在單一 ArangoDB transaction 內完成。
+這組「舊 evidence」即 M1 的左邊。第一版把整個 edit step 作為同步 logical step 執行；若要強化 failure atomicity，可再包 ArangoDB stream transaction。
 
 ## 8. M1：Semantic Evidence Delta
 
@@ -138,13 +150,26 @@ Document collections（維護，2 個）：
 
 每筆變化寫入 `evidence_deltas`，欄位為 `step`, `sent_id`, `delta_type`, `scope`, `triple`, `target_id`, `reason`。
 
-同時同步更新 provenance edge（脊椎，必須在同 transaction）：
+同時同步更新 provenance edge（脊椎，與 delta/decision 同屬一個 logical edit step）：
 
 - `added` → 新增對應 `sentence_supports_relation` / `mentions` edge（必要時新建 relation / entity）。
 - `removed` → edge `status = removed`, `removed_step = step`。
 - `unchanged` → edge 不動。
 
 可選 semantic 增強：對 relation 文字加 embedding 相似度，讓「文字不同但語意同」歸到 unchanged。骨架仍是純 canonical-triple 規則，保持 deterministic。
+
+Generated-edit 執行命令：
+
+```bash
+docker compose exec api python scripts/run_generated_edit.py \
+  --doc-id doc0 --sent-idx 4 --instruction "remove Canada" --provider heuristic
+```
+
+此命令完成：
+
+```text
+instruction -> EditOp(new_text, intended_triples) -> M1 evidence_delta -> M2 decision
+```
 
 ## 9. M2：Cost-Aware Invalidation Policy
 
@@ -210,7 +235,7 @@ PATCH / REBUILD 對象：`freshness_status = stale`、`last_changed_step = step`
 
 ## 13. 指標（從 log 統計，不寫獨立 harness）
 
-**不另寫評估 harness**。直接從 `evidence_deltas` 與 `refresh_decisions` 統計。
+第一版提供輕量 metrics helper，直接從 `evidence_deltas` 與 `refresh_decisions` 統計。
 
 每個 edit step：
 
@@ -248,7 +273,7 @@ PATCH / REBUILD 對象：`freshness_status = stale`、`last_changed_step = step`
 
 - 提供環境設定說明（Python venv + ArangoDB docker-compose）。
 - 提供 corpus 下載與 preprocessing 命令。
-- 提供執行 demo 的單一 script（套用所有 synthetic edit、輸出 log 數字）。
+- 提供執行 demo 的 script（`scripts/run_edit.py` 可選 synthetic edit 並輸出 `EditResult`）。
 - 提供 synthetic edit 設定檔（含 `intended_triples`）。
 - 提供 README 文件。
 
@@ -267,7 +292,7 @@ PATCH / REBUILD 對象：`freshness_status = stale`、`last_changed_step = step`
 Stretch：
 
 - §11 lazy refresh、`max_staleness`、staleness annotation。
-- B0 / B1 / B2 對照圖。
+- B0 full rebuild baseline 與 baseline 對照圖。
 - Community / summary / embedding。
 - 互動式 demo frontend。
 - 選項 (B) LLM extractor。

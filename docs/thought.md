@@ -45,7 +45,7 @@ refresh decision refresh_decisions
 freshness        entities / relations 上的 freshness_status 欄位
 ```
 
-貢獻在邏輯資料庫層：provenance schema、evidence-delta 計算、cost-aware refresh 決策、交易式 in-place 更新與可見的 freshness 狀態。
+貢獻在邏輯資料庫層：provenance schema、evidence-delta 計算、cost-aware refresh 決策、in-place 更新與可見的 freshness 狀態。第一版以同步 logical edit step 實作；ArangoDB stream transaction 可作為後續 hardening。
 
 ### 2.1 資料集與 Demo Workload
 
@@ -103,7 +103,7 @@ Maintenance Manager（Python）
   -> ArangoDB edge collections       （mentions / sentence_supports_relation）
   -> ArangoDB maintenance collections（evidence_deltas / refresh_decisions）
   -> AQL queries / 1-hop provenance traversal
-  -> ArangoDB transactions（單一 edit step 內的更新為一個 transaction）
+  -> 同步 logical edit step（可再 harden 成 ArangoDB stream transaction）
 ```
 
 Manager 負責：apply edit、找 affected evidence、M1 算 delta、M2 下決策、寫 freshness、執行（或延後）refresh。**沒有獨立的背景 worker**；refresh 是 manager 的一個同步步驟，可選擇延後（§11）。
@@ -250,7 +250,7 @@ refresh_decisions: step；status；target_id
 
 ## 10. 更新路徑（同步主幹）
 
-這是 pipeline 的脊椎，**永遠同步、在單一 transaction 內完成**（§11 只允許「aggregate 修復」延後，不允許動這條脊椎）。
+這是 pipeline 的脊椎，**永遠同步、在單一 logical edit step 內完成**（§11 只允許「aggregate 修復」延後，不允許動這條脊椎）。第一版尚未包 ArangoDB stream transaction。
 
 ### 10.1 輸入
 
@@ -466,7 +466,8 @@ M6  Demo（可選）  : before/after 圖、log 數字、（可選）B0/B1/B2 對
 ```text
 風險：看起來太像應用層
   緩解：所有 evidence delta / decision / freshness 都持久化在 ArangoDB；
-        edit step 用 transaction；affected set 用 provenance edge 的 1-hop traversal；
+        edit step 是同步 logical update path，並可 harden 成 transaction；
+        affected set 用 provenance edge 的 1-hop traversal；
         框架化為 evidence-aware IVM 的邏輯資料庫支援。
 
 風險：evidence extraction 變成主要工作

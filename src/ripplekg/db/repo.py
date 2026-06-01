@@ -88,6 +88,71 @@ def pending_decisions(db: StandardDatabase) -> list[dict]:
     ))
 
 
+def get_relation(db: StandardDatabase, relation_id: str) -> dict | None:
+    if not db.has_collection("relations") or not db.collection("relations").has(relation_id):
+        return None
+    return db.collection("relations").get(relation_id)
+
+
+def get_entity(db: StandardDatabase, entity_id: str) -> dict | None:
+    if not db.has_collection("entities") or not db.collection("entities").has(entity_id):
+        return None
+    return db.collection("entities").get(entity_id)
+
+
+def find_entity_by_norm(db: StandardDatabase, doc_id: str, norm_name: str) -> dict | None:
+    rows = list(db.aql.execute(
+        """FOR e IN entities
+           FILTER STARTS_WITH(e._key, @prefix) AND e.norm_name == @norm
+           LIMIT 1
+           RETURN e""",
+        bind_vars={"prefix": f"{doc_id}:e", "norm": norm_name},
+    ))
+    return rows[0] if rows else None
+
+
+def find_relation(
+    db: StandardDatabase,
+    head: str,
+    rel_type: str,
+    tail: str,
+) -> dict | None:
+    rows = list(db.aql.execute(
+        """FOR r IN relations
+           FILTER r.head == @head
+             AND r.tail == @tail
+             AND r.rel_type == @rel_type
+             AND r.status != 'removed'
+           LIMIT 1
+           RETURN r""",
+        bind_vars={"head": head, "tail": tail, "rel_type": rel_type},
+    ))
+    return rows[0] if rows else None
+
+
+def count_active_evidence(db: StandardDatabase, target_type: str, target_id: str) -> int:
+    edge_col = "mentions" if target_type == "entity" else "sentence_supports_relation"
+    target_col = "entities" if target_type == "entity" else "relations"
+    rows = list(db.aql.execute(
+        f"""FOR e IN {edge_col}
+            FILTER e._to == @target_id AND e.status == 'active'
+            COLLECT WITH COUNT INTO n
+            RETURN n""",
+        bind_vars={"target_id": f"{target_col}/{target_id}"},
+    ))
+    return rows[0] if rows else 0
+
+
+def update_evidence_count(db: StandardDatabase, target_type: str, target_id: str) -> int:
+    count = count_active_evidence(db, target_type, target_id)
+    col = "entities" if target_type == "entity" else "relations"
+    update = {"_key": target_id, "evidence_count": count}
+    if target_type == "relation" and count == 0:
+        update["status"] = "removed"
+    db.collection(col).update(update)
+    return count
+
+
 # ---------- writes (pipeline stages persist here) ----------
 
 def write_delta(db: StandardDatabase, delta: EvidenceDelta, step: int, sent_id: str) -> dict:

@@ -14,11 +14,13 @@
     "_comment": "Edit 2 — PARAPHRASE: doc0 sentence 0 reworded, same triples. M1 should mark all unchanged; M2 -> SKIP.",
     "doc_id": "doc0",
     "sent_idx": 0,
-    "new_text": "Born on 13 March 1963 in Mediaș , Transylvania , Wilfried \" Willi \" Schneider is a German skeleton racer .",
+    "new_text": "Born on 13 March 1963 in Mediaș , Transylvania , Wilfried \" Willi \" Schneider is a German skeleton racer who competed from 1992 to 2002 .",
     "intended_triples": [
       ["Wilfried \" Willi \" Schneider", "date of birth", "13 March 1963"],
       ["Wilfried \" Willi \" Schneider", "place of birth", "Mediaș"],
-      ["Wilfried \" Willi \" Schneider", "country of citizenship", "German"]
+      ["Wilfried \" Willi \" Schneider", "country of citizenship", "German"],
+      ["Wilfried \" Willi \" Schneider", "participant in", "2002 Winter Olympics"],
+      ["2002 Winter Olympics", "participant", "Wilfried \" Willi \" Schneider"]
     ]
   },
   {
