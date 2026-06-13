@@ -32,7 +32,8 @@ def build_edit_with_anthropic(
     sentence_text: str,
     current_triples: list[Triple],
     instruction: str,
-) -> tuple[str, list[Triple]]:
+    input_kind: str = "instruction",
+) -> tuple[str, list[Triple], bool]:
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         raise RuntimeError("ANTHROPIC_API_KEY is required when provider='anthropic'")
@@ -46,7 +47,7 @@ def build_edit_with_anthropic(
         "messages": [
             {
                 "role": "user",
-                "content": _prompt(sentence_text, current_triples, instruction),
+                "content": _prompt(sentence_text, current_triples, instruction, input_kind),
             },
         ],
     }
@@ -67,4 +68,5 @@ def build_edit_with_anthropic(
     new_text = str(parsed.get("new_text", "")).strip()
     if not new_text:
         raise ValueError("Claude response missing non-empty new_text")
-    return new_text, _coerce_triples(parsed.get("intended_triples"))
+    applies = bool(parsed.get("applies_to_sentence", input_kind != "fact"))
+    return new_text, _coerce_triples(parsed.get("intended_triples")), applies

@@ -71,3 +71,29 @@ def test_transactional_edit_commits_pipeline_outputs():
     assert db.collection("sentences").get("doc0:0")["last_changed_step"] == 8
     assert db.collection("evidence_deltas").count() == len(result.evidence_delta)
     assert db.collection("refresh_decisions").count() == len(result.decisions)
+
+
+def test_document_scope_edit_selects_and_commits_related_sentences():
+    db = _db_or_skip()
+    _load_fixture(db)
+
+    from ripplekg.extraction.editor import build_edits_for_document_instruction
+    from ripplekg.mechanism.pipeline import run_edits_transactional
+
+    edits = build_edits_for_document_instruction(
+        db,
+        doc_id="doc0",
+        instruction="remove Warsaw",
+        provider="heuristic",
+    )
+
+    assert [edit.sent_idx for edit in edits] == [0, 1]
+
+    results = run_edits_transactional(db, edits, step=9, refresh_mode="deferred")
+
+    assert len(results) == 2
+    assert {result.edit["transaction"] for result in results} == {"committed"}
+    assert db.collection("sentences").get("doc0:0")["last_changed_step"] == 9
+    assert db.collection("sentences").get("doc0:1")["last_changed_step"] == 9
+    assert db.collection("relations").get("doc0:r0")["status"] == "removed"
+    assert db.collection("relations").get("doc0:r1")["status"] == "removed"

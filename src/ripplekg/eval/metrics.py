@@ -6,12 +6,13 @@ from ripplekg.mechanism.policy import REBUILD_COST
 
 def _counts(db: StandardDatabase, collection: str, field: str, step: int | None) -> dict:
     step_filter = "FILTER item.step == @step" if step is not None else ""
+    bind_vars = {"step": step} if step is not None else {}
     rows = list(db.aql.execute(
         f"""FOR item IN {collection}
             {step_filter}
             COLLECT value = item.{field} WITH COUNT INTO n
             RETURN {{ value, n }}""",
-        bind_vars={"step": step},
+        bind_vars=bind_vars,
     ))
     return {row["value"]: row["n"] for row in rows}
 
@@ -22,12 +23,13 @@ def summarize(db: StandardDatabase, step: int | None = None) -> dict:
     decision_counts = _counts(db, "refresh_decisions", "decision", step)
 
     step_filter = "FILTER d.step == @step" if step is not None else ""
+    bind_vars = {"step": step} if step is not None else {}
     cost_rows = list(db.aql.execute(
         f"""FOR d IN refresh_decisions
             {step_filter}
             COLLECT AGGREGATE total = SUM(d.cost), count = COUNT()
             RETURN {{ total, count }}""",
-        bind_vars={"step": step},
+        bind_vars=bind_vars,
     ))
     cost = cost_rows[0] if cost_rows else {"total": 0, "count": 0}
 

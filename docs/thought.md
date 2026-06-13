@@ -12,7 +12,7 @@
 > - 原子單位收斂到 **sentence**：拿掉 `chunks` 與 `extraction_windows` 兩層。
 > - 拿掉 bitemporal versioning（`valid_from/valid_to/version/source_epoch/maintained_epoch`），改用單一整數 `step` + 物件上的 `freshness_status` 欄位 + in-place 更新 + delta/decision log 當 audit trail。
 > - 拿掉背景 worker / lease-based task queue：refresh **預設同步執行**，並提供一個**可選的延後執行**模式來做「漸進維護」的畫面（見 §11），且保證不破壞 pipeline。
-> - community / summary / embedding 全部歸 stretch，不在核心。
+> - community / summary / embedding 全部歸 stretch，不在核心；其中 sentence embedding、semantic retrieval 與可選 vector index 已作為額外功能實作。
 > - 集合從 ~25 個縮到 **4 物件 + 2 provenance edge + 2 維護 = 8 個**。
 
 ## 1. 必要的 Corpus-to-KG 路徑

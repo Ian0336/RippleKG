@@ -1,0 +1,2023 @@
+{
+  "metadata": {
+    "embedding_backend": "sentence-transformers:all-MiniLM-L6-v2",
+    "requested_cases": 30,
+    "generated_cases": 30,
+    "top_k": 5,
+    "instructions": "Review every candidate and set human_should_edit to true or false. Do not change suggested_should_edit; it is the system baseline.",
+    "annotation_status": "assistant_reviewed_pending_owner_spot_check",
+    "annotation_rule_applied": "True only when the sentence states or structurally expresses the old fact and would become stale when that fact is explicitly replaced."
+  },
+  "cases": [
+    {
+      "case_id": "replace-001",
+      "doc_id": "doc0",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc0:r_auto_6a7590c4ad401622",
+      "old_fact": "Wilfried \" Willi \" Schneider country of citizenship Polish.",
+      "new_fact": "Wilfried \" Willi \" Schneider country of citizenship American.",
+      "update_input": "Replace the old fact 'Wilfried \" Willi \" Schneider country of citizenship Polish.' with 'Wilfried \" Willi \" Schneider country of citizenship American.'",
+      "candidates": [
+        {
+          "sentence_id": "doc0:0",
+          "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.503055,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc0:5",
+          "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.215059,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:2",
+          "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.185463,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:4",
+          "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.122594,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:3",
+          "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.032921,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-002",
+      "doc_id": "doc1",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc1:r0",
+      "old_fact": "Ross Patterson Alger place of birth Prelate.",
+      "new_fact": "Ross Patterson Alger place of birth Kraków.",
+      "update_input": "Replace the old fact 'Ross Patterson Alger place of birth Prelate.' with 'Ross Patterson Alger place of birth Kraków.'",
+      "candidates": [
+        {
+          "sentence_id": "doc1:11",
+          "text": "His brother was Harry Alger .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.370479,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:1",
+          "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.341657,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc1:0",
+          "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.339278,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:10",
+          "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.326838,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:12",
+          "text": "Alger died of cancer in 1992 , which had first been diagnosed in 1985 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.311969,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-003",
+      "doc_id": "doc3",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc3:r10",
+      "old_fact": "Leave It to Joan follows I 'll Wait.",
+      "new_fact": "Leave It to Joan follows Take a Letter Miss Smith.",
+      "update_input": "Replace the old fact 'Leave It to Joan follows I 'll Wait.' with 'Leave It to Joan follows Take a Letter Miss Smith.'",
+      "candidates": [
+        {
+          "sentence_id": "doc3:4",
+          "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \"",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.486916,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:5",
+          "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.132962,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:2",
+          "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.127538,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:6",
+          "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.098709,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:0",
+          "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.062797,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-004",
+      "doc_id": "doc4",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc4:r0",
+      "old_fact": "Latin American School of Medicine country Cuba.",
+      "new_fact": "Latin American School of Medicine country Canada.",
+      "update_input": "Replace the old fact 'Latin American School of Medicine country Cuba.' with 'Latin American School of Medicine country Canada.'",
+      "candidates": [
+        {
+          "sentence_id": "doc4:7",
+          "text": "The school is named Escuela Latinoamericana de Medicina A.P.",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.526234,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:1",
+          "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.520034,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:2",
+          "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.509792,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:0",
+          "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.504109,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc4:3",
+          "text": "The school accepts students from the United States — 91 were reportedly enrolled as of January 2007 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.347612,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-005",
+      "doc_id": "doc0",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc0:r_auto_d10d85fb1c09ac91",
+      "old_fact": "Wilfried \" Willi \" Schneider place of birth Kraków.",
+      "new_fact": "Wilfried \" Willi \" Schneider place of birth Prelate.",
+      "update_input": "Replace the old fact 'Wilfried \" Willi \" Schneider place of birth Kraków.' with 'Wilfried \" Willi \" Schneider place of birth Prelate.'",
+      "candidates": [
+        {
+          "sentence_id": "doc0:0",
+          "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.544493,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc0:5",
+          "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.208322,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:2",
+          "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.171811,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:4",
+          "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.103216,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:1",
+          "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.041854,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-006",
+      "doc_id": "doc1",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc1:r10",
+      "old_fact": "Calgary country Canadian.",
+      "new_fact": "Calgary country Canada.",
+      "update_input": "Replace the old fact 'Calgary country Canadian.' with 'Calgary country Canada.'",
+      "candidates": [
+        {
+          "sentence_id": "doc1:5",
+          "text": "He settled in Calgary and started a career in accounting .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.450976,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:1",
+          "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.43689,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:0",
+          "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.4289,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:2",
+          "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.345271,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:7",
+          "text": "From 1971 to 1974 , he was an alderman on Calgary City Council .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.338947,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-007",
+      "doc_id": "doc3",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc3:r2",
+      "old_fact": "Ramey Idriss country of citizenship American.",
+      "new_fact": "Ramey Idriss country of citizenship Canadian.",
+      "update_input": "Replace the old fact 'Ramey Idriss country of citizenship American.' with 'Ramey Idriss country of citizenship Canadian.'",
+      "candidates": [
+        {
+          "sentence_id": "doc3:0",
+          "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.445884,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc3:1",
+          "text": "His birth name was Ramez Idriss but he was also known as Ramey .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.403324,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:5",
+          "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.226151,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:2",
+          "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.184132,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:6",
+          "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.148026,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-008",
+      "doc_id": "doc4",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc4:r26",
+      "old_fact": "Latin American School of Medicine located in the administrative territorial entity Cuba.",
+      "new_fact": "Latin American School of Medicine located in the administrative territorial entity Alberta.",
+      "update_input": "Replace the old fact 'Latin American School of Medicine located in the administrative territorial entity Cuba.' with 'Latin American School of Medicine located in the administrative territorial entity Alberta.'",
+      "candidates": [
+        {
+          "sentence_id": "doc4:7",
+          "text": "The school is named Escuela Latinoamericana de Medicina A.P.",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.549701,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:1",
+          "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.501007,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:0",
+          "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.48903,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc4:2",
+          "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.474347,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:3",
+          "text": "The school accepts students from the United States — 91 were reportedly enrolled as of January 2007 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.378268,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-009",
+      "doc_id": "doc0",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc0:r10",
+      "old_fact": "Jon Montgomery country of citizenship Canadian.",
+      "new_fact": "Jon Montgomery country of citizenship American.",
+      "update_input": "Replace the old fact 'Jon Montgomery country of citizenship Canadian.' with 'Jon Montgomery country of citizenship American.'",
+      "candidates": [
+        {
+          "sentence_id": "doc0:4",
+          "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.194189,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:2",
+          "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.077683,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:0",
+          "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.049059,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:5",
+          "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.032534,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:1",
+          "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 .",
+          "retrieval_rank": 5,
+          "retrieval_score": -0.019251,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-010",
+      "doc_id": "doc1",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc1:r11",
+      "old_fact": "Prelate located in the administrative territorial entity Saskatchewan.",
+      "new_fact": "Prelate located in the administrative territorial entity Alberta.",
+      "update_input": "Replace the old fact 'Prelate located in the administrative territorial entity Saskatchewan.' with 'Prelate located in the administrative territorial entity Alberta.'",
+      "candidates": [
+        {
+          "sentence_id": "doc1:1",
+          "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.656093,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc1:5",
+          "text": "He settled in Calgary and started a career in accounting .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.463295,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:0",
+          "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.424947,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:2",
+          "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.366481,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:7",
+          "text": "From 1971 to 1974 , he was an alderman on Calgary City Council .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.352738,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-011",
+      "doc_id": "doc3",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc3:r28",
+      "old_fact": "Leave It to Joan followed by Something Old Something New.",
+      "new_fact": "Leave It to Joan followed by I 'll Wait.",
+      "update_input": "Replace the old fact 'Leave It to Joan followed by Something Old Something New.' with 'Leave It to Joan followed by I 'll Wait.'",
+      "candidates": [
+        {
+          "sentence_id": "doc3:4",
+          "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \"",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.521726,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:5",
+          "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.16786,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:6",
+          "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.096225,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:2",
+          "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.059499,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:0",
+          "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.037373,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-012",
+      "doc_id": "doc4",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc4:r27",
+      "old_fact": "Guri located in the administrative territorial entity Venezuela.",
+      "new_fact": "Guri located in the administrative territorial entity Alberta.",
+      "update_input": "Replace the old fact 'Guri located in the administrative territorial entity Venezuela.' with 'Guri located in the administrative territorial entity Alberta.'",
+      "candidates": [
+        {
+          "sentence_id": "doc4:5",
+          "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.397092,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc4:0",
+          "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.227829,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:7",
+          "text": "The school is named Escuela Latinoamericana de Medicina A.P.",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.21416,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:2",
+          "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.186454,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:1",
+          "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.155179,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-013",
+      "doc_id": "doc0",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc0:r11",
+      "old_fact": "Vancouver country Canada.",
+      "new_fact": "Vancouver country Canadian.",
+      "update_input": "Replace the old fact 'Vancouver country Canada.' with 'Vancouver country Canadian.'",
+      "candidates": [
+        {
+          "sentence_id": "doc0:4",
+          "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.254856,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc0:2",
+          "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.099896,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:5",
+          "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.067105,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:3",
+          "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 .",
+          "retrieval_rank": 4,
+          "retrieval_score": -0.002513,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:0",
+          "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer .",
+          "retrieval_rank": 5,
+          "retrieval_score": -0.010034,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-014",
+      "doc_id": "doc1",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc1:r13",
+      "old_fact": "Calgary City Council country Canadian.",
+      "new_fact": "Calgary City Council country Canada.",
+      "update_input": "Replace the old fact 'Calgary City Council country Canadian.' with 'Calgary City Council country Canada.'",
+      "candidates": [
+        {
+          "sentence_id": "doc1:7",
+          "text": "From 1971 to 1974 , he was an alderman on Calgary City Council .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.534564,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:0",
+          "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.483368,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:5",
+          "text": "He settled in Calgary and started a career in accounting .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.44091,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:1",
+          "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.384642,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:2",
+          "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.293065,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-015",
+      "doc_id": "doc3",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc3:r29",
+      "old_fact": "Take a Letter Miss Smith followed by I 'll Wait.",
+      "new_fact": "Take a Letter Miss Smith followed by Leave It to Joan.",
+      "update_input": "Replace the old fact 'Take a Letter Miss Smith followed by I 'll Wait.' with 'Take a Letter Miss Smith followed by Leave It to Joan.'",
+      "candidates": [
+        {
+          "sentence_id": "doc3:4",
+          "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \"",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.470467,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:6",
+          "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.109868,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:2",
+          "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.108435,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:5",
+          "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.084172,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:0",
+          "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.069773,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-016",
+      "doc_id": "doc4",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc4:r4",
+      "old_fact": "Guri country Venezuela.",
+      "new_fact": "Guri country Canada.",
+      "update_input": "Replace the old fact 'Guri country Venezuela.' with 'Guri country Canada.'",
+      "candidates": [
+        {
+          "sentence_id": "doc4:5",
+          "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.326037,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc4:2",
+          "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.236705,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:0",
+          "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.220662,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:7",
+          "text": "The school is named Escuela Latinoamericana de Medicina A.P.",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.191007,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:1",
+          "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.150966,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-017",
+      "doc_id": "doc0",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc0:r12",
+      "old_fact": "British Columbia country Canada.",
+      "new_fact": "British Columbia country Canadian.",
+      "update_input": "Replace the old fact 'British Columbia country Canada.' with 'British Columbia country Canadian.'",
+      "candidates": [
+        {
+          "sentence_id": "doc0:4",
+          "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.176101,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc0:2",
+          "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.04174,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:5",
+          "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.016848,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:3",
+          "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.004819,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:1",
+          "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.001908,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-018",
+      "doc_id": "doc1",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc1:r15",
+      "old_fact": "Canadian contains administrative territorial entity Alberta.",
+      "new_fact": "Canadian contains administrative territorial entity British Columbia.",
+      "update_input": "Replace the old fact 'Canadian contains administrative territorial entity Alberta.' with 'Canadian contains administrative territorial entity British Columbia.'",
+      "candidates": [
+        {
+          "sentence_id": "doc1:5",
+          "text": "He settled in Calgary and started a career in accounting .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.369506,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:1",
+          "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.36472,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:0",
+          "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.33532,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc1:2",
+          "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.334178,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:7",
+          "text": "From 1971 to 1974 , he was an alderman on Calgary City Council .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.278501,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-019",
+      "doc_id": "doc3",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc3:r3",
+      "old_fact": "Ramey Idriss date of birth 11 September 1911.",
+      "new_fact": "Ramey Idriss date of birth 13 March 1963.",
+      "update_input": "Replace the old fact 'Ramey Idriss date of birth 11 September 1911.' with 'Ramey Idriss date of birth 13 March 1963.'",
+      "candidates": [
+        {
+          "sentence_id": "doc3:0",
+          "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.494175,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc3:1",
+          "text": "His birth name was Ramez Idriss but he was also known as Ramey .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.479632,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:2",
+          "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.191076,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:6",
+          "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.152573,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:5",
+          "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.116775,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-020",
+      "doc_id": "doc4",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc4:r5",
+      "old_fact": "Bolívar country Venezuela.",
+      "new_fact": "Bolívar country Canada.",
+      "update_input": "Replace the old fact 'Bolívar country Venezuela.' with 'Bolívar country Canada.'",
+      "candidates": [
+        {
+          "sentence_id": "doc4:5",
+          "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.36042,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc4:7",
+          "text": "The school is named Escuela Latinoamericana de Medicina A.P.",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.229007,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:0",
+          "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.21908,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:2",
+          "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.214864,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc4:1",
+          "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.161256,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-021",
+      "doc_id": "doc0",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc0:r13",
+      "old_fact": "British Columbia located in the administrative territorial entity Canada.",
+      "new_fact": "British Columbia located in the administrative territorial entity Alberta.",
+      "update_input": "Replace the old fact 'British Columbia located in the administrative territorial entity Canada.' with 'British Columbia located in the administrative territorial entity Alberta.'",
+      "candidates": [
+        {
+          "sentence_id": "doc0:4",
+          "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.133249,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc0:5",
+          "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.028006,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:2",
+          "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.017291,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:0",
+          "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer .",
+          "retrieval_rank": 4,
+          "retrieval_score": -0.039839,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:1",
+          "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 .",
+          "retrieval_rank": 5,
+          "retrieval_score": -0.051286,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-022",
+      "doc_id": "doc1",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc1:r38",
+      "old_fact": "World War II participant Royal Canadian Air Force.",
+      "new_fact": "World War II participant Duff Gibson.",
+      "update_input": "Replace the old fact 'World War II participant Royal Canadian Air Force.' with 'World War II participant Duff Gibson.'",
+      "candidates": [
+        {
+          "sentence_id": "doc1:3",
+          "text": "He served with the Royal Canadian Air Force during World War II .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.562458,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc1:4",
+          "text": "After the war , he received an MBA from the University of Toronto .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.290653,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:11",
+          "text": "His brother was Harry Alger .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.286382,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:0",
+          "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.253786,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:10",
+          "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.199106,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-023",
+      "doc_id": "doc3",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc3:r30",
+      "old_fact": "I 'll Wait followed by Leave It to Joan.",
+      "new_fact": "I 'll Wait followed by Something Old Something New.",
+      "update_input": "Replace the old fact 'I 'll Wait followed by Leave It to Joan.' with 'I 'll Wait followed by Something Old Something New.'",
+      "candidates": [
+        {
+          "sentence_id": "doc3:4",
+          "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \"",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.527536,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:5",
+          "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.145898,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:6",
+          "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.083068,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:2",
+          "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.044218,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:0",
+          "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.033867,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-024",
+      "doc_id": "doc0",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc0:r14",
+      "old_fact": "Canada contains administrative territorial entity British Columbia.",
+      "new_fact": "Canada contains administrative territorial entity Alberta.",
+      "update_input": "Replace the old fact 'Canada contains administrative territorial entity British Columbia.' with 'Canada contains administrative territorial entity Alberta.'",
+      "candidates": [
+        {
+          "sentence_id": "doc0:4",
+          "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.127064,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc0:5",
+          "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.01993,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:2",
+          "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.018119,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:3",
+          "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 .",
+          "retrieval_rank": 4,
+          "retrieval_score": -0.050331,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:1",
+          "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 .",
+          "retrieval_rank": 5,
+          "retrieval_score": -0.055843,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-025",
+      "doc_id": "doc1",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc1:r42",
+      "old_fact": "Calgary located in the administrative territorial entity Canadian.",
+      "new_fact": "Calgary located in the administrative territorial entity Alberta.",
+      "update_input": "Replace the old fact 'Calgary located in the administrative territorial entity Canadian.' with 'Calgary located in the administrative territorial entity Alberta.'",
+      "candidates": [
+        {
+          "sentence_id": "doc1:5",
+          "text": "He settled in Calgary and started a career in accounting .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.496763,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:1",
+          "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.469631,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:0",
+          "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.447032,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:7",
+          "text": "From 1971 to 1974 , he was an alderman on Calgary City Council .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.416497,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:2",
+          "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.378214,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-026",
+      "doc_id": "doc3",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc3:r8",
+      "old_fact": "Something Old Something New follows Leave It to Joan.",
+      "new_fact": "Something Old Something New follows I 'll Wait.",
+      "update_input": "Replace the old fact 'Something Old Something New follows Leave It to Joan.' with 'Something Old Something New follows I 'll Wait.'",
+      "candidates": [
+        {
+          "sentence_id": "doc3:4",
+          "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \"",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.481838,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:5",
+          "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.160215,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:6",
+          "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.091478,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:2",
+          "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.074845,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:0",
+          "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.035034,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-027",
+      "doc_id": "doc0",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc0:r15",
+      "old_fact": "Wilfried \" Willi \" Schneider date of birth 13 March 1963.",
+      "new_fact": "Wilfried \" Willi \" Schneider date of birth 11 September 1911.",
+      "update_input": "Replace the old fact 'Wilfried \" Willi \" Schneider date of birth 13 March 1963.' with 'Wilfried \" Willi \" Schneider date of birth 11 September 1911.'",
+      "candidates": [
+        {
+          "sentence_id": "doc0:0",
+          "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.556764,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc0:2",
+          "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.192198,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:5",
+          "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.19051,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:4",
+          "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.082499,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:1",
+          "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.080448,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-028",
+      "doc_id": "doc1",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc1:r43",
+      "old_fact": "Royal Canadian Air Force participant in World War II.",
+      "new_fact": "Royal Canadian Air Force participant in 2002 Winter Olympics.",
+      "update_input": "Replace the old fact 'Royal Canadian Air Force participant in World War II.' with 'Royal Canadian Air Force participant in 2002 Winter Olympics.'",
+      "candidates": [
+        {
+          "sentence_id": "doc1:3",
+          "text": "He served with the Royal Canadian Air Force during World War II .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.546984,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc1:10",
+          "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.349163,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:4",
+          "text": "After the war , he received an MBA from the University of Toronto .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.319768,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:0",
+          "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.314598,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc1:2",
+          "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.247824,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-029",
+      "doc_id": "doc3",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc3:r9",
+      "old_fact": "I 'll Wait follows Take a Letter Miss Smith.",
+      "new_fact": "I 'll Wait follows Leave It to Joan.",
+      "update_input": "Replace the old fact 'I 'll Wait follows Take a Letter Miss Smith.' with 'I 'll Wait follows Leave It to Joan.'",
+      "candidates": [
+        {
+          "sentence_id": "doc3:4",
+          "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \"",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.481182,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:2",
+          "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.129679,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:5",
+          "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.103608,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:6",
+          "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.094615,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc3:0",
+          "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.057925,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    },
+    {
+      "case_id": "replace-030",
+      "doc_id": "doc0",
+      "update_type": "replace_old_fact",
+      "annotation_rule": "Mark true only if this sentence must change when the old fact is explicitly replaced by the new fact.",
+      "source_relation_id": "doc0:r16",
+      "old_fact": "Wilfried \" Willi \" Schneider participant in 2002 Winter Olympics.",
+      "new_fact": "Wilfried \" Willi \" Schneider participant in 2006 Winter Olympics.",
+      "update_input": "Replace the old fact 'Wilfried \" Willi \" Schneider participant in 2002 Winter Olympics.' with 'Wilfried \" Willi \" Schneider participant in 2006 Winter Olympics.'",
+      "candidates": [
+        {
+          "sentence_id": "doc0:0",
+          "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer .",
+          "retrieval_rank": 1,
+          "retrieval_score": 0.633916,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:2",
+          "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City .",
+          "retrieval_rank": 2,
+          "retrieval_score": 0.524208,
+          "provenance_supports_old_fact": true,
+          "suggested_should_edit": true,
+          "suggested_reason": "This sentence is provenance evidence for the old fact being replaced.",
+          "human_should_edit": true,
+          "human_notes": "The sentence states or structurally expresses the old fact."
+        },
+        {
+          "sentence_id": "doc0:4",
+          "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada .",
+          "retrieval_rank": 3,
+          "retrieval_score": 0.505903,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:5",
+          "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team .",
+          "retrieval_rank": 4,
+          "retrieval_score": 0.344385,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        },
+        {
+          "sentence_id": "doc0:1",
+          "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 .",
+          "retrieval_rank": 5,
+          "retrieval_score": 0.300379,
+          "provenance_supports_old_fact": false,
+          "suggested_should_edit": false,
+          "suggested_reason": "Embedding retrieved it, but provenance does not link it to the old fact.",
+          "human_should_edit": false,
+          "human_notes": "The sentence does not assert the old fact strongly enough to require editing."
+        }
+      ]
+    }
+  ]
+}

@@ -78,3 +78,7 @@ def test_changed_relation_persists_delta_decision_and_refreshes():
     assert metrics["evidence_delta"]["removed"] >= 1
     assert metrics["decisions"]["PATCH"] >= 1
     assert metrics["decisions"]["REBUILD"] >= 1
+
+    all_metrics = summarize(db)
+    assert all_metrics["step"] is None
+    assert all_metrics["evidence_delta"]["added"] >= metrics["evidence_delta"]["added"]

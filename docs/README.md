@@ -11,7 +11,8 @@
 |---|---|---|---|
 | `proposal.md` | **主提案**：scope、contribution、機制總覽、baselines、評估、分工 | What & Why | 教授 / TA / 第一次接觸專案的人 |
 | `thought.md` | **M1/M2 實作補充（精簡版）**：ArangoDB schema、freshness 物件模型、provenance、index、update path、refresh 執行 | How (design) | 組員開工前必讀，特別是 B（DB owner）與 C（mechanism lead） |
-| `implementation.md` | **實作筆記**：code-level 決策、模組介面、實際 query、跑出來的數字 | How (code) | 跟著 codebase 一起長的 living doc |
+| `implementation.md` | **實作筆記**：code-level 決策、模組介面、實際 query | How (code) | 跟著 codebase 一起長的 living doc |
+| `experiment-results.md` | **完整實驗結果**：retrieval、LLM gate、EditOp、M1/M2、錯誤分析 | Evaluation | 組員 / 教授 / PPT 與報告撰寫者 |
 
 ---
 
@@ -32,7 +33,7 @@
                             ▼
                    ┌──────────────────┐
                    │ implementation.md│   實際 code 與量測
-                   │   (WIP)          │   模組 / AQL / 數字
+                   │   implemented    │   模組 / AQL / 數字
                    └──────────────────┘
 ```
 
@@ -71,7 +72,7 @@ corpus edit
   → persisted KG/provenance/freshness state in ArangoDB
 ```
 
-**Stretch goals**（時間有餘才做、不進核心 contribution）：community grouping、summary、embedding、QA、query-time lazy refresh。
+**已完成的原 stretch goal**：sentence Transformer embedding、semantic retrieval、可選 ArangoDB vector index。仍未納入核心的 stretch goals：community grouping、summary、QA、query-time lazy refresh。
 
 ---
 
@@ -81,7 +82,8 @@ corpus edit
 |---|---|---|
 | `proposal.md` | ✅ 主體完成，scope 已 freeze | 2026-05-29 |
 | `thought.md` | ✅ 精簡版設計完成，schema 已 freeze（8 collection，W1 結束前不再大改） | 2026-05-29 |
-| `implementation.md` | 🚧 待 W1 開工後逐步填寫 | — |
+| `implementation.md` | ✅ 已記錄目前實作；持續隨程式更新 | 2026-06-13 |
+| `experiment-results.md` | ✅ 已記錄 retrieval 與端到端實驗結果 | 2026-06-13 |
 
 ---
 

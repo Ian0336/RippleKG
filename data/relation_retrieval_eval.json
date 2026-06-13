@@ -1,0 +1,3406 @@
+[
+  {
+    "relation_id": "doc0:r_auto_6a7590c4ad401622",
+    "doc_id": "doc0",
+    "query": "Wilfried \" Willi \" Schneider country of citizenship Polish.",
+    "head": "Wilfried \" Willi \" Schneider",
+    "relation": "country of citizenship",
+    "tail": "Polish",
+    "expected_ids": [
+      "doc0:0"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": 0.6464568597885629,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.30486490111781606,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.2928903483980921,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.21488508651894975,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": 0.16112422474108698,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": 0.13286325751069614,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r0",
+    "doc_id": "doc1",
+    "query": "Ross Patterson Alger place of birth Prelate.",
+    "head": "Ross Patterson Alger",
+    "relation": "place of birth",
+    "tail": "Prelate",
+    "expected_ids": [
+      "doc1:0",
+      "doc1:1"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.55983474679274,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.494627514912443,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.4104480928059947,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:12",
+        "doc_id": "doc1",
+        "idx": 12,
+        "score": 0.3899802612594556,
+        "text": "Alger died of cancer in 1992 , which had first been diagnosed in 1985 ."
+      },
+      {
+        "sent_id": "doc1:11",
+        "doc_id": "doc1",
+        "idx": 11,
+        "score": 0.3860465196792705,
+        "text": "His brother was Harry Alger ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.35442159071796814,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.3329630665361173,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.2884304685326621,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.28746777440287785,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:6",
+        "doc_id": "doc1",
+        "idx": 6,
+        "score": 0.2039414203810505,
+        "text": "In 1958 , he was a public school board trustee , and later became the chairman ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc2:r0",
+    "doc_id": "doc2",
+    "query": "Mess of Blues P577 2008.",
+    "head": "Mess of Blues",
+    "relation": "P577",
+    "tail": "2008",
+    "expected_ids": [
+      "doc2:0",
+      "doc2:1"
+    ],
+    "results": [
+      {
+        "sent_id": "doc2:0",
+        "doc_id": "doc2",
+        "idx": 0,
+        "score": 0.5409327116830667,
+        "text": "Mess of Blues is an album by Jeff Healey ."
+      },
+      {
+        "sent_id": "doc2:5",
+        "doc_id": "doc2",
+        "idx": 5,
+        "score": 0.4771740578026654,
+        "text": "The song \" Mess of Blues \" , which appears on the album was written by Doc Pomus and Mort Shuman and was originally recorded by Elvis Presley ."
+      },
+      {
+        "sent_id": "doc2:4",
+        "doc_id": "doc2",
+        "idx": 4,
+        "score": 0.19810014638425333,
+        "text": "The whole album features the band which normally accompanied Jeff at his club , Jeff Healey 's Roadhouse ."
+      },
+      {
+        "sent_id": "doc2:3",
+        "doc_id": "doc2",
+        "idx": 3,
+        "score": 0.16351720999708735,
+        "text": "The other six tracks were recorded at Studio 92 in Canada by Norm Barker and Richard Uglow ."
+      },
+      {
+        "sent_id": "doc2:1",
+        "doc_id": "doc2",
+        "idx": 1,
+        "score": 0.16278009755754022,
+        "text": "It was released in 2008 less than two weeks after his death and just three weeks shy of his 42nd birthday ."
+      },
+      {
+        "sent_id": "doc2:2",
+        "doc_id": "doc2",
+        "idx": 2,
+        "score": 0.11166988632515637,
+        "text": "Four of the album 's tracks were recorded live in front of audiences , two of the live tracks at the Islington Academy in London , and the other two live tracks at Jeff Healey 's Roadhouse in Toronto ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r0",
+    "doc_id": "doc3",
+    "query": "Wet Blanket Policy P577 1948.",
+    "head": "Wet Blanket Policy",
+    "relation": "P577",
+    "tail": "1948",
+    "expected_ids": [
+      "doc3:3"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": 0.45556324575935864,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      },
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": 0.030728439253024018,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": 0.02342623906301657,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": -0.0047313787848533686,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": -0.007755030708745692,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": -0.038832415907053,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": -0.04478561242752252,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc4:r0",
+    "doc_id": "doc4",
+    "query": "Latin American School of Medicine country Cuba.",
+    "head": "Latin American School of Medicine",
+    "relation": "country",
+    "tail": "Cuba",
+    "expected_ids": [
+      "doc4:0",
+      "doc4:2"
+    ],
+    "results": [
+      {
+        "sent_id": "doc4:1",
+        "doc_id": "doc4",
+        "idx": 1,
+        "score": 0.6747094465866115,
+        "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 ."
+      },
+      {
+        "sent_id": "doc4:0",
+        "doc_id": "doc4",
+        "idx": 0,
+        "score": 0.6356896947402596,
+        "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system ."
+      },
+      {
+        "sent_id": "doc4:7",
+        "doc_id": "doc4",
+        "idx": 7,
+        "score": 0.612549919875472,
+        "text": "The school is named Escuela Latinoamericana de Medicina A.P."
+      },
+      {
+        "sent_id": "doc4:2",
+        "doc_id": "doc4",
+        "idx": 2,
+        "score": 0.5935664555907433,
+        "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia ."
+      },
+      {
+        "sent_id": "doc4:5",
+        "doc_id": "doc4",
+        "idx": 5,
+        "score": 0.4224901873089804,
+        "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 ."
+      },
+      {
+        "sent_id": "doc4:3",
+        "doc_id": "doc4",
+        "idx": 3,
+        "score": 0.358792222291059,
+        "text": "The school accepts students from the United States — 91 were reportedly enrolled as of January 2007 ."
+      },
+      {
+        "sent_id": "doc4:8",
+        "doc_id": "doc4",
+        "idx": 8,
+        "score": 0.3278534292639153,
+        "text": "Réverénd after French physician Alejandro Próspero Réverénd ."
+      },
+      {
+        "sent_id": "doc4:4",
+        "doc_id": "doc4",
+        "idx": 4,
+        "score": 0.20277621637134385,
+        "text": "Tuition , accommodation and board are free , and a small stipend is provided for students ."
+      },
+      {
+        "sent_id": "doc4:6",
+        "doc_id": "doc4",
+        "idx": 6,
+        "score": 0.011142598177261728,
+        "text": "However , it was only half built as of November 2008 ."
+      }
+    ],
+    "first_relevant_rank": 2
+  },
+  {
+    "relation_id": "doc0:r_auto_d10d85fb1c09ac91",
+    "doc_id": "doc0",
+    "query": "Wilfried \" Willi \" Schneider place of birth Kraków.",
+    "head": "Wilfried \" Willi \" Schneider",
+    "relation": "place of birth",
+    "tail": "Kraków",
+    "expected_ids": [
+      "doc0:0"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": 0.7431063269086029,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      },
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.28163949892528817,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.2719821095473366,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.15586514872838272,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": 0.11269153996482978,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": 0.11130892858632374,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r1",
+    "doc_id": "doc1",
+    "query": "Ross Patterson Alger P69 University of Alberta.",
+    "head": "Ross Patterson Alger",
+    "relation": "P69",
+    "tail": "University of Alberta",
+    "expected_ids": [
+      "doc1:0",
+      "doc1:2"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.6328955134935119,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.5956955146852644,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.5413799595975947,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.4918889086589247,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.4469736742210274,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      },
+      {
+        "sent_id": "doc1:7",
+        "doc_id": "doc1",
+        "idx": 7,
+        "score": 0.28025665648138165,
+        "text": "From 1971 to 1974 , he was an alderman on Calgary City Council ."
+      },
+      {
+        "sent_id": "doc1:11",
+        "doc_id": "doc1",
+        "idx": 11,
+        "score": 0.25330258085789203,
+        "text": "His brother was Harry Alger ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.23864651142363758,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:12",
+        "doc_id": "doc1",
+        "idx": 12,
+        "score": 0.2378708797610032,
+        "text": "Alger died of cancer in 1992 , which had first been diagnosed in 1985 ."
+      },
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.22833798599381233,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc2:r1",
+    "doc_id": "doc2",
+    "query": "Mess of Blues P175 Jeff.",
+    "head": "Mess of Blues",
+    "relation": "P175",
+    "tail": "Jeff",
+    "expected_ids": [
+      "doc2:0",
+      "doc2:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc2:0",
+        "doc_id": "doc2",
+        "idx": 0,
+        "score": 0.6457168587518949,
+        "text": "Mess of Blues is an album by Jeff Healey ."
+      },
+      {
+        "sent_id": "doc2:4",
+        "doc_id": "doc2",
+        "idx": 4,
+        "score": 0.44364122867427996,
+        "text": "The whole album features the band which normally accompanied Jeff at his club , Jeff Healey 's Roadhouse ."
+      },
+      {
+        "sent_id": "doc2:5",
+        "doc_id": "doc2",
+        "idx": 5,
+        "score": 0.44286094853593305,
+        "text": "The song \" Mess of Blues \" , which appears on the album was written by Doc Pomus and Mort Shuman and was originally recorded by Elvis Presley ."
+      },
+      {
+        "sent_id": "doc2:3",
+        "doc_id": "doc2",
+        "idx": 3,
+        "score": 0.20285926644617724,
+        "text": "The other six tracks were recorded at Studio 92 in Canada by Norm Barker and Richard Uglow ."
+      },
+      {
+        "sent_id": "doc2:2",
+        "doc_id": "doc2",
+        "idx": 2,
+        "score": 0.19128016721998586,
+        "text": "Four of the album 's tracks were recorded live in front of audiences , two of the live tracks at the Islington Academy in London , and the other two live tracks at Jeff Healey 's Roadhouse in Toronto ."
+      },
+      {
+        "sent_id": "doc2:1",
+        "doc_id": "doc2",
+        "idx": 1,
+        "score": 0.11015992042248524,
+        "text": "It was released in 2008 less than two weeks after his death and just three weeks shy of his 42nd birthday ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r1",
+    "doc_id": "doc3",
+    "query": "Ramey Idriss P69 Los Angeles Community College.",
+    "head": "Ramey Idriss",
+    "relation": "P69",
+    "tail": "Los Angeles Community College",
+    "expected_ids": [
+      "doc3:0"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.5385834002630125,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": 0.4093757817760195,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.2571366950032067,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.12030483295055609,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.11643023330957332,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": 0.03747154845386203,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      },
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": -0.014952112846592976,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc4:r1",
+    "doc_id": "doc4",
+    "query": "Latin American School of Medicine P571 1999.",
+    "head": "Latin American School of Medicine",
+    "relation": "P571",
+    "tail": "1999",
+    "expected_ids": [
+      "doc4:0",
+      "doc4:1"
+    ],
+    "results": [
+      {
+        "sent_id": "doc4:7",
+        "doc_id": "doc4",
+        "idx": 7,
+        "score": 0.5892610841016861,
+        "text": "The school is named Escuela Latinoamericana de Medicina A.P."
+      },
+      {
+        "sent_id": "doc4:0",
+        "doc_id": "doc4",
+        "idx": 0,
+        "score": 0.540284384350006,
+        "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system ."
+      },
+      {
+        "sent_id": "doc4:1",
+        "doc_id": "doc4",
+        "idx": 1,
+        "score": 0.5079086943440752,
+        "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 ."
+      },
+      {
+        "sent_id": "doc4:3",
+        "doc_id": "doc4",
+        "idx": 3,
+        "score": 0.35767622745778876,
+        "text": "The school accepts students from the United States — 91 were reportedly enrolled as of January 2007 ."
+      },
+      {
+        "sent_id": "doc4:2",
+        "doc_id": "doc4",
+        "idx": 2,
+        "score": 0.3412771353857389,
+        "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia ."
+      },
+      {
+        "sent_id": "doc4:8",
+        "doc_id": "doc4",
+        "idx": 8,
+        "score": 0.33765928660162847,
+        "text": "Réverénd after French physician Alejandro Próspero Réverénd ."
+      },
+      {
+        "sent_id": "doc4:5",
+        "doc_id": "doc4",
+        "idx": 5,
+        "score": 0.32178136121947093,
+        "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 ."
+      },
+      {
+        "sent_id": "doc4:4",
+        "doc_id": "doc4",
+        "idx": 4,
+        "score": 0.09977679373081251,
+        "text": "Tuition , accommodation and board are free , and a small stipend is provided for students ."
+      },
+      {
+        "sent_id": "doc4:6",
+        "doc_id": "doc4",
+        "idx": 6,
+        "score": 0.035080302249250864,
+        "text": "However , it was only half built as of November 2008 ."
+      }
+    ],
+    "first_relevant_rank": 2
+  },
+  {
+    "relation_id": "doc0:r0",
+    "doc_id": "doc0",
+    "query": "2002 Winter Olympics start time 2002.",
+    "head": "2002 Winter Olympics",
+    "relation": "start time",
+    "tail": "2002",
+    "expected_ids": [
+      "doc0:2"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.5793476155439801,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.5048564963548942,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": 0.3548625273195268,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.31187465300986417,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": 0.18821402976155058,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": 0.15793839626243703,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r10",
+    "doc_id": "doc1",
+    "query": "Calgary country Canadian.",
+    "head": "Calgary",
+    "relation": "country",
+    "tail": "Canadian",
+    "expected_ids": [
+      "doc1:0"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.5222918247344467,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.48427084272694404,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.48003955016146393,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.38981110975029964,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:7",
+        "doc_id": "doc1",
+        "idx": 7,
+        "score": 0.3750221630370959,
+        "text": "From 1971 to 1974 , he was an alderman on Calgary City Council ."
+      },
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.25240497326337885,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.2503363275186776,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.13815389672599146,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:9",
+        "doc_id": "doc1",
+        "idx": 9,
+        "score": 0.03872303495497997,
+        "text": "He was elected mayor in 1977 and served one term until 1980 ."
+      },
+      {
+        "sent_id": "doc1:11",
+        "doc_id": "doc1",
+        "idx": 11,
+        "score": 0.02639402232645848,
+        "text": "His brother was Harry Alger ."
+      }
+    ],
+    "first_relevant_rank": 2
+  },
+  {
+    "relation_id": "doc2:r11",
+    "doc_id": "doc2",
+    "query": "Jeff P800 Mess of Blues.",
+    "head": "Jeff",
+    "relation": "P800",
+    "tail": "Mess of Blues",
+    "expected_ids": [
+      "doc2:0",
+      "doc2:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc2:0",
+        "doc_id": "doc2",
+        "idx": 0,
+        "score": 0.6236260026699377,
+        "text": "Mess of Blues is an album by Jeff Healey ."
+      },
+      {
+        "sent_id": "doc2:5",
+        "doc_id": "doc2",
+        "idx": 5,
+        "score": 0.45839089328141586,
+        "text": "The song \" Mess of Blues \" , which appears on the album was written by Doc Pomus and Mort Shuman and was originally recorded by Elvis Presley ."
+      },
+      {
+        "sent_id": "doc2:4",
+        "doc_id": "doc2",
+        "idx": 4,
+        "score": 0.41007909166641776,
+        "text": "The whole album features the band which normally accompanied Jeff at his club , Jeff Healey 's Roadhouse ."
+      },
+      {
+        "sent_id": "doc2:3",
+        "doc_id": "doc2",
+        "idx": 3,
+        "score": 0.21401517653947688,
+        "text": "The other six tracks were recorded at Studio 92 in Canada by Norm Barker and Richard Uglow ."
+      },
+      {
+        "sent_id": "doc2:2",
+        "doc_id": "doc2",
+        "idx": 2,
+        "score": 0.18070782906583827,
+        "text": "Four of the album 's tracks were recorded live in front of audiences , two of the live tracks at the Islington Academy in London , and the other two live tracks at Jeff Healey 's Roadhouse in Toronto ."
+      },
+      {
+        "sent_id": "doc2:1",
+        "doc_id": "doc2",
+        "idx": 1,
+        "score": 0.1268872401072839,
+        "text": "It was released in 2008 less than two weeks after his death and just three weeks shy of his 42nd birthday ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r10",
+    "doc_id": "doc3",
+    "query": "Leave It to Joan follows I 'll Wait.",
+    "head": "Leave It to Joan",
+    "relation": "follows",
+    "tail": "I 'll Wait",
+    "expected_ids": [
+      "doc3:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": 0.3766339580983407,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.15812236275553926,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.08194587928860968,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.07574731273533561,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.050553407298734185,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": -0.01911378090683296,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": -0.022387351074965183,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc4:r2",
+    "doc_id": "doc4",
+    "query": "Escuela Latinoamericana de Medicina P571 1999.",
+    "head": "Escuela Latinoamericana de Medicina",
+    "relation": "P571",
+    "tail": "1999",
+    "expected_ids": [
+      "doc4:0",
+      "doc4:1"
+    ],
+    "results": [
+      {
+        "sent_id": "doc4:7",
+        "doc_id": "doc4",
+        "idx": 7,
+        "score": 0.7481028227454125,
+        "text": "The school is named Escuela Latinoamericana de Medicina A.P."
+      },
+      {
+        "sent_id": "doc4:0",
+        "doc_id": "doc4",
+        "idx": 0,
+        "score": 0.5374857325882054,
+        "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system ."
+      },
+      {
+        "sent_id": "doc4:1",
+        "doc_id": "doc4",
+        "idx": 1,
+        "score": 0.32568503223834583,
+        "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 ."
+      },
+      {
+        "sent_id": "doc4:8",
+        "doc_id": "doc4",
+        "idx": 8,
+        "score": 0.30716799749933255,
+        "text": "Réverénd after French physician Alejandro Próspero Réverénd ."
+      },
+      {
+        "sent_id": "doc4:5",
+        "doc_id": "doc4",
+        "idx": 5,
+        "score": 0.2611776663645317,
+        "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 ."
+      },
+      {
+        "sent_id": "doc4:2",
+        "doc_id": "doc4",
+        "idx": 2,
+        "score": 0.20642006006637809,
+        "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia ."
+      },
+      {
+        "sent_id": "doc4:3",
+        "doc_id": "doc4",
+        "idx": 3,
+        "score": 0.1467570086225655,
+        "text": "The school accepts students from the United States — 91 were reportedly enrolled as of January 2007 ."
+      },
+      {
+        "sent_id": "doc4:6",
+        "doc_id": "doc4",
+        "idx": 6,
+        "score": 0.060516499503051865,
+        "text": "However , it was only half built as of November 2008 ."
+      },
+      {
+        "sent_id": "doc4:4",
+        "doc_id": "doc4",
+        "idx": 4,
+        "score": -0.05125797783382777,
+        "text": "Tuition , accommodation and board are free , and a small stipend is provided for students ."
+      }
+    ],
+    "first_relevant_rank": 2
+  },
+  {
+    "relation_id": "doc0:r1",
+    "doc_id": "doc0",
+    "query": "2002 Winter Olympics end time 2002.",
+    "head": "2002 Winter Olympics",
+    "relation": "end time",
+    "tail": "2002",
+    "expected_ids": [
+      "doc0:2"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.5914452667596366,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.5158828117267346,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": 0.37912712268569954,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.31243893352238644,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": 0.21930575239984929,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      },
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": 0.1529983599745576,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r11",
+    "doc_id": "doc1",
+    "query": "Prelate located in the administrative territorial entity Saskatchewan.",
+    "head": "Prelate",
+    "relation": "located in the administrative territorial entity",
+    "tail": "Saskatchewan",
+    "expected_ids": [
+      "doc1:1"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.6473233051753026,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.4170507480656583,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.3542299320660936,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.3195787525418089,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:7",
+        "doc_id": "doc1",
+        "idx": 7,
+        "score": 0.28248218289120947,
+        "text": "From 1971 to 1974 , he was an alderman on Calgary City Council ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.2726386889303228,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.23110628899061839,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:6",
+        "doc_id": "doc1",
+        "idx": 6,
+        "score": 0.19785846008284422,
+        "text": "In 1958 , he was a public school board trustee , and later became the chairman ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.11252203983271492,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:12",
+        "doc_id": "doc1",
+        "idx": 12,
+        "score": 0.10769447406376934,
+        "text": "Alger died of cancer in 1992 , which had first been diagnosed in 1985 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc2:r12",
+    "doc_id": "doc2",
+    "query": "Elvis Presley P800 Mess of Blues.",
+    "head": "Elvis Presley",
+    "relation": "P800",
+    "tail": "Mess of Blues",
+    "expected_ids": [
+      "doc2:5"
+    ],
+    "results": [
+      {
+        "sent_id": "doc2:5",
+        "doc_id": "doc2",
+        "idx": 5,
+        "score": 0.6894001103388768,
+        "text": "The song \" Mess of Blues \" , which appears on the album was written by Doc Pomus and Mort Shuman and was originally recorded by Elvis Presley ."
+      },
+      {
+        "sent_id": "doc2:0",
+        "doc_id": "doc2",
+        "idx": 0,
+        "score": 0.520148766091873,
+        "text": "Mess of Blues is an album by Jeff Healey ."
+      },
+      {
+        "sent_id": "doc2:3",
+        "doc_id": "doc2",
+        "idx": 3,
+        "score": 0.25170270030228353,
+        "text": "The other six tracks were recorded at Studio 92 in Canada by Norm Barker and Richard Uglow ."
+      },
+      {
+        "sent_id": "doc2:2",
+        "doc_id": "doc2",
+        "idx": 2,
+        "score": 0.2482330261409373,
+        "text": "Four of the album 's tracks were recorded live in front of audiences , two of the live tracks at the Islington Academy in London , and the other two live tracks at Jeff Healey 's Roadhouse in Toronto ."
+      },
+      {
+        "sent_id": "doc2:4",
+        "doc_id": "doc2",
+        "idx": 4,
+        "score": 0.20825548215508866,
+        "text": "The whole album features the band which normally accompanied Jeff at his club , Jeff Healey 's Roadhouse ."
+      },
+      {
+        "sent_id": "doc2:1",
+        "doc_id": "doc2",
+        "idx": 1,
+        "score": 0.19472569518630703,
+        "text": "It was released in 2008 less than two weeks after his death and just three weeks shy of his 42nd birthday ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r2",
+    "doc_id": "doc3",
+    "query": "Ramey Idriss country of citizenship American.",
+    "head": "Ramey Idriss",
+    "relation": "country of citizenship",
+    "tail": "American",
+    "expected_ids": [
+      "doc3:0"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.6202557435055979,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": 0.5796290636327086,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.25600774301849377,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.24428118636333293,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.1731612314775029,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": 0.02185823705285943,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      },
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": -0.07242548843029932,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc4:r26",
+    "doc_id": "doc4",
+    "query": "Latin American School of Medicine located in the administrative territorial entity Cuba.",
+    "head": "Latin American School of Medicine",
+    "relation": "located in the administrative territorial entity",
+    "tail": "Cuba",
+    "expected_ids": [
+      "doc4:0",
+      "doc4:2"
+    ],
+    "results": [
+      {
+        "sent_id": "doc4:0",
+        "doc_id": "doc4",
+        "idx": 0,
+        "score": 0.628892266741972,
+        "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system ."
+      },
+      {
+        "sent_id": "doc4:7",
+        "doc_id": "doc4",
+        "idx": 7,
+        "score": 0.626356605560793,
+        "text": "The school is named Escuela Latinoamericana de Medicina A.P."
+      },
+      {
+        "sent_id": "doc4:1",
+        "doc_id": "doc4",
+        "idx": 1,
+        "score": 0.625535174709931,
+        "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 ."
+      },
+      {
+        "sent_id": "doc4:2",
+        "doc_id": "doc4",
+        "idx": 2,
+        "score": 0.5577582010967131,
+        "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia ."
+      },
+      {
+        "sent_id": "doc4:5",
+        "doc_id": "doc4",
+        "idx": 5,
+        "score": 0.40324492425405245,
+        "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 ."
+      },
+      {
+        "sent_id": "doc4:3",
+        "doc_id": "doc4",
+        "idx": 3,
+        "score": 0.32182208670164736,
+        "text": "The school accepts students from the United States — 91 were reportedly enrolled as of January 2007 ."
+      },
+      {
+        "sent_id": "doc4:8",
+        "doc_id": "doc4",
+        "idx": 8,
+        "score": 0.29622188353794543,
+        "text": "Réverénd after French physician Alejandro Próspero Réverénd ."
+      },
+      {
+        "sent_id": "doc4:4",
+        "doc_id": "doc4",
+        "idx": 4,
+        "score": 0.15117154440046734,
+        "text": "Tuition , accommodation and board are free , and a small stipend is provided for students ."
+      },
+      {
+        "sent_id": "doc4:6",
+        "doc_id": "doc4",
+        "idx": 6,
+        "score": -0.012072307829255897,
+        "text": "However , it was only half built as of November 2008 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc0:r10",
+    "doc_id": "doc0",
+    "query": "Jon Montgomery country of citizenship Canadian.",
+    "head": "Jon Montgomery",
+    "relation": "country of citizenship",
+    "tail": "Canadian",
+    "expected_ids": [
+      "doc0:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.28516596518983717,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": 0.16562007758850542,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      },
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.14754155071950822,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": 0.07300860617503784,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.0709880495025218,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": 0.06890993240344813,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r12",
+    "doc_id": "doc1",
+    "query": "Royal Canadian Air Force P607 World War II.",
+    "head": "Royal Canadian Air Force",
+    "relation": "P607",
+    "tail": "World War II",
+    "expected_ids": [
+      "doc1:3"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.7305706165987663,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.36740522839267314,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.284563486412636,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:11",
+        "doc_id": "doc1",
+        "idx": 11,
+        "score": 0.23750562151728552,
+        "text": "His brother was Harry Alger ."
+      },
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.22646064472782693,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.22150723884383264,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.20501071541665272,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.16135707595534218,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      },
+      {
+        "sent_id": "doc1:7",
+        "doc_id": "doc1",
+        "idx": 7,
+        "score": 0.0979705087906547,
+        "text": "From 1971 to 1974 , he was an alderman on Calgary City Council ."
+      },
+      {
+        "sent_id": "doc1:12",
+        "doc_id": "doc1",
+        "idx": 12,
+        "score": 0.09004410447876272,
+        "text": "Alger died of cancer in 1992 , which had first been diagnosed in 1985 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc2:r2",
+    "doc_id": "doc2",
+    "query": "Mess of Blues P175 Elvis Presley.",
+    "head": "Mess of Blues",
+    "relation": "P175",
+    "tail": "Elvis Presley",
+    "expected_ids": [
+      "doc2:5"
+    ],
+    "results": [
+      {
+        "sent_id": "doc2:5",
+        "doc_id": "doc2",
+        "idx": 5,
+        "score": 0.7035723797726328,
+        "text": "The song \" Mess of Blues \" , which appears on the album was written by Doc Pomus and Mort Shuman and was originally recorded by Elvis Presley ."
+      },
+      {
+        "sent_id": "doc2:0",
+        "doc_id": "doc2",
+        "idx": 0,
+        "score": 0.5460920258244121,
+        "text": "Mess of Blues is an album by Jeff Healey ."
+      },
+      {
+        "sent_id": "doc2:2",
+        "doc_id": "doc2",
+        "idx": 2,
+        "score": 0.2749703864778624,
+        "text": "Four of the album 's tracks were recorded live in front of audiences , two of the live tracks at the Islington Academy in London , and the other two live tracks at Jeff Healey 's Roadhouse in Toronto ."
+      },
+      {
+        "sent_id": "doc2:3",
+        "doc_id": "doc2",
+        "idx": 3,
+        "score": 0.24213688951224804,
+        "text": "The other six tracks were recorded at Studio 92 in Canada by Norm Barker and Richard Uglow ."
+      },
+      {
+        "sent_id": "doc2:4",
+        "doc_id": "doc2",
+        "idx": 4,
+        "score": 0.23358401757768302,
+        "text": "The whole album features the band which normally accompanied Jeff at his club , Jeff Healey 's Roadhouse ."
+      },
+      {
+        "sent_id": "doc2:1",
+        "doc_id": "doc2",
+        "idx": 1,
+        "score": 0.2206578546798151,
+        "text": "It was released in 2008 less than two weeks after his death and just three weeks shy of his 42nd birthday ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r28",
+    "doc_id": "doc3",
+    "query": "Leave It to Joan followed by Something Old Something New.",
+    "head": "Leave It to Joan",
+    "relation": "followed by",
+    "tail": "Something Old Something New",
+    "expected_ids": [
+      "doc3:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": 0.5384832400269141,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.18659885893057193,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.11003119432477947,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.09248004442838088,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": 0.07091407368660764,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      },
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.05668321190512559,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": 0.012542092004895847,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc4:r27",
+    "doc_id": "doc4",
+    "query": "Guri located in the administrative territorial entity Venezuela.",
+    "head": "Guri",
+    "relation": "located in the administrative territorial entity",
+    "tail": "Venezuela",
+    "expected_ids": [
+      "doc4:5"
+    ],
+    "results": [
+      {
+        "sent_id": "doc4:5",
+        "doc_id": "doc4",
+        "idx": 5,
+        "score": 0.48712001332193333,
+        "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 ."
+      },
+      {
+        "sent_id": "doc4:0",
+        "doc_id": "doc4",
+        "idx": 0,
+        "score": 0.32712553351517554,
+        "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system ."
+      },
+      {
+        "sent_id": "doc4:1",
+        "doc_id": "doc4",
+        "idx": 1,
+        "score": 0.2628612126280123,
+        "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 ."
+      },
+      {
+        "sent_id": "doc4:7",
+        "doc_id": "doc4",
+        "idx": 7,
+        "score": 0.258015954320034,
+        "text": "The school is named Escuela Latinoamericana de Medicina A.P."
+      },
+      {
+        "sent_id": "doc4:2",
+        "doc_id": "doc4",
+        "idx": 2,
+        "score": 0.2315569360245187,
+        "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia ."
+      },
+      {
+        "sent_id": "doc4:8",
+        "doc_id": "doc4",
+        "idx": 8,
+        "score": 0.09927441421021171,
+        "text": "Réverénd after French physician Alejandro Próspero Réverénd ."
+      },
+      {
+        "sent_id": "doc4:3",
+        "doc_id": "doc4",
+        "idx": 3,
+        "score": 0.0694888252398434,
+        "text": "The school accepts students from the United States — 91 were reportedly enrolled as of January 2007 ."
+      },
+      {
+        "sent_id": "doc4:4",
+        "doc_id": "doc4",
+        "idx": 4,
+        "score": 0.03944042545519323,
+        "text": "Tuition , accommodation and board are free , and a small stipend is provided for students ."
+      },
+      {
+        "sent_id": "doc4:6",
+        "doc_id": "doc4",
+        "idx": 6,
+        "score": -0.00015175473448785407,
+        "text": "However , it was only half built as of November 2008 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc0:r11",
+    "doc_id": "doc0",
+    "query": "Vancouver country Canada.",
+    "head": "Vancouver",
+    "relation": "country",
+    "tail": "Canada",
+    "expected_ids": [
+      "doc0:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.278788313881224,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.11347578087654976,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.08060406759235894,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": 0.05614973327147145,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      },
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": 0.04208511987919486,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": 0.0018508740913363176,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r13",
+    "doc_id": "doc1",
+    "query": "Calgary City Council country Canadian.",
+    "head": "Calgary City Council",
+    "relation": "country",
+    "tail": "Canadian",
+    "expected_ids": [
+      "doc1:0",
+      "doc1:7"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:7",
+        "doc_id": "doc1",
+        "idx": 7,
+        "score": 0.5806868514040743,
+        "text": "From 1971 to 1974 , he was an alderman on Calgary City Council ."
+      },
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.5375058765657407,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.5103981306562196,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.4305375990036719,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.36067816292766897,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.27492652938584616,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.20495604306769302,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:9",
+        "doc_id": "doc1",
+        "idx": 9,
+        "score": 0.15704014421902796,
+        "text": "He was elected mayor in 1977 and served one term until 1980 ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.14199468765527332,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:8",
+        "doc_id": "doc1",
+        "idx": 8,
+        "score": 0.11770649812002092,
+        "text": "In 1974 , he ran for mayor losing to Rod Sykes ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r29",
+    "doc_id": "doc3",
+    "query": "Take a Letter Miss Smith followed by I 'll Wait.",
+    "head": "Take a Letter Miss Smith",
+    "relation": "followed by",
+    "tail": "I 'll Wait",
+    "expected_ids": [
+      "doc3:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": 0.3068750324582926,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      },
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.10131472073575352,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.08707838264934938,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.05725543101584712,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.05096250034574607,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": 0.038902546277545955,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      },
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": -0.07237844329088752,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc4:r3",
+    "doc_id": "doc4",
+    "query": "Escuela Latinoamericana de Ciencias Médicas P571 1999.",
+    "head": "Escuela Latinoamericana de Ciencias Médicas",
+    "relation": "P571",
+    "tail": "1999",
+    "expected_ids": [
+      "doc4:0",
+      "doc4:1"
+    ],
+    "results": [
+      {
+        "sent_id": "doc4:7",
+        "doc_id": "doc4",
+        "idx": 7,
+        "score": 0.6588063691106794,
+        "text": "The school is named Escuela Latinoamericana de Medicina A.P."
+      },
+      {
+        "sent_id": "doc4:0",
+        "doc_id": "doc4",
+        "idx": 0,
+        "score": 0.5302904402913581,
+        "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system ."
+      },
+      {
+        "sent_id": "doc4:1",
+        "doc_id": "doc4",
+        "idx": 1,
+        "score": 0.36330380070561963,
+        "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 ."
+      },
+      {
+        "sent_id": "doc4:8",
+        "doc_id": "doc4",
+        "idx": 8,
+        "score": 0.2988477797322014,
+        "text": "Réverénd after French physician Alejandro Próspero Réverénd ."
+      },
+      {
+        "sent_id": "doc4:5",
+        "doc_id": "doc4",
+        "idx": 5,
+        "score": 0.24777858517342316,
+        "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 ."
+      },
+      {
+        "sent_id": "doc4:2",
+        "doc_id": "doc4",
+        "idx": 2,
+        "score": 0.21982751205391832,
+        "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia ."
+      },
+      {
+        "sent_id": "doc4:3",
+        "doc_id": "doc4",
+        "idx": 3,
+        "score": 0.143628169464597,
+        "text": "The school accepts students from the United States — 91 were reportedly enrolled as of January 2007 ."
+      },
+      {
+        "sent_id": "doc4:6",
+        "doc_id": "doc4",
+        "idx": 6,
+        "score": 0.0033082542489914347,
+        "text": "However , it was only half built as of November 2008 ."
+      },
+      {
+        "sent_id": "doc4:4",
+        "doc_id": "doc4",
+        "idx": 4,
+        "score": -0.03657920430646619,
+        "text": "Tuition , accommodation and board are free , and a small stipend is provided for students ."
+      }
+    ],
+    "first_relevant_rank": 2
+  },
+  {
+    "relation_id": "doc0:r12",
+    "doc_id": "doc0",
+    "query": "British Columbia country Canada.",
+    "head": "British Columbia",
+    "relation": "country",
+    "tail": "Canada",
+    "expected_ids": [
+      "doc0:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.2026693020247982,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": 0.0577937256226167,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      },
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.03956732562498553,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.03786293827646112,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": 0.024318399144011103,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": 0.019216103559140312,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r14",
+    "doc_id": "doc1",
+    "query": "Harry Alger P3373 Ross Patterson Alger.",
+    "head": "Harry Alger",
+    "relation": "P3373",
+    "tail": "Ross Patterson Alger",
+    "expected_ids": [
+      "doc1:0",
+      "doc1:11"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:11",
+        "doc_id": "doc1",
+        "idx": 11,
+        "score": 0.5439014952246001,
+        "text": "His brother was Harry Alger ."
+      },
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.4038398187320905,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:12",
+        "doc_id": "doc1",
+        "idx": 12,
+        "score": 0.37345252189438727,
+        "text": "Alger died of cancer in 1992 , which had first been diagnosed in 1985 ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.24767744771400188,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.23161752883507766,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.2073917104653935,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.1923861353849541,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.18171911051192946,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:8",
+        "doc_id": "doc1",
+        "idx": 8,
+        "score": 0.17884737367065373,
+        "text": "In 1974 , he ran for mayor losing to Rod Sykes ."
+      },
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.1338436897183204,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r3",
+    "doc_id": "doc3",
+    "query": "Ramey Idriss date of birth 11 September 1911.",
+    "head": "Ramey Idriss",
+    "relation": "date of birth",
+    "tail": "11 September 1911",
+    "expected_ids": [
+      "doc3:0"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.6773091002569817,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": 0.6723381412072547,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.3175086755833934,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.2137688199660503,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.19524361939989804,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": 0.004685319054147732,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      },
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": 0.0005507117920619913,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc4:r4",
+    "doc_id": "doc4",
+    "query": "Guri country Venezuela.",
+    "head": "Guri",
+    "relation": "country",
+    "tail": "Venezuela",
+    "expected_ids": [
+      "doc4:5"
+    ],
+    "results": [
+      {
+        "sent_id": "doc4:5",
+        "doc_id": "doc4",
+        "idx": 5,
+        "score": 0.5079876279925529,
+        "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 ."
+      },
+      {
+        "sent_id": "doc4:0",
+        "doc_id": "doc4",
+        "idx": 0,
+        "score": 0.3360702687207418,
+        "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system ."
+      },
+      {
+        "sent_id": "doc4:1",
+        "doc_id": "doc4",
+        "idx": 1,
+        "score": 0.30763682571818823,
+        "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 ."
+      },
+      {
+        "sent_id": "doc4:2",
+        "doc_id": "doc4",
+        "idx": 2,
+        "score": 0.2925580766467377,
+        "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia ."
+      },
+      {
+        "sent_id": "doc4:7",
+        "doc_id": "doc4",
+        "idx": 7,
+        "score": 0.2615293180570766,
+        "text": "The school is named Escuela Latinoamericana de Medicina A.P."
+      },
+      {
+        "sent_id": "doc4:8",
+        "doc_id": "doc4",
+        "idx": 8,
+        "score": 0.14088877394038082,
+        "text": "Réverénd after French physician Alejandro Próspero Réverénd ."
+      },
+      {
+        "sent_id": "doc4:3",
+        "doc_id": "doc4",
+        "idx": 3,
+        "score": 0.11923705541741457,
+        "text": "The school accepts students from the United States — 91 were reportedly enrolled as of January 2007 ."
+      },
+      {
+        "sent_id": "doc4:6",
+        "doc_id": "doc4",
+        "idx": 6,
+        "score": 0.058993686509053664,
+        "text": "However , it was only half built as of November 2008 ."
+      },
+      {
+        "sent_id": "doc4:4",
+        "doc_id": "doc4",
+        "idx": 4,
+        "score": 0.05421939787817741,
+        "text": "Tuition , accommodation and board are free , and a small stipend is provided for students ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc0:r13",
+    "doc_id": "doc0",
+    "query": "British Columbia located in the administrative territorial entity Canada.",
+    "head": "British Columbia",
+    "relation": "located in the administrative territorial entity",
+    "tail": "Canada",
+    "expected_ids": [
+      "doc0:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.1592152980074238,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.02543648764238413,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": -0.00019375876490752055,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": -0.018300692846525704,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": -0.031557521372836135,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      },
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": -0.0584625057246195,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r15",
+    "doc_id": "doc1",
+    "query": "Canadian contains administrative territorial entity Alberta.",
+    "head": "Canadian",
+    "relation": "contains administrative territorial entity",
+    "tail": "Alberta",
+    "expected_ids": [
+      "doc1:0"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.4568581137035752,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      },
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.4463702817688773,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.4444518972215548,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.3930105555881768,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:7",
+        "doc_id": "doc1",
+        "idx": 7,
+        "score": 0.3628251115739324,
+        "text": "From 1971 to 1974 , he was an alderman on Calgary City Council ."
+      },
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.24088769218371603,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.2156000732559965,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.10120097769843832,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:6",
+        "doc_id": "doc1",
+        "idx": 6,
+        "score": 0.04835093819547903,
+        "text": "In 1958 , he was a public school board trustee , and later became the chairman ."
+      },
+      {
+        "sent_id": "doc1:11",
+        "doc_id": "doc1",
+        "idx": 11,
+        "score": 0.02315520663165788,
+        "text": "His brother was Harry Alger ."
+      }
+    ],
+    "first_relevant_rank": 2
+  },
+  {
+    "relation_id": "doc3:r30",
+    "doc_id": "doc3",
+    "query": "I 'll Wait followed by Leave It to Joan.",
+    "head": "I 'll Wait",
+    "relation": "followed by",
+    "tail": "Leave It to Joan",
+    "expected_ids": [
+      "doc3:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": 0.40701199193085685,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.16266237867766967,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.0857720962837664,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.06253189981804416,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.0537297461350719,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": 0.026976442466993208,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": -0.02464402286740967,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc4:r5",
+    "doc_id": "doc4",
+    "query": "Bolívar country Venezuela.",
+    "head": "Bolívar",
+    "relation": "country",
+    "tail": "Venezuela",
+    "expected_ids": [
+      "doc4:5"
+    ],
+    "results": [
+      {
+        "sent_id": "doc4:5",
+        "doc_id": "doc4",
+        "idx": 5,
+        "score": 0.5174767017096367,
+        "text": "An ELAM sister school operated by the Venezuela government and sited in Guri , Bolívar , Venezuela was scheduled to open in October 2006 ."
+      },
+      {
+        "sent_id": "doc4:0",
+        "doc_id": "doc4",
+        "idx": 0,
+        "score": 0.3437046160056098,
+        "text": "Escuela Latinoamericana de Medicina ( ELAM ) , formerly Escuela Latinoamericana de Ciencias Médicas ( in Spanish ; in English : Latin American School of Medicine ( LASM ) , formerly Latin American School of Medical Sciences ) , is a major international medical school in Cuba and a prominent part of the Cuban healthcare system ."
+      },
+      {
+        "sent_id": "doc4:1",
+        "doc_id": "doc4",
+        "idx": 1,
+        "score": 0.3418960871637855,
+        "text": "Established in 1999 and operated by the Cuban government , ELAM has been described as possibly being the largest medical school in the world by enrollment with approximately 19,550 students from 110 countries reported as enrolled in 2013 ."
+      },
+      {
+        "sent_id": "doc4:2",
+        "doc_id": "doc4",
+        "idx": 2,
+        "score": 0.3260387628990428,
+        "text": "All those enrolled are international students from outside Cuba and mainly come from Latin America and the Caribbean as well as Africa and Asia ."
+      },
+      {
+        "sent_id": "doc4:7",
+        "doc_id": "doc4",
+        "idx": 7,
+        "score": 0.27015852795965084,
+        "text": "The school is named Escuela Latinoamericana de Medicina A.P."
+      },
+      {
+        "sent_id": "doc4:8",
+        "doc_id": "doc4",
+        "idx": 8,
+        "score": 0.13630517572908185,
+        "text": "Réverénd after French physician Alejandro Próspero Réverénd ."
+      },
+      {
+        "sent_id": "doc4:3",
+        "doc_id": "doc4",
+        "idx": 3,
+        "score": 0.11640290008762137,
+        "text": "The school accepts students from the United States — 91 were reportedly enrolled as of January 2007 ."
+      },
+      {
+        "sent_id": "doc4:6",
+        "doc_id": "doc4",
+        "idx": 6,
+        "score": 0.0829845539455351,
+        "text": "However , it was only half built as of November 2008 ."
+      },
+      {
+        "sent_id": "doc4:4",
+        "doc_id": "doc4",
+        "idx": 4,
+        "score": 0.065973304958354,
+        "text": "Tuition , accommodation and board are free , and a small stipend is provided for students ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc0:r14",
+    "doc_id": "doc0",
+    "query": "Canada contains administrative territorial entity British Columbia.",
+    "head": "Canada",
+    "relation": "contains administrative territorial entity",
+    "tail": "British Columbia",
+    "expected_ids": [
+      "doc0:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.18703089511736212,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.03526049945603363,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.016578912925459294,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": -0.016821000529875875,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": -0.03797635123091747,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      },
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": -0.061547961247324916,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r2",
+    "doc_id": "doc1",
+    "query": "Ross Patterson Alger P69 University of Toronto.",
+    "head": "Ross Patterson Alger",
+    "relation": "P69",
+    "tail": "University of Toronto",
+    "expected_ids": [
+      "doc1:0",
+      "doc1:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.5526919670928907,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.5508431018182907,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.4455702751362877,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.4039535736680082,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.31355920973643564,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      },
+      {
+        "sent_id": "doc1:11",
+        "doc_id": "doc1",
+        "idx": 11,
+        "score": 0.2581248934826131,
+        "text": "His brother was Harry Alger ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.2560246731372115,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.24193709402520416,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:12",
+        "doc_id": "doc1",
+        "idx": 12,
+        "score": 0.23480991587294633,
+        "text": "Alger died of cancer in 1992 , which had first been diagnosed in 1985 ."
+      },
+      {
+        "sent_id": "doc1:6",
+        "doc_id": "doc1",
+        "idx": 6,
+        "score": 0.21216569023739465,
+        "text": "In 1958 , he was a public school board trustee , and later became the chairman ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r4",
+    "doc_id": "doc3",
+    "query": "Ramey Idriss P570 5 February 1971.",
+    "head": "Ramey Idriss",
+    "relation": "P570",
+    "tail": "5 February 1971",
+    "expected_ids": [
+      "doc3:0"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.4442752620836308,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": 0.4159045373945101,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.2394925448759793,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.16829247467747174,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.0876790182961185,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": 0.054048710493703564,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      },
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": 0.03276674418261394,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc0:r15",
+    "doc_id": "doc0",
+    "query": "Wilfried \" Willi \" Schneider date of birth 13 March 1963.",
+    "head": "Wilfried \" Willi \" Schneider",
+    "relation": "date of birth",
+    "tail": "13 March 1963",
+    "expected_ids": [
+      "doc0:0"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": 0.7201122369049856,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.2953549777876149,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.2916451316283261,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.16785717654553697,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": 0.15429944099525952,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": 0.12382556221628783,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r3",
+    "doc_id": "doc1",
+    "query": "Ross Patterson Alger P3373 Harry Alger.",
+    "head": "Ross Patterson Alger",
+    "relation": "P3373",
+    "tail": "Harry Alger",
+    "expected_ids": [
+      "doc1:0",
+      "doc1:11"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:11",
+        "doc_id": "doc1",
+        "idx": 11,
+        "score": 0.5443175406553625,
+        "text": "His brother was Harry Alger ."
+      },
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.4304101858280373,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:12",
+        "doc_id": "doc1",
+        "idx": 12,
+        "score": 0.3817269695304216,
+        "text": "Alger died of cancer in 1992 , which had first been diagnosed in 1985 ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.2512763132152037,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.24091170573857038,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.21817420022174958,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.19241468597636968,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.1904509257615891,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:8",
+        "doc_id": "doc1",
+        "idx": 8,
+        "score": 0.17996198219244652,
+        "text": "In 1974 , he ran for mayor losing to Rod Sykes ."
+      },
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.14280834436072992,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r5",
+    "doc_id": "doc3",
+    "query": "The Woody Woodpecker Song P495 American.",
+    "head": "The Woody Woodpecker Song",
+    "relation": "P495",
+    "tail": "American",
+    "expected_ids": [
+      "doc3:0",
+      "doc3:3"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": 0.5337930925412488,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.38933559388402883,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": 0.3004020724585513,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.10881890861046553,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.10395065354943035,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.10144502317192435,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": 0.08687710390507217,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc0:r16",
+    "doc_id": "doc0",
+    "query": "Wilfried \" Willi \" Schneider participant in 2002 Winter Olympics.",
+    "head": "Wilfried \" Willi \" Schneider",
+    "relation": "participant in",
+    "tail": "2002 Winter Olympics",
+    "expected_ids": [
+      "doc0:2"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": 0.6815473274558026,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      },
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.641319437107758,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.5886997562560138,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": 0.40967681743699513,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.3695385371286292,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": 0.24977640050720568,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      }
+    ],
+    "first_relevant_rank": 2
+  },
+  {
+    "relation_id": "doc1:r38",
+    "doc_id": "doc1",
+    "query": "World War II participant Royal Canadian Air Force.",
+    "head": "World War II",
+    "relation": "participant",
+    "tail": "Royal Canadian Air Force",
+    "expected_ids": [
+      "doc1:3"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.7828674304877565,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.3820604444076115,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.3263194056871925,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.25693522552424897,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.25624351583043437,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:11",
+        "doc_id": "doc1",
+        "idx": 11,
+        "score": 0.2361394423138765,
+        "text": "His brother was Harry Alger ."
+      },
+      {
+        "sent_id": "doc1:1",
+        "doc_id": "doc1",
+        "idx": 1,
+        "score": 0.22943308219022926,
+        "text": "Born in Prelate , Saskatchewan , he moved to Alberta with his family in 1930s ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.2281434260500023,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:12",
+        "doc_id": "doc1",
+        "idx": 12,
+        "score": 0.10543016739244837,
+        "text": "Alger died of cancer in 1992 , which had first been diagnosed in 1985 ."
+      },
+      {
+        "sent_id": "doc1:7",
+        "doc_id": "doc1",
+        "idx": 7,
+        "score": 0.09956798831030864,
+        "text": "From 1971 to 1974 , he was an alderman on Calgary City Council ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r8",
+    "doc_id": "doc3",
+    "query": "Something Old Something New follows Leave It to Joan.",
+    "head": "Something Old Something New",
+    "relation": "follows",
+    "tail": "Leave It to Joan",
+    "expected_ids": [
+      "doc3:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": 0.538364518001589,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.21301084421378633,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.12639926011050343,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.10847432186642218,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": 0.08624306402324475,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      },
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.07198067469879359,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": 0.03217811035781548,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc0:r19",
+    "doc_id": "doc0",
+    "query": "Canadian contains administrative territorial entity British Columbia.",
+    "head": "Canadian",
+    "relation": "contains administrative territorial entity",
+    "tail": "British Columbia",
+    "expected_ids": [
+      "doc0:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.20557386178226883,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.033658407184379076,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.0204509115315461,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": -0.01153264401930338,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": -0.02602422548251409,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      },
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": -0.04633270927689208,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc1:r4",
+    "doc_id": "doc1",
+    "query": "Ross Patterson Alger P570 1992.",
+    "head": "Ross Patterson Alger",
+    "relation": "P570",
+    "tail": "1992",
+    "expected_ids": [
+      "doc1:0",
+      "doc1:12"
+    ],
+    "results": [
+      {
+        "sent_id": "doc1:0",
+        "doc_id": "doc1",
+        "idx": 0,
+        "score": 0.4027659440221891,
+        "text": "Ross Patterson Alger ( August 20 , 1920 – January 16 , 1992 ) was a politician in the Canadian province of Alberta , who served as mayor of Calgary from 1977 to 1980 ."
+      },
+      {
+        "sent_id": "doc1:12",
+        "doc_id": "doc1",
+        "idx": 12,
+        "score": 0.3517708302924055,
+        "text": "Alger died of cancer in 1992 , which had first been diagnosed in 1985 ."
+      },
+      {
+        "sent_id": "doc1:11",
+        "doc_id": "doc1",
+        "idx": 11,
+        "score": 0.3182666397584084,
+        "text": "His brother was Harry Alger ."
+      },
+      {
+        "sent_id": "doc1:5",
+        "doc_id": "doc1",
+        "idx": 5,
+        "score": 0.25012338945111756,
+        "text": "He settled in Calgary and started a career in accounting ."
+      },
+      {
+        "sent_id": "doc1:4",
+        "doc_id": "doc1",
+        "idx": 4,
+        "score": 0.2394404745037381,
+        "text": "After the war , he received an MBA from the University of Toronto ."
+      },
+      {
+        "sent_id": "doc1:2",
+        "doc_id": "doc1",
+        "idx": 2,
+        "score": 0.22499648542001122,
+        "text": "He received a bachelor of commerce degree from the University of Alberta in 1942 ."
+      },
+      {
+        "sent_id": "doc1:8",
+        "doc_id": "doc1",
+        "idx": 8,
+        "score": 0.20829248896999317,
+        "text": "In 1974 , he ran for mayor losing to Rod Sykes ."
+      },
+      {
+        "sent_id": "doc1:3",
+        "doc_id": "doc1",
+        "idx": 3,
+        "score": 0.20102577701930194,
+        "text": "He served with the Royal Canadian Air Force during World War II ."
+      },
+      {
+        "sent_id": "doc1:10",
+        "doc_id": "doc1",
+        "idx": 10,
+        "score": 0.19077910263897935,
+        "text": "During Alger 's term , notable accomplishments include the construction of the Ctrain ’s first leg , the bid for the XV Olympic Winter Games , and planning for the Olympic coliseum ."
+      },
+      {
+        "sent_id": "doc1:7",
+        "doc_id": "doc1",
+        "idx": 7,
+        "score": 0.1455499315440443,
+        "text": "From 1971 to 1974 , he was an alderman on Calgary City Council ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc3:r9",
+    "doc_id": "doc3",
+    "query": "I 'll Wait follows Take a Letter Miss Smith.",
+    "head": "I 'll Wait",
+    "relation": "follows",
+    "tail": "Take a Letter Miss Smith",
+    "expected_ids": [
+      "doc3:4"
+    ],
+    "results": [
+      {
+        "sent_id": "doc3:4",
+        "doc_id": "doc3",
+        "idx": 4,
+        "score": 0.2987008481261459,
+        "text": "Other compositions included \" Worry Worry Worry \" , \" The Old Chaperone \" , \" Take a Letter Miss Smith \" , \" I 'll Wait \" , \" Leave It to Joan \" and \" Something Old Something New . \""
+      },
+      {
+        "sent_id": "doc3:0",
+        "doc_id": "doc3",
+        "idx": 0,
+        "score": 0.08584811775655411,
+        "text": "Ramey Idriss ( 11 September 1911 – 5 February 1971 ) was an American songwriter , author , composer and musician , educated at Los Angeles Community College ."
+      },
+      {
+        "sent_id": "doc3:2",
+        "doc_id": "doc3",
+        "idx": 2,
+        "score": 0.0817910166490377,
+        "text": "Idriss was a musician in dance orchestras on radio and recordings and in films , and also wrote television scripts and special material for the Ritz Brothers , Eddie Cantor , Jimmy Durante and Marion Hutton ."
+      },
+      {
+        "sent_id": "doc3:6",
+        "doc_id": "doc3",
+        "idx": 6,
+        "score": 0.06500867018521951,
+        "text": "Tibbles was a Producer and eventual Head Writer of the classic television series My Three Sons in the 1960s and gave Idriss music composing and script writing assignments on the show ."
+      },
+      {
+        "sent_id": "doc3:5",
+        "doc_id": "doc3",
+        "idx": 5,
+        "score": 0.057385644323884724,
+        "text": "George Tibbles who co - wrote the Woody Woodpecker Song with him remained friends for the next 23 years until Idriss ' death ."
+      },
+      {
+        "sent_id": "doc3:1",
+        "doc_id": "doc3",
+        "idx": 1,
+        "score": 0.014733432025051207,
+        "text": "His birth name was Ramez Idriss but he was also known as Ramey ."
+      },
+      {
+        "sent_id": "doc3:3",
+        "doc_id": "doc3",
+        "idx": 3,
+        "score": -0.07344212677233926,
+        "text": "Joining ASCAP in 1947 , his most popular song composition was the Oscar - nominated \" The Woody Woodpecker Song \" , as featured in the film Wet Blanket Policy in 1948 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  },
+  {
+    "relation_id": "doc0:r2",
+    "doc_id": "doc0",
+    "query": "2002 Winter Olympics location Salt Lake City.",
+    "head": "2002 Winter Olympics",
+    "relation": "location",
+    "tail": "Salt Lake City",
+    "expected_ids": [
+      "doc0:2"
+    ],
+    "results": [
+      {
+        "sent_id": "doc0:2",
+        "doc_id": "doc0",
+        "idx": 2,
+        "score": 0.6165686416421067,
+        "text": "Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City ."
+      },
+      {
+        "sent_id": "doc0:4",
+        "doc_id": "doc0",
+        "idx": 4,
+        "score": 0.4967383170110889,
+        "text": "After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada ."
+      },
+      {
+        "sent_id": "doc0:1",
+        "doc_id": "doc0",
+        "idx": 1,
+        "score": 0.28525381152618967,
+        "text": "He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 ."
+      },
+      {
+        "sent_id": "doc0:5",
+        "doc_id": "doc0",
+        "idx": 5,
+        "score": 0.2115283875554236,
+        "text": "In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."
+      },
+      {
+        "sent_id": "doc0:0",
+        "doc_id": "doc0",
+        "idx": 0,
+        "score": 0.18270218419805467,
+        "text": "Wilfried \" Willi \" Schneider ( born 13 March 1963 in Kraków , Poland ) is a Polish skeleton racer ."
+      },
+      {
+        "sent_id": "doc0:3",
+        "doc_id": "doc0",
+        "idx": 3,
+        "score": 0.10424173302797264,
+        "text": "He won the men 's overall Skeleton World Cup title in 1997 - 8 ."
+      }
+    ],
+    "first_relevant_rank": 1
+  }
+]

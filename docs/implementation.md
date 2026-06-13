@@ -12,11 +12,11 @@
 - 相較 naive sentence 層級或 generic graph traversal invalidation，提高 invalidation 精確度。
 - 為 evidence delta、refresh decision 與 freshness metadata 提供持久化 DB 狀態。
 
-定位是**期末專案**：目標是把 pipeline 做出來、能 demo；不追求嚴謹 baseline 比較或論文級 evaluation。Community、summary、embedding、query-time lazy refresh 全部歸 stretch。
+定位是**期末專案**：目標是把 pipeline 做出來、能 demo。Community、summary、QA、query-time lazy refresh 仍歸 stretch；sentence Transformer embedding、semantic retrieval 與可選 vector index 已實作，作為更新候選句選擇器。
 
 ## 2. 端到端系統流程
 
-實作管線應支援以下流程。Step 1–5 為**同步脊椎**，在單一 logical edit step 內依序完成並持久化到 ArangoDB；Step 6 為可延後的 refresh 執行。第一版實作尚未包成 ArangoDB stream transaction，transaction 可作為後續 hardening。
+實作管線支援以下流程。Step 1–5 為**同步脊椎**，在單一 logical edit step 內依序完成並持久化到 ArangoDB；Step 6 為可延後的 refresh 執行。`run_edit_transactional` / `run_edits_transactional` 可使用 ArangoDB stream transaction 保證 failure atomicity。
 
 1. 載入由 DocRED / Re-DocRED 建構的 `T0` corpus-to-KG state。
 2. 套用 edit step `T1..Tn`。可直接使用 authored `intended_triples`，也可由 edit generator / LLM extractor 先產生 `new_text + intended_triples`。
@@ -61,7 +61,7 @@ Demo workload 至少包含三種 edit，剛好打到 M1/M2 的三條決策路徑
 - authored triples：`data/edits/demo.json` 直接帶 `intended_triples`，適合可重現 demo 與 oracle 驗證。
 - generated edit：`extraction/editor.py` 接收 `doc_id + sent_idx + instruction`，產生 `new_text + intended_triples`。預設 `heuristic` provider 可離線測試；可選 `anthropic` / `openai` provider 在設定 `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` 後呼叫 LLM。
 
-兩者進入 M1/M2 前完全等價。Generated edit 會再經過一個 deterministic semantic verifier：若舊 triple 的 head / tail 仍出現在 edited sentence 中，即使 LLM extractor 漏列，也會補回 `intended_triples`。因此目前路徑是：
+兩者進入 M1/M2 前完全等價。Generated edit 會再經過 deterministic verifier。它保留 edited sentence 仍明確支撐的舊 triple，並辨識同一 head/relation 的明確 value replacement，避免保留已被新事實取代的舊值。因此目前路徑是：
 
 ```text
 LLM/heuristic candidate triples
@@ -97,7 +97,7 @@ Document collections（維護，2 個）：
 - `evidence_deltas`（M1 輸出）
 - `refresh_decisions`（M2 輸出，含 `status: pending | applied`）
 
-**不建**：chunks、extraction_windows、evidence_items、invalidations、object_freshness、query_logs、experiment_metrics、communities、summaries、embeddings 與其 edge。freshness 化為 `entities` / `relations` 上的欄位；歷史靠 `evidence_deltas` / `refresh_decisions` log 還原，不保留多版本（無 bitemporal）。
+**不建獨立 collection**：chunks、extraction_windows、evidence_items、invalidations、object_freshness、query_logs、experiment_metrics、communities、summaries、embeddings 與其 edge。可選 sentence embedding 直接存在 `sentences.embedding`；freshness 化為 `entities` / `relations` 上的欄位；歷史靠 `evidence_deltas` / `refresh_decisions` log 還原，不保留多版本（無 bitemporal）。
 
 `current_step` 由 manager 在記憶體持有或寫進小 meta doc，不另設 epoch 集合。
 
@@ -134,7 +134,7 @@ Document collections（維護，2 個）：
   - `mentions` → 舊 mention evidence。
   - `sentence_supports_relation` → 舊 relation evidence。
 
-這組「舊 evidence」即 M1 的左邊。第一版把整個 edit step 作為同步 logical step 執行；若要強化 failure atomicity，可再包 ArangoDB stream transaction。
+這組「舊 evidence」即 M1 的左邊。一般 `run_edit` 執行單一 logical step；需要 failure atomicity 時使用 `run_edit_transactional` 或 `run_edits_transactional`。
 
 ## 8. M1：Semantic Evidence Delta
 
@@ -156,7 +156,7 @@ Document collections（維護，2 個）：
 - `removed` → edge `status = removed`, `removed_step = step`。
 - `unchanged` → edge 不動。
 
-可選 semantic 增強：對 relation 文字加 embedding 相似度，讓「文字不同但語意同」歸到 unchanged。骨架仍是純 canonical-triple 規則，保持 deterministic。
+Embedding 用於從 document/corpus 找出可能受新事實影響的 sentence；是否為 unchanged evidence 仍由 canonical triple 與 verifier 判斷，保持 M1 deterministic。
 
 Generated-edit 執行命令：
 
@@ -293,7 +293,7 @@ Stretch：
 
 - §11 lazy refresh、`max_staleness`、staleness annotation。
 - B0 full rebuild baseline 與 baseline 對照圖。
-- Community / summary / embedding。
+- Community / summary / QA / query-time lazy refresh。
 - 互動式 demo frontend。
 - 選項 (B) LLM extractor。
 

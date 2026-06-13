@@ -1,0 +1,946 @@
+{
+  "provider": "anthropic",
+  "cases": {
+    "replace-001": {
+      "old_fact": "Wilfried \" Willi \" Schneider country of citizenship Polish.",
+      "new_fact": "Wilfried \" Willi \" Schneider country of citizenship American.",
+      "decisions": [
+        {
+          "sentence_id": "doc0:0",
+          "should_edit": true,
+          "reason": "Explicitly states he is a Polish skeleton racer, directly expressing his Polish citizenship"
+        },
+        {
+          "sentence_id": "doc0:5",
+          "should_edit": false,
+          "reason": "Only mentions coaching agreement, does not state or express his citizenship"
+        },
+        {
+          "sentence_id": "doc0:2",
+          "should_edit": false,
+          "reason": "Only mentions Olympic performance, does not state or express his citizenship"
+        },
+        {
+          "sentence_id": "doc0:4",
+          "should_edit": false,
+          "reason": "Only mentions coaching career, does not state or express his citizenship"
+        },
+        {
+          "sentence_id": "doc0:3",
+          "should_edit": false,
+          "reason": "Only mentions World Cup victory, does not state or express his citizenship"
+        }
+      ]
+    },
+    "replace-002": {
+      "old_fact": "Ross Patterson Alger place of birth Prelate.",
+      "new_fact": "Ross Patterson Alger place of birth Kraków.",
+      "decisions": [
+        {
+          "sentence_id": "doc1:11",
+          "should_edit": false,
+          "reason": "Only mentions his brother, does not state place of birth"
+        },
+        {
+          "sentence_id": "doc1:1",
+          "should_edit": true,
+          "reason": "Explicitly states he was born in Prelate, Saskatchewan"
+        },
+        {
+          "sentence_id": "doc1:0",
+          "should_edit": false,
+          "reason": "Provides biographical info but does not mention place of birth"
+        },
+        {
+          "sentence_id": "doc1:10",
+          "should_edit": false,
+          "reason": "Discusses accomplishments during his term, not place of birth"
+        },
+        {
+          "sentence_id": "doc1:12",
+          "should_edit": false,
+          "reason": "Discusses his death from cancer, not place of birth"
+        }
+      ]
+    },
+    "replace-003": {
+      "old_fact": "Leave It to Joan follows I 'll Wait.",
+      "new_fact": "Leave It to Joan follows Take a Letter Miss Smith.",
+      "decisions": [
+        {
+          "sentence_id": "doc3:4",
+          "should_edit": false,
+          "reason": "Lists compositions but does not state sequential order relationship between them"
+        },
+        {
+          "sentence_id": "doc3:5",
+          "should_edit": false,
+          "reason": "About friendship with George Tibbles, unrelated to the sequential fact"
+        },
+        {
+          "sentence_id": "doc3:2",
+          "should_edit": false,
+          "reason": "About Idriss's career activities, does not mention the sequential relationship"
+        },
+        {
+          "sentence_id": "doc3:6",
+          "should_edit": false,
+          "reason": "About Tibbles's TV work and assignments to Idriss, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:0",
+          "should_edit": false,
+          "reason": "Biographical information about Idriss, does not state the sequential fact"
+        }
+      ]
+    },
+    "replace-004": {
+      "old_fact": "Latin American School of Medicine country Cuba.",
+      "new_fact": "Latin American School of Medicine country Canada.",
+      "decisions": [
+        {
+          "sentence_id": "doc4:7",
+          "should_edit": false,
+          "reason": "Only states the school's name, does not mention country location"
+        },
+        {
+          "sentence_id": "doc4:1",
+          "should_edit": true,
+          "reason": "Explicitly states the school is operated by the Cuban government, directly expressing Cuba as the country"
+        },
+        {
+          "sentence_id": "doc4:2",
+          "should_edit": true,
+          "reason": "States students are from outside Cuba, structurally expressing Cuba as the school's country location"
+        },
+        {
+          "sentence_id": "doc4:0",
+          "should_edit": true,
+          "reason": "Explicitly states the school is in Cuba and part of the Cuban healthcare system"
+        },
+        {
+          "sentence_id": "doc4:3",
+          "should_edit": false,
+          "reason": "Only mentions student enrollment from US, does not state the school's country location"
+        }
+      ]
+    },
+    "replace-005": {
+      "old_fact": "Wilfried \" Willi \" Schneider place of birth Kraków.",
+      "new_fact": "Wilfried \" Willi \" Schneider place of birth Prelate.",
+      "decisions": [
+        {
+          "sentence_id": "doc0:0",
+          "should_edit": true,
+          "reason": "Explicitly states Schneider was born in Kraków, which directly contradicts the new fact"
+        },
+        {
+          "sentence_id": "doc0:5",
+          "should_edit": false,
+          "reason": "Only mentions coaching contract, no reference to place of birth"
+        },
+        {
+          "sentence_id": "doc0:2",
+          "should_edit": false,
+          "reason": "Only mentions Olympic performance, no reference to place of birth"
+        },
+        {
+          "sentence_id": "doc0:4",
+          "should_edit": false,
+          "reason": "Only mentions coaching career and achievements, no reference to place of birth"
+        },
+        {
+          "sentence_id": "doc0:1",
+          "should_edit": false,
+          "reason": "Only mentions championship medals, no reference to place of birth"
+        }
+      ]
+    },
+    "replace-006": {
+      "old_fact": "Calgary country Canadian.",
+      "new_fact": "Calgary country Canada.",
+      "decisions": [
+        {
+          "sentence_id": "doc1:5",
+          "should_edit": false,
+          "reason": "Only mentions Calgary as a location, does not state its country"
+        },
+        {
+          "sentence_id": "doc1:1",
+          "should_edit": false,
+          "reason": "Discusses movement to Alberta, not Calgary's country"
+        },
+        {
+          "sentence_id": "doc1:0",
+          "should_edit": false,
+          "reason": "States Calgary is in Alberta province of Canada, not that Calgary's country is Canadian"
+        },
+        {
+          "sentence_id": "doc1:2",
+          "should_edit": false,
+          "reason": "About University of Alberta, not Calgary's country"
+        },
+        {
+          "sentence_id": "doc1:7",
+          "should_edit": false,
+          "reason": "Only mentions Calgary City Council, does not state Calgary's country"
+        }
+      ]
+    },
+    "replace-007": {
+      "old_fact": "Ramey Idriss country of citizenship American.",
+      "new_fact": "Ramey Idriss country of citizenship Canadian.",
+      "decisions": [
+        {
+          "sentence_id": "doc3:0",
+          "should_edit": true,
+          "reason": "explicitly states Ramey Idriss was American"
+        },
+        {
+          "sentence_id": "doc3:1",
+          "should_edit": false,
+          "reason": "only mentions birth name, no citizenship information"
+        },
+        {
+          "sentence_id": "doc3:5",
+          "should_edit": false,
+          "reason": "discusses friendship with George Tibbles, no citizenship mentioned"
+        },
+        {
+          "sentence_id": "doc3:2",
+          "should_edit": false,
+          "reason": "describes career activities but does not state citizenship"
+        },
+        {
+          "sentence_id": "doc3:6",
+          "should_edit": false,
+          "reason": "discusses work assignments from Tibbles, no citizenship mentioned"
+        }
+      ]
+    },
+    "replace-008": {
+      "old_fact": "Latin American School of Medicine located in the administrative territorial entity Cuba.",
+      "new_fact": "Latin American School of Medicine located in the administrative territorial entity Alberta.",
+      "decisions": [
+        {
+          "sentence_id": "doc4:7",
+          "should_edit": false,
+          "reason": "Only states the school's name, does not mention location"
+        },
+        {
+          "sentence_id": "doc4:1",
+          "should_edit": true,
+          "reason": "States the school is operated by the Cuban government, which directly implies Cuba location"
+        },
+        {
+          "sentence_id": "doc4:0",
+          "should_edit": true,
+          "reason": "Explicitly states the school is 'in Cuba' and part of the Cuban healthcare system"
+        },
+        {
+          "sentence_id": "doc4:2",
+          "should_edit": true,
+          "reason": "States students are from 'outside Cuba', implying the school is located in Cuba"
+        },
+        {
+          "sentence_id": "doc4:3",
+          "should_edit": false,
+          "reason": "Only mentions student enrollment from US, does not state school location"
+        }
+      ]
+    },
+    "replace-009": {
+      "old_fact": "Jon Montgomery country of citizenship Canadian.",
+      "new_fact": "Jon Montgomery country of citizenship American.",
+      "decisions": [
+        {
+          "sentence_id": "doc0:4",
+          "should_edit": false,
+          "reason": "Sentence mentions Jon Montgomery winning at Vancouver Olympics but does not explicitly state his citizenship"
+        },
+        {
+          "sentence_id": "doc0:2",
+          "should_edit": false,
+          "reason": "Sentence only mentions Schneider's Olympic performance, no reference to Jon Montgomery or citizenship"
+        },
+        {
+          "sentence_id": "doc0:0",
+          "should_edit": false,
+          "reason": "Sentence describes Schneider's citizenship, not Jon Montgomery's citizenship"
+        },
+        {
+          "sentence_id": "doc0:5",
+          "should_edit": false,
+          "reason": "Sentence about Schneider coaching Russian team, no mention of Jon Montgomery or his citizenship"
+        },
+        {
+          "sentence_id": "doc0:1",
+          "should_edit": false,
+          "reason": "Sentence about Schneider's World Championship medals, no reference to Jon Montgomery or citizenship"
+        }
+      ]
+    },
+    "replace-010": {
+      "old_fact": "Prelate located in the administrative territorial entity Saskatchewan.",
+      "new_fact": "Prelate located in the administrative territorial entity Alberta.",
+      "decisions": [
+        {
+          "sentence_id": "doc1:1",
+          "should_edit": true,
+          "reason": "Explicitly states Prelate is in Saskatchewan, directly contradicting the new fact that Prelate is in Alberta"
+        },
+        {
+          "sentence_id": "doc1:5",
+          "should_edit": false,
+          "reason": "Only mentions Calgary settlement, does not state or express the old fact about Prelate's location"
+        },
+        {
+          "sentence_id": "doc1:0",
+          "should_edit": false,
+          "reason": "Describes Ross Patterson Alger's role in Alberta, does not state or express the old fact about Prelate's location"
+        },
+        {
+          "sentence_id": "doc1:2",
+          "should_edit": false,
+          "reason": "Only mentions University of Alberta degree, does not state or express the old fact about Prelate's location"
+        },
+        {
+          "sentence_id": "doc1:7",
+          "should_edit": false,
+          "reason": "Only mentions Calgary City Council role, does not state or express the old fact about Prelate's location"
+        }
+      ]
+    },
+    "replace-011": {
+      "old_fact": "Leave It to Joan followed by Something Old Something New.",
+      "new_fact": "Leave It to Joan followed by I 'll Wait.",
+      "decisions": [
+        {
+          "sentence_id": "doc3:4",
+          "should_edit": true,
+          "reason": "Lists both songs in sequence, implying the old ordering relationship"
+        },
+        {
+          "sentence_id": "doc3:5",
+          "should_edit": false,
+          "reason": "About friendship with George Tibbles, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:6",
+          "should_edit": false,
+          "reason": "About Tibbles' TV career and work assignments, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:2",
+          "should_edit": false,
+          "reason": "About Idriss' general career activities, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:0",
+          "should_edit": false,
+          "reason": "Biographical information about Idriss, unrelated to song sequence"
+        }
+      ]
+    },
+    "replace-012": {
+      "old_fact": "Guri located in the administrative territorial entity Venezuela.",
+      "new_fact": "Guri located in the administrative territorial entity Alberta.",
+      "decisions": [
+        {
+          "sentence_id": "doc4:5",
+          "should_edit": true,
+          "reason": "Explicitly states Guri is located in Venezuela"
+        },
+        {
+          "sentence_id": "doc4:0",
+          "should_edit": false,
+          "reason": "Only describes ELAM in Cuba, does not mention Guri's location"
+        },
+        {
+          "sentence_id": "doc4:7",
+          "should_edit": false,
+          "reason": "Only mentions school name, does not state Guri's location"
+        },
+        {
+          "sentence_id": "doc4:2",
+          "should_edit": false,
+          "reason": "Describes student demographics, does not mention Guri's location"
+        },
+        {
+          "sentence_id": "doc4:1",
+          "should_edit": false,
+          "reason": "Describes ELAM establishment and enrollment, does not mention Guri's location"
+        }
+      ]
+    },
+    "replace-013": {
+      "old_fact": "Vancouver country Canada.",
+      "new_fact": "Vancouver country Canadian.",
+      "decisions": [
+        {
+          "sentence_id": "doc0:4",
+          "should_edit": true,
+          "reason": "Explicitly states 'Vancouver, British Columbia, Canada' which directly expresses the old fact"
+        },
+        {
+          "sentence_id": "doc0:2",
+          "should_edit": false,
+          "reason": "Only mentions Salt Lake City location, does not state or express the Vancouver-Canada relationship"
+        },
+        {
+          "sentence_id": "doc0:5",
+          "should_edit": false,
+          "reason": "Only mentions Russian skeleton team, does not state or express the Vancouver-Canada relationship"
+        },
+        {
+          "sentence_id": "doc0:3",
+          "should_edit": false,
+          "reason": "Only mentions World Cup title, does not state or express the Vancouver-Canada relationship"
+        },
+        {
+          "sentence_id": "doc0:0",
+          "should_edit": false,
+          "reason": "Only mentions Kraków, Poland location, does not state or express the Vancouver-Canada relationship"
+        }
+      ]
+    },
+    "replace-014": {
+      "old_fact": "Calgary City Council country Canadian.",
+      "new_fact": "Calgary City Council country Canada.",
+      "decisions": [
+        {
+          "sentence_id": "doc1:7",
+          "should_edit": false,
+          "reason": "Only mentions Calgary City Council without stating its country"
+        },
+        {
+          "sentence_id": "doc1:0",
+          "should_edit": false,
+          "reason": "Describes Alberta as Canadian province, not Calgary City Council's country"
+        },
+        {
+          "sentence_id": "doc1:5",
+          "should_edit": false,
+          "reason": "Only mentions Calgary city, not Calgary City Council or its country"
+        },
+        {
+          "sentence_id": "doc1:1",
+          "should_edit": false,
+          "reason": "Discusses person's movement between provinces, not Calgary City Council's country"
+        },
+        {
+          "sentence_id": "doc1:2",
+          "should_edit": false,
+          "reason": "About university degree, unrelated to Calgary City Council's country"
+        }
+      ]
+    },
+    "replace-015": {
+      "old_fact": "Take a Letter Miss Smith followed by I 'll Wait.",
+      "new_fact": "Take a Letter Miss Smith followed by Leave It to Joan.",
+      "decisions": [
+        {
+          "sentence_id": "doc3:4",
+          "should_edit": false,
+          "reason": "Lists compositions but does not express sequential order relationship"
+        },
+        {
+          "sentence_id": "doc3:6",
+          "should_edit": false,
+          "reason": "About TV production work, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:2",
+          "should_edit": false,
+          "reason": "About musical career generally, not about specific song order"
+        },
+        {
+          "sentence_id": "doc3:5",
+          "should_edit": false,
+          "reason": "About friendship with collaborator, not about song sequence"
+        },
+        {
+          "sentence_id": "doc3:0",
+          "should_edit": false,
+          "reason": "Biographical information, does not mention song sequence"
+        }
+      ]
+    },
+    "replace-016": {
+      "old_fact": "Guri country Venezuela.",
+      "new_fact": "Guri country Canada.",
+      "decisions": [
+        {
+          "sentence_id": "doc4:5",
+          "should_edit": true,
+          "reason": "Explicitly states that Guri is located in Venezuela"
+        },
+        {
+          "sentence_id": "doc4:2",
+          "should_edit": false,
+          "reason": "Only discusses student demographics, does not mention Guri's location"
+        },
+        {
+          "sentence_id": "doc4:0",
+          "should_edit": false,
+          "reason": "Describes ELAM in Cuba, does not mention Guri or its location"
+        },
+        {
+          "sentence_id": "doc4:7",
+          "should_edit": false,
+          "reason": "Only mentions school name, does not reference Guri's location"
+        },
+        {
+          "sentence_id": "doc4:1",
+          "should_edit": false,
+          "reason": "Provides enrollment statistics, does not mention Guri or its location"
+        }
+      ]
+    },
+    "replace-017": {
+      "old_fact": "British Columbia country Canada.",
+      "new_fact": "British Columbia country Canadian.",
+      "decisions": [
+        {
+          "sentence_id": "doc0:4",
+          "should_edit": true,
+          "reason": "Explicitly states 'Vancouver, British Columbia, Canada' which directly expresses the old fact"
+        },
+        {
+          "sentence_id": "doc0:2",
+          "should_edit": false,
+          "reason": "Only mentions Salt Lake City Olympics, no reference to British Columbia or the old fact"
+        },
+        {
+          "sentence_id": "doc0:5",
+          "should_edit": false,
+          "reason": "Only mentions Russian skeleton team contract, no reference to British Columbia or the old fact"
+        },
+        {
+          "sentence_id": "doc0:3",
+          "should_edit": false,
+          "reason": "Only mentions World Cup title, no reference to British Columbia or the old fact"
+        },
+        {
+          "sentence_id": "doc0:1",
+          "should_edit": false,
+          "reason": "Only mentions World Championships medals, no reference to British Columbia or the old fact"
+        }
+      ]
+    },
+    "replace-018": {
+      "old_fact": "Canadian contains administrative territorial entity Alberta.",
+      "new_fact": "Canadian contains administrative territorial entity British Columbia.",
+      "decisions": [
+        {
+          "sentence_id": "doc1:5",
+          "should_edit": false,
+          "reason": "Only mentions Calgary, does not state that Alberta is part of Canada"
+        },
+        {
+          "sentence_id": "doc1:1",
+          "should_edit": false,
+          "reason": "States movement to Alberta but does not explicitly state Alberta is part of Canada"
+        },
+        {
+          "sentence_id": "doc1:0",
+          "should_edit": true,
+          "reason": "Explicitly states Alberta is a Canadian province, directly expressing the old fact"
+        },
+        {
+          "sentence_id": "doc1:2",
+          "should_edit": false,
+          "reason": "Only mentions University of Alberta, does not state that Alberta is part of Canada"
+        },
+        {
+          "sentence_id": "doc1:7",
+          "should_edit": false,
+          "reason": "Only mentions Calgary City Council, does not state that Alberta is part of Canada"
+        }
+      ]
+    },
+    "replace-019": {
+      "old_fact": "Ramey Idriss date of birth 11 September 1911.",
+      "new_fact": "Ramey Idriss date of birth 13 March 1963.",
+      "decisions": [
+        {
+          "sentence_id": "doc3:0",
+          "should_edit": true,
+          "reason": "Explicitly states the old birth date '11 September 1911' in parenthetical biographical information"
+        },
+        {
+          "sentence_id": "doc3:1",
+          "should_edit": false,
+          "reason": "Only mentions his birth name, does not state or reference the birth date"
+        },
+        {
+          "sentence_id": "doc3:2",
+          "should_edit": false,
+          "reason": "Describes his career activities but does not mention birth date"
+        },
+        {
+          "sentence_id": "doc3:6",
+          "should_edit": false,
+          "reason": "Discusses his work in the 1960s but does not state birth date"
+        },
+        {
+          "sentence_id": "doc3:5",
+          "should_edit": false,
+          "reason": "Mentions friendship duration and death but does not state birth date"
+        }
+      ]
+    },
+    "replace-020": {
+      "old_fact": "Bolívar country Venezuela.",
+      "new_fact": "Bolívar country Canada.",
+      "decisions": [
+        {
+          "sentence_id": "doc4:5",
+          "should_edit": true,
+          "reason": "Explicitly states that Bolívar is in Venezuela"
+        },
+        {
+          "sentence_id": "doc4:7",
+          "should_edit": false,
+          "reason": "Only mentions school name, does not state location of Bolívar"
+        },
+        {
+          "sentence_id": "doc4:0",
+          "should_edit": false,
+          "reason": "Describes ELAM in Cuba, does not mention Bolívar's location"
+        },
+        {
+          "sentence_id": "doc4:2",
+          "should_edit": false,
+          "reason": "Discusses student demographics, does not mention Bolívar's location"
+        },
+        {
+          "sentence_id": "doc4:1",
+          "should_edit": false,
+          "reason": "Provides enrollment statistics, does not mention Bolívar's location"
+        }
+      ]
+    },
+    "replace-021": {
+      "old_fact": "British Columbia located in the administrative territorial entity Canada.",
+      "new_fact": "British Columbia located in the administrative territorial entity Alberta.",
+      "decisions": [
+        {
+          "sentence_id": "doc0:4",
+          "should_edit": true,
+          "reason": "Explicitly states 'Vancouver, British Columbia, Canada' which directly expresses the old fact that British Columbia is located in Canada"
+        },
+        {
+          "sentence_id": "doc0:5",
+          "should_edit": false,
+          "reason": "Only mentions coaching Russian team, no reference to British Columbia or its location"
+        },
+        {
+          "sentence_id": "doc0:2",
+          "should_edit": false,
+          "reason": "Only mentions Salt Lake City Olympics, no reference to British Columbia or its location"
+        },
+        {
+          "sentence_id": "doc0:0",
+          "should_edit": false,
+          "reason": "Only mentions birth location in Poland, no reference to British Columbia or its location"
+        },
+        {
+          "sentence_id": "doc0:1",
+          "should_edit": false,
+          "reason": "Only mentions World Championships medals, no reference to British Columbia or its location"
+        }
+      ]
+    },
+    "replace-022": {
+      "old_fact": "World War II participant Royal Canadian Air Force.",
+      "new_fact": "World War II participant Duff Gibson.",
+      "decisions": [
+        {
+          "sentence_id": "doc1:3",
+          "should_edit": true,
+          "reason": "Explicitly states Royal Canadian Air Force served in World War II"
+        },
+        {
+          "sentence_id": "doc1:4",
+          "should_edit": false,
+          "reason": "Only mentions post-war events, does not state the old fact"
+        },
+        {
+          "sentence_id": "doc1:11",
+          "should_edit": false,
+          "reason": "Only mentions family relationship, does not state the old fact"
+        },
+        {
+          "sentence_id": "doc1:0",
+          "should_edit": false,
+          "reason": "Only provides biographical information, does not state the old fact"
+        },
+        {
+          "sentence_id": "doc1:10",
+          "should_edit": false,
+          "reason": "Only mentions mayoral accomplishments, does not state the old fact"
+        }
+      ]
+    },
+    "replace-023": {
+      "old_fact": "I 'll Wait followed by Leave It to Joan.",
+      "new_fact": "I 'll Wait followed by Something Old Something New.",
+      "decisions": [
+        {
+          "sentence_id": "doc3:4",
+          "should_edit": false,
+          "reason": "Lists compositions but does not state sequential order relationship"
+        },
+        {
+          "sentence_id": "doc3:5",
+          "should_edit": false,
+          "reason": "About friendship with George Tibbles, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:6",
+          "should_edit": false,
+          "reason": "About Tibbles' TV career and work assignments, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:2",
+          "should_edit": false,
+          "reason": "About Idriss' general career activities, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:0",
+          "should_edit": false,
+          "reason": "Biographical information about Idriss, unrelated to song sequence"
+        }
+      ]
+    },
+    "replace-024": {
+      "old_fact": "Canada contains administrative territorial entity British Columbia.",
+      "new_fact": "Canada contains administrative territorial entity Alberta.",
+      "decisions": [
+        {
+          "sentence_id": "doc0:4",
+          "should_edit": true,
+          "reason": "Explicitly states that the 2010 Winter Olympics were in Vancouver, British Columbia, Canada, directly expressing the old fact that British Columbia is in Canada"
+        },
+        {
+          "sentence_id": "doc0:5",
+          "should_edit": false,
+          "reason": "Only mentions coaching the Russian skeleton team with no reference to British Columbia or Canadian administrative divisions"
+        },
+        {
+          "sentence_id": "doc0:2",
+          "should_edit": false,
+          "reason": "Only mentions the 2002 Winter Olympics in Salt Lake City with no reference to British Columbia or Canadian administrative divisions"
+        },
+        {
+          "sentence_id": "doc0:3",
+          "should_edit": false,
+          "reason": "Only mentions winning a World Cup title with no reference to British Columbia or Canadian administrative divisions"
+        },
+        {
+          "sentence_id": "doc0:1",
+          "should_edit": false,
+          "reason": "Only mentions World Championship medals with no reference to British Columbia or Canadian administrative divisions"
+        }
+      ]
+    },
+    "replace-025": {
+      "old_fact": "Calgary located in the administrative territorial entity Canadian.",
+      "new_fact": "Calgary located in the administrative territorial entity Alberta.",
+      "decisions": [
+        {
+          "sentence_id": "doc1:5",
+          "should_edit": false,
+          "reason": "Only mentions Calgary without stating its administrative location"
+        },
+        {
+          "sentence_id": "doc1:1",
+          "should_edit": false,
+          "reason": "States he moved to Alberta but doesn't specify Calgary's location within Alberta"
+        },
+        {
+          "sentence_id": "doc1:0",
+          "should_edit": true,
+          "reason": "Explicitly states Calgary is in the Canadian province of Alberta, which directly expresses the territorial relationship"
+        },
+        {
+          "sentence_id": "doc1:7",
+          "should_edit": false,
+          "reason": "Only mentions Calgary City Council without stating Calgary's administrative location"
+        },
+        {
+          "sentence_id": "doc1:2",
+          "should_edit": false,
+          "reason": "Only mentions University of Alberta without stating Calgary's location"
+        }
+      ]
+    },
+    "replace-026": {
+      "old_fact": "Something Old Something New follows Leave It to Joan.",
+      "new_fact": "Something Old Something New follows I 'll Wait.",
+      "decisions": [
+        {
+          "sentence_id": "doc3:4",
+          "should_edit": false,
+          "reason": "Lists compositions but does not state sequential order relationship"
+        },
+        {
+          "sentence_id": "doc3:5",
+          "should_edit": false,
+          "reason": "About friendship with George Tibbles, unrelated to the sequential fact"
+        },
+        {
+          "sentence_id": "doc3:6",
+          "should_edit": false,
+          "reason": "About Tibbles' TV career and work assignments, unrelated to the sequential fact"
+        },
+        {
+          "sentence_id": "doc3:2",
+          "should_edit": false,
+          "reason": "About Idriss' general career activities, unrelated to the sequential fact"
+        },
+        {
+          "sentence_id": "doc3:0",
+          "should_edit": false,
+          "reason": "Biographical information about Ramey Idriss, unrelated to the sequential fact"
+        }
+      ]
+    },
+    "replace-027": {
+      "old_fact": "Wilfried \" Willi \" Schneider date of birth 13 March 1963.",
+      "new_fact": "Wilfried \" Willi \" Schneider date of birth 11 September 1911.",
+      "decisions": [
+        {
+          "sentence_id": "doc0:0",
+          "should_edit": true,
+          "reason": "Explicitly states the old birth date '13 March 1963'"
+        },
+        {
+          "sentence_id": "doc0:2",
+          "should_edit": false,
+          "reason": "Only mentions Olympic performance, no birth date information"
+        },
+        {
+          "sentence_id": "doc0:5",
+          "should_edit": false,
+          "reason": "Only mentions coaching contract, no birth date information"
+        },
+        {
+          "sentence_id": "doc0:4",
+          "should_edit": false,
+          "reason": "Only mentions coaching career and achievements, no birth date information"
+        },
+        {
+          "sentence_id": "doc0:1",
+          "should_edit": false,
+          "reason": "Only mentions competition medals, no birth date information"
+        }
+      ]
+    },
+    "replace-028": {
+      "old_fact": "Royal Canadian Air Force participant in World War II.",
+      "new_fact": "Royal Canadian Air Force participant in 2002 Winter Olympics.",
+      "decisions": [
+        {
+          "sentence_id": "doc1:3",
+          "should_edit": true,
+          "reason": "Explicitly states Royal Canadian Air Force served during World War II"
+        },
+        {
+          "sentence_id": "doc1:10",
+          "should_edit": false,
+          "reason": "Only mentions Olympic Winter Games bid, not Royal Canadian Air Force participation"
+        },
+        {
+          "sentence_id": "doc1:4",
+          "should_edit": false,
+          "reason": "References post-war period but doesn't state the old fact about RCAF in WWII"
+        },
+        {
+          "sentence_id": "doc1:0",
+          "should_edit": false,
+          "reason": "Biographical information unrelated to RCAF's war participation"
+        },
+        {
+          "sentence_id": "doc1:2",
+          "should_edit": false,
+          "reason": "About education in 1942, doesn't state the old fact about RCAF in WWII"
+        }
+      ]
+    },
+    "replace-029": {
+      "old_fact": "I 'll Wait follows Take a Letter Miss Smith.",
+      "new_fact": "I 'll Wait follows Leave It to Joan.",
+      "decisions": [
+        {
+          "sentence_id": "doc3:4",
+          "should_edit": false,
+          "reason": "Lists song titles but does not state or express the sequential relationship between them"
+        },
+        {
+          "sentence_id": "doc3:2",
+          "should_edit": false,
+          "reason": "Describes Idriss's career activities, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:5",
+          "should_edit": false,
+          "reason": "Discusses friendship with George Tibbles, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:6",
+          "should_edit": false,
+          "reason": "Describes Tibbles's TV career and work assignments, unrelated to song sequence"
+        },
+        {
+          "sentence_id": "doc3:0",
+          "should_edit": false,
+          "reason": "Biographical information about Ramey Idriss, unrelated to song sequence"
+        }
+      ]
+    },
+    "replace-030": {
+      "old_fact": "Wilfried \" Willi \" Schneider participant in 2002 Winter Olympics.",
+      "new_fact": "Wilfried \" Willi \" Schneider participant in 2006 Winter Olympics.",
+      "decisions": [
+        {
+          "sentence_id": "doc0:0",
+          "should_edit": false,
+          "reason": "Only provides biographical information, does not state Olympic participation"
+        },
+        {
+          "sentence_id": "doc0:2",
+          "should_edit": true,
+          "reason": "Explicitly states Schneider's participation in the 2002 Winter Olympics"
+        },
+        {
+          "sentence_id": "doc0:4",
+          "should_edit": false,
+          "reason": "Describes his coaching role at 2006 Olympics, not his participation as competitor"
+        },
+        {
+          "sentence_id": "doc0:5",
+          "should_edit": false,
+          "reason": "About coaching contract in 2012, unrelated to Olympic participation"
+        },
+        {
+          "sentence_id": "doc0:1",
+          "should_edit": false,
+          "reason": "About World Championships medals, not Olympic participation"
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "evaluated_cases": 30,
+    "precision": 0.7692307692307693,
+    "recall": 1.0,
+    "f1": 0.8695652173913044,
+    "accuracy": 0.96,
+    "tp": 20,
+    "fp": 6,
+    "fn": 0,
+    "tn": 124
+  }
+}
