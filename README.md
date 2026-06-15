@@ -421,12 +421,24 @@ The script reports:
 
 ### Baseline benchmark
 
+Compares the incremental M1/M2 path against the B0/B1/B2 baselines
+(docs/thought.md §13) on many documents and reports:
+
+- over-invalidation: objects we mark stale vs B1 generic-traversal and B2 naive
+- cost: our nominal SKIP/PATCH/REBUILD cost vs a B0 full document rebuild
+- B0 correctness: whether the maintained KG equals a from-scratch recomputation
+  over active evidence (the IVM consistency invariant)
+
 ```bash
 docker compose exec api python scripts/run_benchmark.py \
   --docs 50 \
-  --edits 100 \
-  --mode mixed
+  --edits 12 \
+  --mode mixed \
+  --json --rows-jsonl data/baseline_comparison_rows.jsonl \
+  > data/baseline_comparison_eval.json
 ```
+
+See `docs/experiment-results.md` §12 for the reported numbers.
 
 ## Project Files
 
@@ -475,9 +487,10 @@ docker compose exec api python scripts/run_benchmark.py \
 | `src/ripplekg/service/static/index.html` | browser-based graph and edit demonstration |
 | `src/ripplekg/eval/metrics.py` | summarizes persisted delta, decision, cost, and freshness logs |
 | `src/ripplekg/eval/benchmark.py` | reusable multi-document benchmark helpers |
-| `src/ripplekg/baselines/naive.py` | naive invalidation baseline |
-| `src/ripplekg/baselines/generic_traversal.py` | generic provenance-traversal baseline |
-| `src/ripplekg/baselines/aql_update.py` | AQL traversal and update baseline |
+| `src/ripplekg/baselines/full_rebuild.py` | B0 full-rebuild correctness reference (recompute aggregates from active evidence) |
+| `src/ripplekg/baselines/naive.py` | B2 naive invalidation baseline |
+| `src/ripplekg/baselines/generic_traversal.py` | B1 generic provenance-traversal baseline |
+| `src/ripplekg/baselines/aql_update.py` | B1 AQL traversal and update baseline |
 
 ### Command-line scripts
 

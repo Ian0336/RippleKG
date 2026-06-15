@@ -9,7 +9,9 @@ objects stale.
 import argparse
 import csv
 import json
+from collections import Counter
 
+from ripplekg.baselines import full_rebuild
 from ripplekg.db.client import get_db
 from ripplekg.eval.benchmark import run_mixed_benchmark, run_semantic_noop_benchmark, summarize_rows
 from ripplekg.ingest.loader import ingest_dataset
@@ -59,6 +61,40 @@ def print_summary(summary: dict) -> None:
     print(f"ours_cost: {summary['ours_cost']}")
     print(f"full_rebuild_cost: {summary['full_rebuild_cost']}")
     print(f"b2_naive_stale_count: {summary['naive_stale_count']}")
+
+    ov = summary.get("over_invalidation", {})
+    cost = summary.get("cost", {})
+    print()
+    print("Baseline comparison (B0/B1/B2 vs ours)")
+    print("--------------------------------------")
+    print(f"over-invalidation  ours_marked_stale={ov.get('ours_marked_stale')}")
+    print(
+        f"                   B1_generic_reachable={ov.get('b1_generic_reachable')} "
+        f"(x{ov.get('b1_over_ours')} vs ours)"
+    )
+    print(
+        f"                   B2_naive_stale={ov.get('b2_naive_stale')} "
+        f"(x{ov.get('b2_over_ours')} vs ours)"
+    )
+    print(
+        f"cost               ours={cost.get('ours')} "
+        f"B0_full_rebuild={cost.get('b0_full_rebuild')} "
+        f"(x{cost.get('b0_over_ours')} vs ours)"
+    )
+
+    consistency = summary.get("b0_consistency")
+    if consistency:
+        print(
+            f"B0 correctness     consistent={consistency['consistent']} "
+            f"mismatches={consistency['mismatches']} "
+            f"(checked {consistency['checked_relations']} relations, "
+            f"{consistency['checked_entities']} entities; "
+            f"{consistency['evidence_free_relations']} evidence-free relations)"
+        )
+        by_kind = consistency.get("mismatch_kinds")
+        if by_kind:
+            print(f"                   mismatch_kinds={by_kind}")
+
     if summary.get("by_scenario"):
         print()
         print("By scenario")
@@ -206,6 +242,19 @@ if __name__ == "__main__":
     else:
         rows = run_semantic_noop_benchmark(db, limit=args.edits)
     summary = summarize_rows(rows)
+
+    # B0 correctness sanity: after all incremental edits, the maintained KG must
+    # equal a from-scratch rebuild over active evidence (docs/thought.md §13).
+    consistency = full_rebuild.check_consistency(db, require_fresh=True)
+    summary["b0_consistency"] = {
+        "consistent": consistency["consistent"],
+        "mismatches": len(consistency["mismatches"]),
+        "mismatch_kinds": dict(Counter(m["kind"] for m in consistency["mismatches"])),
+        "checked_relations": consistency["checked_relations"],
+        "checked_entities": consistency["checked_entities"],
+        "evidence_free_relations": consistency["evidence_free_relations"],
+    }
+
     summary.update({
         "docs_loaded": docs,
         "doc_limit": args.docs,

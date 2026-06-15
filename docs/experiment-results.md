@@ -427,3 +427,52 @@ pytest -q tests/test_extraction.py tests/test_pipeline_m1_m2.py tests/test_embed
 | `data/edit_annotation_set.json` | 30 個 replacement cases 與 150 個 reviewed candidates |
 | `data/llm_relevance_gate_eval.json` | LLM relevance gate 決策、理由與 metrics |
 | `data/end_to_end_edit_eval.json` | 最終 EditOps、M1 deltas、M2 decisions 與 summary |
+| `data/baseline_comparison_eval.json` | B0/B1/B2 vs ours 對照 summary（over-invalidation、cost、B0 correctness）|
+| `data/baseline_comparison_rows.jsonl` | 每筆 edit 的 row-level 對照記錄 |
+
+## 12. Baseline 對照（B0 / B1 / B2 vs Ours）
+
+本節對照增量維護（M1 + M2）與三個 baseline（docs/thought.md §13）。所有 edit 走 authored-triples 主路徑、immediate refresh。
+
+### 12.1 方法
+
+| Baseline | 行為 | 對照目的 |
+|---|---|---|
+| **B0** full rebuild | 由 active evidence edge 從頭重算每個 KG object 的 aggregate | correctness：增量結果是否等於完整重建 |
+| **B1** generic traversal | 從 changed sentence 沿 provenance 把所有可達 object 失效 | over-invalidation |
+| **B2** naive invalidation | changed sentence 直接把提到的 entity / relation 全標 stale | over-invalidation（少了 SKIP）|
+
+- **B0 correctness** 是經典 IVM 不變式：materialized `evidence_count` / `status` 必須等於對 active edge 的重新計算。檢查方式為 `full_rebuild.check_consistency`：逐一比對 stored 與 recomputed 並列出 mismatch。
+- **Over-invalidation** = baseline 失效物件數 ÷ 我們標 stale 的物件數。
+- **名目 cost** 單位：SKIP = 0、PATCH = 1、REBUILD = 5；B0 每筆 edit 重建整份 document 的 KG（每個 object 記為一次 REBUILD）。
+
+### 12.2 結果（50 documents，48 mixed edits）
+
+| 指標 | Ours | B1 generic | B2 naive | B0 full rebuild |
+|---|---:|---:|---:|---:|
+| 標 stale 物件數 | 90 | 421 | 421 | — |
+| over-invalidation 倍率 | 1.0× | 4.68× | 4.68× | — |
+| 名目 cost | 198 | — | — | 18,730 |
+| cost 倍率 | 1.0× | — | — | 94.6× |
+
+決策分布：SKIP 355、PATCH 63、REBUILD 27。
+
+**B0 correctness**：consistent = **True**，0 mismatches（檢查 1,880 relations + 1,033 entities；其中 1,072 個 relation 為 Re-DocRED 無 evidence 標註的靜態 relation，本身不由 corpus 推導，故不參與重算對照）。
+
+### 12.3 解讀
+
+1. **正確性**：48 筆增量 edit 後，KG 的 aggregate 與「從 active evidence 完整重算」完全一致（0 mismatch）。增量 SKIP / PATCH / REBUILD 沒有犧牲正確性。
+2. **Over-invalidation**：B1 / B2 失效的物件數是我們的 4.68 倍；paraphrase 與 no-op edit 我們 SKIP，baseline 仍把可達物件全部失效。
+3. **Cost**：完整重建的名目 cost 是我們的 94.6 倍。
+4. `semantic_noop` 子場景：我們 SKIP 全部、cost 0；naive 仍把句子提到的物件全標 stale。
+
+### 12.4 重現
+
+```bash
+docker compose exec api python scripts/run_benchmark.py \
+  --docs 50 --edits 12 --mode mixed \
+  --json --rows-jsonl data/baseline_comparison_rows.jsonl \
+  > data/baseline_comparison_eval.json
+```
+
+數字會隨抽到的句子集合略有變動，但三個結論（B0 consistent、baseline over-invalidate、full rebuild 成本最高）穩定成立。

@@ -1,0 +1,164 @@
+{
+  "edits": 48,
+  "affected_mentions": 169,
+  "affected_relations": 255,
+  "deltas": {
+    "added": 24,
+    "removed": 66,
+    "unchanged": 355
+  },
+  "decisions": {
+    "SKIP": 355,
+    "PATCH": 63,
+    "REBUILD": 27
+  },
+  "ours_cost": 198,
+  "full_rebuild_cost": 2225,
+  "naive_stale_count": 421,
+  "over_invalidation": {
+    "ours_marked_stale": 90,
+    "b1_generic_reachable": 421,
+    "b2_naive_stale": 421,
+    "b1_over_ours": 4.68,
+    "b2_over_ours": 4.68
+  },
+  "cost": {
+    "ours": 198,
+    "b0_full_rebuild": 18730,
+    "b0_over_ours": 94.6
+  },
+  "by_scenario": {
+    "change_relation_tail": {
+      "edits": 12,
+      "affected_mentions": 44,
+      "affected_relations": 78,
+      "deltas": {
+        "added": 24,
+        "removed": 17,
+        "unchanged": 104
+      },
+      "decisions": {
+        "SKIP": 104,
+        "PATCH": 36,
+        "REBUILD": 5
+      },
+      "ours_cost": 61,
+      "full_rebuild_cost": 725,
+      "naive_stale_count": 121,
+      "over_invalidation": {
+        "ours_marked_stale": 41,
+        "b1_generic_reachable": 121,
+        "b2_naive_stale": 121,
+        "b1_over_ours": 2.95,
+        "b2_over_ours": 2.95
+      },
+      "cost": {
+        "ours": 61,
+        "b0_full_rebuild": 4770,
+        "b0_over_ours": 78.2
+      }
+    },
+    "no_relation_evidence": {
+      "edits": 12,
+      "affected_mentions": 28,
+      "affected_relations": 0,
+      "deltas": {
+        "added": 0,
+        "removed": 1,
+        "unchanged": 27
+      },
+      "decisions": {
+        "SKIP": 27,
+        "PATCH": 0,
+        "REBUILD": 1
+      },
+      "ours_cost": 5,
+      "full_rebuild_cost": 140,
+      "naive_stale_count": 28,
+      "over_invalidation": {
+        "ours_marked_stale": 1,
+        "b1_generic_reachable": 28,
+        "b2_naive_stale": 28,
+        "b1_over_ours": 28.0,
+        "b2_over_ours": 28.0
+      },
+      "cost": {
+        "ours": 5,
+        "b0_full_rebuild": 4730,
+        "b0_over_ours": 946.0
+      }
+    },
+    "remove_relation": {
+      "edits": 12,
+      "affected_mentions": 47,
+      "affected_relations": 103,
+      "deltas": {
+        "added": 0,
+        "removed": 47,
+        "unchanged": 101
+      },
+      "decisions": {
+        "SKIP": 101,
+        "PATCH": 27,
+        "REBUILD": 20
+      },
+      "ours_cost": 127,
+      "full_rebuild_cost": 740,
+      "naive_stale_count": 148,
+      "over_invalidation": {
+        "ours_marked_stale": 47,
+        "b1_generic_reachable": 148,
+        "b2_naive_stale": 148,
+        "b1_over_ours": 3.15,
+        "b2_over_ours": 3.15
+      },
+      "cost": {
+        "ours": 127,
+        "b0_full_rebuild": 4430,
+        "b0_over_ours": 34.88
+      }
+    },
+    "semantic_noop": {
+      "edits": 12,
+      "affected_mentions": 50,
+      "affected_relations": 74,
+      "deltas": {
+        "added": 0,
+        "removed": 1,
+        "unchanged": 123
+      },
+      "decisions": {
+        "SKIP": 123,
+        "PATCH": 0,
+        "REBUILD": 1
+      },
+      "ours_cost": 5,
+      "full_rebuild_cost": 620,
+      "naive_stale_count": 124,
+      "over_invalidation": {
+        "ours_marked_stale": 1,
+        "b1_generic_reachable": 124,
+        "b2_naive_stale": 124,
+        "b1_over_ours": 124.0,
+        "b2_over_ours": 124.0
+      },
+      "cost": {
+        "ours": 5,
+        "b0_full_rebuild": 4800,
+        "b0_over_ours": 960.0
+      }
+    }
+  },
+  "b0_consistency": {
+    "consistent": true,
+    "mismatches": 0,
+    "mismatch_kinds": {},
+    "checked_relations": 1880,
+    "checked_entities": 1033,
+    "evidence_free_relations": 1072
+  },
+  "docs_loaded": 50,
+  "doc_limit": 50,
+  "edit_limit": 12,
+  "mode": "mixed"
+}

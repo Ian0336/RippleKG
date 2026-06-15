@@ -95,5 +95,14 @@ def test_document_scope_edit_selects_and_commits_related_sentences():
     assert {result.edit["transaction"] for result in results} == {"committed"}
     assert db.collection("sentences").get("doc0:0")["last_changed_step"] == 9
     assert db.collection("sentences").get("doc0:1")["last_changed_step"] == 9
+
+    # Deferred mode marks affected objects stale but defers the refresh that drops
+    # empty relations until a tick (docs/thought.md §11).
+    assert db.collection("relations").get("doc0:r0")["freshness_status"] == "stale"
+    assert db.collection("relations").get("doc0:r0")["status"] == "active"
+
+    from ripplekg.mechanism.refresh import apply_refreshes
+    apply_refreshes(db, step=9)
+
     assert db.collection("relations").get("doc0:r0")["status"] == "removed"
     assert db.collection("relations").get("doc0:r1")["status"] == "removed"
