@@ -125,7 +125,7 @@ MRR 範例：若第一個正確答案排名為第 1、2、4 名，reciprocal ran
 
 > 只有當句子本身陳述或結構性表達舊 fact，且舊 fact 被新 fact 明確取代後句子會過時，才標記為需要修改。
 
-目前標籤狀態為 `assistant_reviewed_pending_owner_spot_check`。正式報告前應由專案成員抽查。
+這批標籤已經獨立稽核（全部 150 筆重新判讀，0 筆推翻；見 `docs/label-audit.md` 與 `scripts/audit_edit_labels.py`）。仍建議組員做最終人工 sign-off。
 
 ## 3. Transformer Evidence Retrieval
 
@@ -367,7 +367,7 @@ Graph provenance + Transformer retrieval
 
 - Should-edit benchmark 只有 30 個 synthetic replacement cases。
 - 實驗目前只載入 5 篇 Re-DocRED 文件，不代表 500 篇或其他資料集上的效果。
-- Reviewed labels 目前由 AI 協助標記，正式報告前應由組員人工抽查。
+- Reviewed labels 由 AI 標記後已獨立稽核（`docs/label-audit.md`，0 筆推翻）；仍建議組員最終 sign-off。
 - Re-DocRED evidence gold 不一定等同於真正需要修改的句子。
 - 部分 synthetic replacements 語意不自然，例如將 country 從 `Canada` 改成 `Canadian`。
 - LLM provider 可能逾時、缺少欄位或拒絕產生 EditOp；評估工具會快取、重試並記錄失敗。
@@ -436,7 +436,9 @@ pytest -q tests/test_extraction.py tests/test_pipeline_m1_m2.py tests/test_embed
 
 ### 12.1 方法
 
-| Baseline | 行為 | 對照目的 |
+對照分兩個面向：**correctness**（B0）與 **over-invalidation**（B1 / B2），外加**三層重建粒度的成本**。
+
+| 對照 | 行為 | 對照目的 |
 |---|---|---|
 | **B0** full rebuild | 由 active evidence edge 從頭重算每個 KG object 的 aggregate | correctness：增量結果是否等於完整重建 |
 | **B1** generic traversal | 從 changed sentence 沿 provenance 把所有可達 object 失效 | over-invalidation |
@@ -444,26 +446,37 @@ pytest -q tests/test_extraction.py tests/test_pipeline_m1_m2.py tests/test_embed
 
 - **B0 correctness** 是經典 IVM 不變式：materialized `evidence_count` / `status` 必須等於對 active edge 的重新計算。檢查方式為 `full_rebuild.check_consistency`：逐一比對 stored 與 recomputed 並列出 mismatch。
 - **Over-invalidation** = baseline 失效物件數 ÷ 我們標 stale 的物件數。
-- **名目 cost** 單位：SKIP = 0、PATCH = 1、REBUILD = 5；B0 每筆 edit 重建整份 document 的 KG（每個 object 記為一次 REBUILD）。
+- **名目 cost** 單位：SKIP = 0、PATCH = 1、**REBUILD = 5**（REBUILD ≈ 重抽取，設為一次 PATCH DB 寫的 5 倍）。三層重建粒度，每個被重建的 object 記為一次 REBUILD：
+  - **whole-KG rebuild（B0 full rebuild）**：每筆 edit 重建整個 corpus 的 KG。
+  - **document rebuild（GraphRAG-style）**：每筆 edit 重建被改動的那份 document 的 KG。
+  - **ours（sentence / evidence）**：只重算 evidence 真正改變的 object（= M2 決策成本總和）。
 
 ### 12.2 結果（50 documents，48 mixed edits）
 
-| 指標 | Ours | B1 generic | B2 naive | B0 full rebuild |
-|---|---:|---:|---:|---:|
-| 標 stale 物件數 | 90 | 421 | 421 | — |
-| over-invalidation 倍率 | 1.0× | 4.68× | 4.68× | — |
-| 名目 cost | 198 | — | — | 18,730 |
-| cost 倍率 | 1.0× | — | — | 94.6× |
-
 決策分布：SKIP 355、PATCH 63、REBUILD 27。
 
-**B0 correctness**：consistent = **True**，0 mismatches（檢查 1,880 relations + 1,033 entities；其中 1,072 個 relation 為 Re-DocRED 無 evidence 標註的靜態 relation，本身不由 corpus 推導，故不參與重算對照）。
+**Correctness（B0）**：consistent = **True**，0 mismatches（檢查 1,880 relations + 1,033 entities；其中 1,072 個 relation 為 Re-DocRED 無 evidence 標註的靜態 relation，本身不由 corpus 推導，故不參與重算對照）。
+
+**Over-invalidation**（標 stale 的物件數）：
+
+| | Ours | B1 generic | B2 naive |
+|---|---:|---:|---:|
+| 標 stale 物件數 | 90 | 421 | 421 |
+| 對 ours 倍率 | 1.0× | 4.68× | 4.68× |
+
+**三層重建成本**（名目 REBUILD 單位，48 筆 edit 累計）：
+
+| 粒度 | 成本 | 對 ours 倍率 |
+|---|---:|---:|
+| ours（sentence / evidence） | 198 | 1.0× |
+| document rebuild（GraphRAG-style） | 18,730 | 94.6× |
+| whole-KG rebuild（B0 full rebuild） | 693,750 | 3,503.8× |
 
 ### 12.3 解讀
 
 1. **正確性**：48 筆增量 edit 後，KG 的 aggregate 與「從 active evidence 完整重算」完全一致（0 mismatch）。增量 SKIP / PATCH / REBUILD 沒有犧牲正確性。
 2. **Over-invalidation**：B1 / B2 失效的物件數是我們的 4.68 倍；paraphrase 與 no-op edit 我們 SKIP，baseline 仍把可達物件全部失效。
-3. **Cost**：完整重建的名目 cost 是我們的 94.6 倍。
+3. **Cost（三層粒度)**：whole-KG rebuild > document rebuild > sentence-level。完整重建是我們的約 3,500 倍、document-level 是約 95 倍 —— 粒度越細，省得越多。
 4. `semantic_noop` 子場景：我們 SKIP 全部、cost 0；naive 仍把句子提到的物件全標 stale。
 
 ### 12.4 重現

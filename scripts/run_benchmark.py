@@ -76,10 +76,14 @@ def print_summary(summary: dict) -> None:
         f"                   B2_naive_stale={ov.get('b2_naive_stale')} "
         f"(x{ov.get('b2_over_ours')} vs ours)"
     )
+    print(f"cost (REBUILD unit) ours_sentence={cost.get('ours_sentence')}")
     print(
-        f"cost               ours={cost.get('ours')} "
-        f"B0_full_rebuild={cost.get('b0_full_rebuild')} "
-        f"(x{cost.get('b0_over_ours')} vs ours)"
+        f"                   document_rebuild={cost.get('document_rebuild')} "
+        f"(x{cost.get('document_over_ours')} vs ours)"
+    )
+    print(
+        f"                   whole_kg_rebuild={cost.get('whole_kg_rebuild')} "
+        f"(x{cost.get('whole_kg_over_ours')} vs ours)"
     )
 
     consistency = summary.get("b0_consistency")
@@ -207,6 +211,9 @@ def write_rows_csv(path: str, rows) -> None:
         "ours_cost",
         "full_rebuild_cost",
         "naive_stale_count",
+        "b1_reachable_count",
+        "document_rebuild_cost",
+        "whole_kg_rebuild_cost",
     ]
     with open(path, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)

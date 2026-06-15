@@ -34,7 +34,8 @@ class BenchmarkRow:
     full_rebuild_cost: int
     naive_stale_count: int
     b1_reachable_count: int = 0
-    b0_full_rebuild_cost: int = 0
+    document_rebuild_cost: int = 0
+    whole_kg_rebuild_cost: int = 0
 
     def as_dict(self) -> dict:
         return {
@@ -59,7 +60,8 @@ class BenchmarkRow:
             "full_rebuild_cost": self.full_rebuild_cost,
             "naive_stale_count": self.naive_stale_count,
             "b1_reachable_count": self.b1_reachable_count,
-            "b0_full_rebuild_cost": self.b0_full_rebuild_cost,
+            "document_rebuild_cost": self.document_rebuild_cost,
+            "whole_kg_rebuild_cost": self.whole_kg_rebuild_cost,
         }
 
 
@@ -290,17 +292,19 @@ def _decision_audit(db: StandardDatabase, result) -> list[dict]:
     return rows
 
 
-def _baseline_scope(db: StandardDatabase, doc_id: str, sent_id: str) -> tuple[int, int]:
+def _baseline_scope(db: StandardDatabase, doc_id: str, sent_id: str) -> tuple[int, int, int]:
     """Pre-edit baseline scope for one sentence.
 
-    Returns (B1 generic-traversal reachable object count, B0 full-document rebuild
-    cost). Both are read-only and measured against the state *before* the edit, so
-    they describe what each baseline would touch for the same change.
+    Returns (B1 generic-traversal reachable object count, document-level rebuild
+    cost, whole-corpus rebuild cost). All read-only and measured against the state
+    *before* the edit, so they describe what each baseline would touch / pay for
+    the same change.
     """
     reachable = generic_traversal.reachable_objects(db, sent_id)
     b1_reachable_count = len(reachable["entities"]) + len(reachable["relations"])
-    b0_full_rebuild_cost = full_rebuild.rebuild_cost(db, doc_id)
-    return b1_reachable_count, b0_full_rebuild_cost
+    document_rebuild_cost = full_rebuild.document_rebuild_cost(db, doc_id)
+    whole_kg_rebuild_cost = full_rebuild.whole_kg_rebuild_cost(db)
+    return b1_reachable_count, document_rebuild_cost, whole_kg_rebuild_cost
 
 
 def _record_row(
@@ -313,7 +317,7 @@ def _record_row(
 ) -> BenchmarkRow:
     affected = repo.affected_evidence(db, sentence["sent_id"])
     baseline = naive.invalidate_sentence(db, sentence["sent_id"], step, dry_run=True)
-    b1_reachable_count, b0_full_rebuild_cost = _baseline_scope(
+    b1_reachable_count, document_rebuild_cost, whole_kg_rebuild_cost = _baseline_scope(
         db, sentence["doc_id"], sentence["sent_id"]
     )
     before_triples = original_triples or intended_triples_from_current_evidence(db, sentence["sent_id"])
@@ -344,7 +348,8 @@ def _record_row(
         full_rebuild_cost=result.cost["vs_full_rebuild"],
         naive_stale_count=baseline["stale_count"],
         b1_reachable_count=b1_reachable_count,
-        b0_full_rebuild_cost=b0_full_rebuild_cost,
+        document_rebuild_cost=document_rebuild_cost,
+        whole_kg_rebuild_cost=whole_kg_rebuild_cost,
     )
 
 
@@ -360,7 +365,7 @@ def run_semantic_noop_benchmark(
         sent_id = sentence["sent_id"]
         affected = repo.affected_evidence(db, sent_id)
         baseline = naive.invalidate_sentence(db, sent_id, step, dry_run=True)
-        b1_reachable_count, b0_full_rebuild_cost = _baseline_scope(
+        b1_reachable_count, document_rebuild_cost, whole_kg_rebuild_cost = _baseline_scope(
             db, sentence["doc_id"], sent_id
         )
         edit = EditOp(
@@ -397,7 +402,8 @@ def run_semantic_noop_benchmark(
             full_rebuild_cost=result.cost["vs_full_rebuild"],
             naive_stale_count=baseline["stale_count"],
             b1_reachable_count=b1_reachable_count,
-            b0_full_rebuild_cost=b0_full_rebuild_cost,
+            document_rebuild_cost=document_rebuild_cost,
+            whole_kg_rebuild_cost=whole_kg_rebuild_cost,
         ))
     return rows
 
@@ -499,7 +505,8 @@ def summarize_rows(rows: list[BenchmarkRow], include_by_scenario: bool = True) -
     naive_stale_count = 0
     ours_marked_stale = 0
     b1_reachable_count = 0
-    b0_full_rebuild_cost = 0
+    document_rebuild_cost = 0
+    whole_kg_rebuild_cost = 0
 
     for row in rows:
         delta_counts.update(row.delta_counts)
@@ -511,7 +518,8 @@ def summarize_rows(rows: list[BenchmarkRow], include_by_scenario: bool = True) -
         naive_stale_count += row.naive_stale_count
         ours_marked_stale += len(row.marked_stale)
         b1_reachable_count += row.b1_reachable_count
-        b0_full_rebuild_cost += row.b0_full_rebuild_cost
+        document_rebuild_cost += row.document_rebuild_cost
+        whole_kg_rebuild_cost += row.whole_kg_rebuild_cost
 
     summary = {
         "edits": len(rows),
@@ -538,10 +546,13 @@ def summarize_rows(rows: list[BenchmarkRow], include_by_scenario: bool = True) -
             "b1_over_ours": _safe_ratio(b1_reachable_count, ours_marked_stale),
             "b2_over_ours": _safe_ratio(naive_stale_count, ours_marked_stale),
         },
+        # Three rebuild granularities (slide 15.5): whole KG > document > sentence.
         "cost": {
-            "ours": ours_cost,
-            "b0_full_rebuild": b0_full_rebuild_cost,
-            "b0_over_ours": _safe_ratio(b0_full_rebuild_cost, ours_cost),
+            "ours_sentence": ours_cost,
+            "document_rebuild": document_rebuild_cost,
+            "whole_kg_rebuild": whole_kg_rebuild_cost,
+            "document_over_ours": _safe_ratio(document_rebuild_cost, ours_cost),
+            "whole_kg_over_ours": _safe_ratio(whole_kg_rebuild_cost, ours_cost),
         },
     }
 

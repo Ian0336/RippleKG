@@ -181,7 +181,7 @@ def check_consistency(
 
 
 def document_object_count(db: "StandardDatabase", doc_id: str) -> dict:
-    """Count active KG objects in one document — the scope a full rebuild re-derives."""
+    """Count active KG objects in one document — the scope a document rebuild re-derives."""
     row = list(db.aql.execute(
         """
         RETURN {
@@ -197,16 +197,47 @@ def document_object_count(db: "StandardDatabase", doc_id: str) -> dict:
     return row
 
 
-def rebuild_cost(
+def corpus_object_count(db: "StandardDatabase") -> dict:
+    """Count active KG objects across the whole corpus — the scope a full rebuild re-derives."""
+    row = list(db.aql.execute(
+        """
+        RETURN {
+          entities: LENGTH(FOR n IN entities RETURN 1),
+          relations: LENGTH(FOR r IN relations FILTER r.status != 'removed' RETURN 1)
+        }
+        """
+    ))[0]
+    row["objects"] = row["entities"] + row["relations"]
+    return row
+
+
+def document_rebuild_cost(
     db: "StandardDatabase",
     doc_id: str,
     *,
     rebuild_cost_unit: int = REBUILD_COST,
 ) -> int:
-    """Nominal cost B0 pays to fully rebuild a document's KG after one edit.
+    """Nominal cost of a document-level (GraphRAG-style) rebuild after one edit.
 
-    A full corpus-to-KG rebuild re-derives every object in the affected document,
-    so each counts as one REBUILD. Contrast with the incremental path, which pays
-    only for the objects whose evidence actually changed.
+    Re-derives every object in the changed document, so each counts as one
+    REBUILD. The middle tier between a whole-corpus rebuild and our incremental
+    path, which pays only for the objects whose evidence actually changed.
     """
     return document_object_count(db, doc_id)["objects"] * rebuild_cost_unit
+
+
+def whole_kg_rebuild_cost(
+    db: "StandardDatabase",
+    *,
+    rebuild_cost_unit: int = REBUILD_COST,
+) -> int:
+    """Nominal cost B0 pays to fully rebuild the entire corpus KG after one edit.
+
+    A full corpus-to-KG rebuild re-derives every object in every document, so the
+    cost is independent of which sentence changed — the most expensive tier.
+    """
+    return corpus_object_count(db)["objects"] * rebuild_cost_unit
+
+
+# Backwards-compatible alias: the original B0 cost was document-scoped.
+rebuild_cost = document_rebuild_cost

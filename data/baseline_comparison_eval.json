@@ -23,9 +23,11 @@
     "b2_over_ours": 4.68
   },
   "cost": {
-    "ours": 198,
-    "b0_full_rebuild": 18730,
-    "b0_over_ours": 94.6
+    "ours_sentence": 198,
+    "document_rebuild": 18730,
+    "whole_kg_rebuild": 693750,
+    "document_over_ours": 94.6,
+    "whole_kg_over_ours": 3503.79
   },
   "by_scenario": {
     "change_relation_tail": {
@@ -53,9 +55,11 @@
         "b2_over_ours": 2.95
       },
       "cost": {
-        "ours": 61,
-        "b0_full_rebuild": 4770,
-        "b0_over_ours": 78.2
+        "ours_sentence": 61,
+        "document_rebuild": 4770,
+        "whole_kg_rebuild": 173295,
+        "document_over_ours": 78.2,
+        "whole_kg_over_ours": 2840.9
       }
     },
     "no_relation_evidence": {
@@ -83,9 +87,11 @@
         "b2_over_ours": 28.0
       },
       "cost": {
-        "ours": 5,
-        "b0_full_rebuild": 4730,
-        "b0_over_ours": 946.0
+        "ours_sentence": 5,
+        "document_rebuild": 4730,
+        "whole_kg_rebuild": 174060,
+        "document_over_ours": 946.0,
+        "whole_kg_over_ours": 34812.0
       }
     },
     "remove_relation": {
@@ -113,9 +119,11 @@
         "b2_over_ours": 3.15
       },
       "cost": {
-        "ours": 127,
-        "b0_full_rebuild": 4430,
-        "b0_over_ours": 34.88
+        "ours_sentence": 127,
+        "document_rebuild": 4430,
+        "whole_kg_rebuild": 173055,
+        "document_over_ours": 34.88,
+        "whole_kg_over_ours": 1362.64
       }
     },
     "semantic_noop": {
@@ -143,9 +151,11 @@
         "b2_over_ours": 124.0
       },
       "cost": {
-        "ours": 5,
-        "b0_full_rebuild": 4800,
-        "b0_over_ours": 960.0
+        "ours_sentence": 5,
+        "document_rebuild": 4800,
+        "whole_kg_rebuild": 173340,
+        "document_over_ours": 960.0,
+        "whole_kg_over_ours": 34668.0
       }
     }
   },

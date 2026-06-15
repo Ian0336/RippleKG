@@ -13,3 +13,5 @@ build/
 # Large raw dataset dumps (downloaded); keep rel_info.json + authored edits.
 data/docred/*_revised.json
 !**/.gitkeep
+
+out/

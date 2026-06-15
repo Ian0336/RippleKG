@@ -79,11 +79,18 @@ def test_detects_injected_aggregate_drift():
     assert any(m["target_id"] == target for m in report["mismatches"])
 
 
-def test_rebuild_cost_scales_with_document_objects():
+def test_rebuild_cost_tiers():
     db = _db_or_skip()
     _load_fixture(db)
 
-    counts = full_rebuild.document_object_count(db, "doc0")
-    assert counts["objects"] == counts["entities"] + counts["relations"]
-    assert counts["objects"] > 0
-    assert full_rebuild.rebuild_cost(db, "doc0") == counts["objects"] * REBUILD_COST
+    doc_counts = full_rebuild.document_object_count(db, "doc0")
+    corpus_counts = full_rebuild.corpus_object_count(db)
+    assert doc_counts["objects"] == doc_counts["entities"] + doc_counts["relations"]
+    assert doc_counts["objects"] > 0
+
+    assert full_rebuild.document_rebuild_cost(db, "doc0") == doc_counts["objects"] * REBUILD_COST
+    assert full_rebuild.whole_kg_rebuild_cost(db) == corpus_counts["objects"] * REBUILD_COST
+    # A whole-corpus rebuild is never cheaper than a single-document rebuild.
+    assert full_rebuild.whole_kg_rebuild_cost(db) >= full_rebuild.document_rebuild_cost(db, "doc0")
+    # Backwards-compatible alias.
+    assert full_rebuild.rebuild_cost(db, "doc0") == full_rebuild.document_rebuild_cost(db, "doc0")

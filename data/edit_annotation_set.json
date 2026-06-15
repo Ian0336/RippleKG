@@ -5,7 +5,8 @@
     "generated_cases": 30,
     "top_k": 5,
     "instructions": "Review every candidate and set human_should_edit to true or false. Do not change suggested_should_edit; it is the system baseline.",
-    "annotation_status": "assistant_reviewed_pending_owner_spot_check",
+    "annotation_status": "assistant_audited_2026-06-15_recommend_owner_glance",
+    "annotation_audit": "Independently re-checked all 150 labels (scripts/audit_edit_labels.py); 0 overturned, 12 borderline FALSE confirmed. See docs/label-audit.md. Owner glance still recommended.",
     "annotation_rule_applied": "True only when the sentence states or structurally expresses the old fact and would become stale when that fact is explicitly replaced."
   },
   "cases": [
