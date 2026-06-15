@@ -37,10 +37,12 @@ each affected evidence record as added, removed, or unchanged using a canonical
 triple key; \textbf{M2}, a cost-aware invalidation policy that chooses
 \textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} per affected object; and persisted
 per-object \emph{freshness} state. On Re-DocRED, the incrementally maintained KG
-is provably consistent with a from-scratch rebuild (0 mismatches over 1{,}880
-relations and 1{,}033 entities), while marking $4.68\times$ fewer objects stale
-than reachability baselines and costing up to $\sim$$3{,}500\times$ less than a
-full corpus rebuild.
+matches a from-scratch recomputation over active provenance (0 mismatches over
+1{,}925 relations and 1{,}078 entities). In a 50-document mixed-edit benchmark,
+RippleKG reduces affected-evidence maintenance cost by 88.24\%, costs
+$65.13\times$ less than document-level rebuild and $3179.15\times$ less than
+whole-KG rebuild; in scaling to 500 documents, the whole-KG rebuild gap grows to
+$27550.36\times$.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -315,49 +317,133 @@ reduction & 100\% & 48.75\%\\
 \end{tabular}
 \end{table}
 
+
 \subsection{Baselines: correctness, over-invalidation, cost}
-We compare against three baselines (all optional sanity references): \textbf{B0}
-full rebuild (recompute every object's aggregate from active evidence), \textbf{B1}
-generic-traversal invalidation (mark all reachable objects stale), and \textbf{B2}
-naive invalidation (mark every mentioned object stale). Running 48 mixed edits
-over 50 documents (Table~\ref{tab:bench}):
+We compare against three sanity baselines: \textbf{B0} full rebuild (recompute
+each object's aggregate from active evidence), \textbf{B1} generic-traversal
+invalidation (mark reachable objects stale), and \textbf{B2} naive invalidation
+(mark every mentioned object stale). We also report two coarser rebuild
+granularities: document-level rebuild, which approximates a GraphRAG-style
+changed-document refresh, and whole-KG rebuild, which recomputes the complete
+corpus view after every edit. Running up to 100 edits per scenario over 50
+Re-DocRED documents produced 357 executable mixed edits (Table~\ref{tab:bench}).
 
 \emph{Correctness (B0).} After all incremental edits, the materialized
 \texttt{evidence\_count}/\texttt{status} of every object equals a from-scratch
-recomputation over active provenance edges: \textbf{0 mismatches} across 1{,}880
-relations and 1{,}033 entities. This is the classic IVM consistency invariant;
-incremental \textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} did not sacrifice
-correctness.
+recomputation over active provenance edges: \textbf{0 mismatches} across 1{,}925
+relations and 1{,}078 entities. This is the classic IVM consistency invariant:
+incremental \textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} does not sacrifice the
+maintained KG state.
 
-\emph{Over-invalidation (B1/B2).} RippleKG marks 90 objects stale; both
-reachability baselines mark 421, i.e.\ $4.68\times$ more. The gap comes from
-paraphrase and non-evidence edits, which RippleKG \textsc{Skip}s but the
-baselines still invalidate.
-
-\emph{Cost (three granularities).} Nominal cost in \textsc{Rebuild} units shows
-the value of fine granularity: per-sentence (ours) $\ll$ per-document
-(GraphRAG-style) $\ll$ whole-corpus rebuild.
+\emph{Cost and over-invalidation.} RippleKG costs 1{,}603 units, compared with
+13{,}635 for the affected-evidence all-rebuild reference, an 88.24\% reduction.
+The naive baseline produces 2{,}631 stale or over-invalidated objects. At coarser
+rebuild granularities, document-level rebuild costs 104{,}405 units
+($65.13\times$ ours) and whole-KG rebuild costs 5{,}096{,}185 units
+($3179.15\times$ ours). Thus, evidence-aware maintenance is cheaper both than an
+all-rebuild policy over affected evidence and than document/corpus-granularity
+rebuilds.
 
 \begin{table}[t]
-\caption{Baseline comparison (50 docs, 48 mixed edits)}
+\caption{Baseline comparison on 50 documents and 357 mixed edits}
 \label{tab:bench}
 \centering
 \footnotesize
+\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lrr}
 \toprule
-\textbf{Metric} & \textbf{Value} & \textbf{vs.\ ours}\\
+\textbf{Metric} & \textbf{Value} & \textbf{vs. ours}\\
 \midrule
-Decisions \textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} & 355/63/27 & ---\\
+M2 decisions \textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} & 2120/358/249 & ---\\
+RippleKG cost & 1{,}603 & $1\times$\\
+Affected-evidence full rebuild & 13{,}635 & $8.51\times$\\
+Cost reduction vs. affected rebuild & 88.24\% & ---\\
+B2 naive stale / over-invalidated & 2{,}631 & ---\\
 \midrule
-Objects marked stale (ours) & 90 & $1\times$\\
-\quad B1 generic-traversal & 421 & $4.68\times$\\
-\quad B2 naive & 421 & $4.68\times$\\
+Document rebuild (GraphRAG-style) & 104{,}405 & $65.13\times$\\
+Whole-KG rebuild (B0 granularity) & 5{,}096{,}185 & $3179.15\times$\\
 \midrule
-Cost: ours (sentence) & 198 & $1\times$\\
-\quad document rebuild (GraphRAG-style) & 18{,}730 & $94.6\times$\\
-\quad whole-KG rebuild (B0) & 693{,}750 & $3503.8\times$\\
+B0 consistency & \multicolumn{2}{r}{0 mismatches over 1{,}925 relations / 1{,}078 entities}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Scaling, scenarios, and operational overhead}
+To check whether the advantage persists as the corpus grows, we repeated the
+mixed benchmark from 5 to 500 documents. Smaller corpora contain fewer eligible
+synthetic edits; after 100 documents the workload saturates at 400 executable
+edits. Table~\ref{tab:scale} reports the representative larger settings. The
+RippleKG cost remains tied to changed sentence evidence, while whole-KG rebuild
+increases with corpus size: at 500 documents, whole-KG rebuild is
+$27550.36\times$ more expensive than RippleKG.
+
+\begin{table}[t]
+\caption{Scaling with corpus size. Smaller runs (5--25 docs) are omitted from the paper table because they contain fewer executable edits.}
+\label{tab:scale}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{rrrrr}
+\toprule
+\textbf{Docs} & \textbf{Edits} & \textbf{Ours} & \textbf{Doc rebuild} & \textbf{Whole-KG / ours}\\
 \midrule
-B0 correctness & \multicolumn{2}{r}{consistent, 0 mismatches}\\
+50  & 357 & 1{,}603 & 104{,}405 & $3179.15\times$\\
+100 & 400 & 1{,}882 & 116{,}370 & $5950.21\times$\\
+200 & 400 & 1{,}957 & 124{,}600 & $11528.89\times$\\
+500 & 400 & 1{,}957 & 124{,}600 & $27550.36\times$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The scenario breakdown in Table~\ref{tab:scenario} explains where the savings
+come from. For \texttt{semantic\_noop}, M1 classifies almost all evidence as
+unchanged (998 records), so M2 skips nearly every affected object: RippleKG costs
+only 15 units while the naive baseline marks 1{,}001 objects stale. In contrast,
+\texttt{remove\_relation} requires many \textsc{Patch} and \textsc{Rebuild}
+decisions because evidence actually disappears. RippleKG therefore avoids work
+selectively rather than blindly.
+
+\begin{table}[t]
+\caption{Scenario-level M1/M2 behavior on the 50-document mixed benchmark}
+\label{tab:scenario}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Scenario} & \textbf{Skip} & \textbf{Patch} & \textbf{Rebuild} & \textbf{Cost} & \textbf{Naive stale}\\
+\midrule
+change tail & 400 & 170 & 42  & 380  & 498\\
+no relation evidence & 216 & 1   & 15  & 76   & 232\\
+remove relation & 506 & 187 & 189 & 1{,}132 & 900\\
+semantic no-op & 998 & 0   & 3   & 15   & 1{,}001\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Finally, we measured wall-clock overhead on the 50-document mixed benchmark
+(Table~\ref{tab:runtime}). RippleKG processed 357 edits in 98.23 seconds
+(275.16 ms/edit) while persisting 2{,}727 evidence-delta records and 2{,}727
+refresh-decision records, or 15.28 durable maintenance-log records per edit.
+This supplements the nominal cost model with an operational measurement.
+
+\begin{table}[t]
+\caption{Runtime, durable maintenance logs, and consistency check}
+\label{tab:runtime}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lr}
+\toprule
+\textbf{Metric} & \textbf{Value}\\
+\midrule
+Runtime & 98.23 s\\
+Runtime per edit & 275.16 ms\\
+Evidence-delta records & 2{,}727\\
+Refresh-decision records & 2{,}727\\
+Log records per edit & 15.28\\
+Checked relations / entities & 1{,}925 / 1{,}078\\
+B0 mismatches & 0\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -403,12 +489,15 @@ merely mentions.
 
 \section{Limitations}
 Evidence is supplied as authored triples (option A); an LLM extractor (option B)
-shares the same interface but is left to future work. Costs are nominal units,
-not measured dollar/token cost. The reviewed benchmark is small (5--50 documents,
-a single \texttt{replace\_old\_fact} update type) and some synthetic replacements
-are semantically unnatural; the labels handle these correctly but the inputs are
-noisy. Query-time lazy refresh, \texttt{max\_staleness}, and entity-resolution
-ripple are designed but not implemented.
+shares the same interface but is left to future work. The main cost comparison
+uses nominal \textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} units, although we now
+also report wall-clock runtime and durable maintenance-log counts; dollar/token
+costs for a deployed LLM extractor are not measured. The benchmark is larger
+than the initial case study (up to 500 documents and 400 executable edits), but
+it is still synthetic and centered on replacement-style updates; some synthetic
+replacements are semantically unnatural. Query-time lazy refresh,
+\texttt{max\_staleness}, and entity-resolution ripple are designed but not
+implemented.
 
 \section{Conclusion}
 RippleKG reframes the maintenance of an LLM-generated knowledge graph as
@@ -416,8 +505,8 @@ incremental view maintenance and realizes it entirely as durable ArangoDB state:
 a semantic evidence delta (M1), a cost-aware
 \textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} policy (M2), and persisted per-object
 freshness. A corpus edit ripples only along the evidence that actually changed,
-yielding a KG provably consistent with a full rebuild while marking far fewer
-objects stale and costing orders of magnitude less. RAG brought semantic search
+yielding a KG consistent with full recomputation over active provenance while
+marking far fewer objects stale and costing orders of magnitude less. RAG brought semantic search
 into the database; RippleKG brings incremental view maintenance into
 LLM-generated knowledge graphs.
 
