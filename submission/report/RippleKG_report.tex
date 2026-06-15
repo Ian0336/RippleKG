@@ -1,0 +1,474 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,
+        frame=single,framesep=3pt,xleftmargin=2pt}
+
+\begin{document}
+
+\title{RippleKG: Evidence-Aware Incremental View\\Maintenance for LLM-Generated Knowledge Graphs}
+
+\author{%
+\IEEEauthorblockN{Group~XX\,---\,Author A, Author B, Author C, Author D}
+\IEEEauthorblockA{Database Management Systems (DB114), National Taiwan University\\
+\texttt{\{author A--D\}@example.ntu.edu.tw}}}
+
+\maketitle
+
+\begin{abstract}
+Retrieval-augmented generation brought semantic search into the database;
+this project brings \emph{incremental view maintenance} (IVM) into
+LLM-generated knowledge graphs (KGs). When a source corpus is edited, an
+LLM-derived KG must be updated. Re-extracting the whole graph is expensive, and
+invalidating every object reachable from a changed sentence over-invalidates the
+graph. RippleKG instead treats the KG as a materialized view over
+sentence-level provenance and propagates a corpus edit only along the evidence
+that actually changed. We contribute three mechanisms, all materialized in a
+single ArangoDB instance: \textbf{M1}, a semantic evidence delta that classifies
+each affected evidence record as added, removed, or unchanged using a canonical
+triple key; \textbf{M2}, a cost-aware invalidation policy that chooses
+\textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} per affected object; and persisted
+per-object \emph{freshness} state. On Re-DocRED, the incrementally maintained KG
+is provably consistent with a from-scratch rebuild (0 mismatches over 1{,}880
+relations and 1{,}033 entities), while marking $4.68\times$ fewer objects stale
+than reachability baselines and costing up to $\sim$$3{,}500\times$ less than a
+full corpus rebuild.
+\end{abstract}
+
+\begin{IEEEkeywords}
+incremental view maintenance, knowledge graph, provenance, retrieval-augmented
+generation, ArangoDB
+\end{IEEEkeywords}
+
+\section{Introduction}
+Large language models (LLMs) are increasingly used to build knowledge graphs
+from text corpora, and graph-based retrieval (GraphRAG) consumes those graphs
+downstream. In any persistent deployment the source corpus keeps changing: a
+sentence is corrected, a fact is replaced, a passage is rewritten. The derived
+KG must follow. Two strategies dominate practice and both are unsatisfactory.
+A \emph{full rebuild} re-extracts the entire KG after every edit and is the most
+expensive option. \emph{Naive} or \emph{generic-traversal} invalidation marks
+every object reachable from a changed sentence as stale; it is cheap to decide
+but \emph{over-invalidates}, because graph reachability is far coarser than the
+evidence that a specific edit actually touches. Existing incremental
+GraphRAG systems (e.g., LightRAG~\cite{lightrag}, Microsoft
+GraphRAG~\cite{graphrag}, iText2KG~\cite{itext2kg}) are append/merge oriented:
+they grow the graph but rarely delete, invalidate, or expose freshness.
+
+We observe that this is exactly the problem incremental view maintenance solves
+in databases, recast for LLM-generated views. The KG is a \emph{materialized
+view}; sentences are base tuples; provenance edges are the dependency graph; a
+corpus edit is a base-table update that must propagate to derived objects. Our
+one-line framing:
+
+\begin{quote}\itshape
+RAG brought semantic search into the database; RippleKG brings incremental view
+maintenance into LLM-generated knowledge graphs.
+\end{quote}
+
+\noindent\textbf{Contributions.}
+(1) We frame LLM-KG maintenance as IVM and identify why classic IVM does not
+directly apply (Sec.~\ref{sec:why}). (2) We design and implement three
+mechanisms---M1 semantic evidence delta, M2 cost-aware
+\textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} policy, and persisted freshness
+(Sec.~\ref{sec:method})---entirely on ArangoDB, so that evidence deltas,
+invalidation decisions, and freshness are durable database state, not transient
+objects (Sec.~\ref{sec:system}). (3) We evaluate correctness, over-invalidation,
+and cost against full-rebuild, generic-traversal, and naive baselines, and report
+a retrieval/gate/end-to-end study with an independently audited label set
+(Sec.~\ref{sec:eval}).
+
+\section{Why Classic IVM Is Insufficient}
+\label{sec:why}
+Classic IVM assumes a view is a deterministic, exact function of its base data
+and that refresh is cheap enough to run eagerly. LLM-generated views break all
+three assumptions, as summarized in Table~\ref{tab:ivm}. Re-extraction may emit
+textually different evidence for the same underlying claim (paraphrase), so
+equality must be \emph{semantic}, not byte-exact. Dependencies are fuzzy and
+mediated by provenance rather than exact column references. And refresh can be
+expensive (an LLM call), so it must be selective and, ideally, deferrable. These
+gaps motivate a semantic delta operator, a cost-aware policy, and visible
+freshness state.
+
+\begin{table}[t]
+\caption{Classic IVM assumptions vs.\ LLM-generated views}
+\label{tab:ivm}
+\centering
+\footnotesize
+\begin{tabular}{p{0.46\columnwidth}p{0.46\columnwidth}}
+\toprule
+\textbf{Classic IVM assumes} & \textbf{LLM-generated view reality}\\
+\midrule
+View is deterministic & Re-extraction paraphrases identical meaning\\
+Dependencies are exact & Dependencies are fuzzy / semantic\\
+Refresh is cheap (eager) & Extraction/judging is costly; refresh must be selective\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Related Work}
+RippleKG sits at the intersection of four neighboring lines of work.
+\emph{Incremental LLM-KG / GraphRAG} systems~\cite{graphrag,lightrag,itext2kg}
+build and grow KGs from text. Microsoft GraphRAG~\cite{graphrag} rebuilds
+community summaries, LightRAG~\cite{lightrag} performs dual-level incremental
+insertion, and iText2KG~\cite{itext2kg} merges newly extracted triples into an
+existing graph. All are append/merge oriented: they add or reconcile nodes but
+rarely \emph{retract} evidence, invalidate stale objects, or expose per-object
+freshness, so the corpus$\rightarrow$KG maintenance loop is left open.
+\emph{Classic database IVM}~\cite{guptamumick,dbtoaster,diffdataflow} maintains
+materialized views under deltas that are exact, deterministic, and cheap enough
+for eager refresh---assumptions Sec.~\ref{sec:why} shows do not hold for an
+LLM-generated view, motivating a semantic delta and a cost-aware policy rather
+than algebraic delta rules. \emph{KG provenance and outdated-fact detection}
+track which source supports which fact and flag staleness, but stop short of an
+end-to-end, cost-aware refresh policy backed by persistent decision state.
+Finally, work sharing the ``ripple'' name, notably RippleEdits~\cite{rippleedits},
+studies ripple effects of editing \emph{model weights} in an LLM, an orthogonal
+problem to maintaining a database-materialized KG. To our knowledge, the
+combination of a semantic evidence delta, a cost-aware
+\textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} policy, and persisted per-object
+freshness for a database-materialized LLM-KG is unoccupied.
+
+\section{Method}
+\label{sec:method}
+
+\subsection{Pipeline and the synchronous spine}
+A corpus edit is supplied as an \texttt{EditOp}$=(\textit{doc\_id},
+\textit{sent\_idx}, \textit{new\_text}, \textit{intended\_triples})$. We adopt
+\emph{authored intended triples} (the set of triples the edited sentence should
+support afterwards) as the primary evidence source, so that extraction quality
+is not the object of study; a lightweight LLM extractor can produce the same
+interface. Processing follows six stages:
+
+\begin{lstlisting}
+corpus edit
+ -> changed sentence (text_hash)
+ -> affected evidence (1-hop provenance)
+ -> M1 semantic evidence delta
+ -> affected entity / relation
+ -> M2 SKIP / PATCH / REBUILD
+ -> persisted KG / provenance / freshness
+\end{lstlisting}
+
+Stages 1--5 form a \emph{synchronous spine} executed inside one ArangoDB stream
+transaction: the sentence text, provenance edges, and the existence of entities
+and relations are always made consistent atomically. Only the derived-aggregate
+repair (recomputing evidence counts, dropping empty relations, flipping freshness
+back) may be deferred (Sec.~\ref{sec:fresh}).
+
+\subsection{M1: semantic evidence delta}
+Given a changed sentence, M1 collects its old active evidence by a 1-hop outbound
+traversal over the provenance edges and compares it to the new
+\texttt{intended\_triples}. Relation evidence is keyed by the canonical triple
+$(\textit{head}, \textit{rel\_type}, \textit{tail})$ after name normalization;
+mention evidence is keyed by the normalized entity name:
+\[
+\textit{new}\setminus\textit{old}\!\rightarrow\!\textsc{added},\;
+\textit{old}\setminus\textit{new}\!\rightarrow\!\textsc{removed},\;
+\textit{old}\cap\textit{new}\!\rightarrow\!\textsc{unchanged}.
+\]
+The crucial case is \textsc{unchanged}: when only the surface wording changes but
+the canonical triples are identical (a paraphrase), M1 reports no change---which
+exact, hash-based IVM cannot do. M1 simultaneously updates provenance edges
+(insert for \textsc{added}, mark \texttt{status=removed} for \textsc{removed},
+leave \textsc{unchanged} untouched) and persists each change to the
+\texttt{evidence\_deltas} collection.
+
+\subsection{M2: cost-aware invalidation policy}
+For each affected object M2 consults the decision table in
+Table~\ref{tab:policy}. The policy is the cost-awareness: \textsc{Skip} when
+nothing changed, \textsc{Patch} when an aggregate can be repaired in place, and
+\textsc{Rebuild} only when the last supporting evidence disappears. Nominal costs
+are $\textsc{Skip}=0$, $\textsc{Patch}=1$ (a database write), and
+$\textsc{Rebuild}=5$ (modeling re-resolution/re-extraction as $5\times$ a patch).
+Each decision is written to \texttt{refresh\_decisions} with
+\texttt{status=pending}.
+
+\begin{table}[t]
+\caption{M2 decision table}
+\label{tab:policy}
+\centering
+\footnotesize
+\begin{tabular}{p{0.58\columnwidth}ll}
+\toprule
+\textbf{Evidence delta on object} & \textbf{Decision} & \textbf{Cost}\\
+\midrule
+Triple unchanged (paraphrase) & \textsc{Skip} & 0\\
+Evidence added & \textsc{Patch} & 1\\
+Evidence removed, others remain active & \textsc{Patch} & 1\\
+Last active evidence removed & \textsc{Rebuild} & 5\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Freshness and refresh execution}
+\label{sec:fresh}
+Every entity and relation carries \texttt{freshness\_status}
+(\texttt{fresh}/\texttt{stale}) and \texttt{last\_changed\_step}; history is
+reconstructable from the delta/decision logs (no bitemporal versioning).
+\texttt{apply\_refreshes} processes pending decisions in two modes.
+\emph{Immediate} (default) refreshes within the step, so all objects return to
+\texttt{fresh}; \emph{deferred} leaves chosen decisions pending until a later
+maintenance tick, making staleness visible across steps. Deferral is safe by
+three invariants: (i) the next edit's M1 does not depend on aggregates;
+(ii) \texttt{apply\_refreshes} is idempotent (it always recomputes from current
+evidence); and (iii) stale objects are explicitly flagged, i.e., \emph{known}
+not-yet-refreshed rather than silently wrong. Queries may request
+\texttt{fresh\_only} to exclude stale objects.
+
+\section{System Design and Schema}
+\label{sec:system}
+RippleKG is implemented on a single ArangoDB database; a FastAPI service imports
+the package as a library so the demo, scripts, and notebook all call the same
+\texttt{run\_edit} path and never drift from the real pipeline. Because we do not
+modify storage internals, the contribution is framed as \emph{logical database
+design}: a provenance schema, evidenced records, AQL provenance traversal,
+transactional invalidation, and visible freshness. Table~\ref{tab:map} maps each
+pipeline element to its DBMS concept.
+
+\begin{table}[t]
+\caption{Pipeline$\rightarrow$DBMS concept mapping}
+\label{tab:map}
+\centering
+\footnotesize
+\begin{tabular}{p{0.46\columnwidth}p{0.46\columnwidth}}
+\toprule
+\textbf{RippleKG element} & \textbf{DBMS concept}\\
+\midrule
+corpus update & base-table update\\
+changed sentence / diff & change capture\\
+provenance edges & forward dependency tracking\\
+evidence delta (M1) & view-level change detection\\
+affected entity/relation & derived-table propagation\\
+\textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} (M2) & cost-aware view maintenance\\
+\texttt{freshness\_status} & materialized-view freshness\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The store uses eight collections: four document collections
+(\texttt{documents}, \texttt{sentences}, \texttt{entities}, \texttt{relations}),
+two provenance edge collections along which the ripple travels
+(\texttt{mentions}: sentence$\rightarrow$entity;
+\texttt{sentence\_supports\_relation}: sentence$\rightarrow$relation), and two
+maintenance collections (\texttt{evidence\_deltas} for M1 output and
+\texttt{refresh\_decisions} for M2 output). Because provenance is a real graph,
+the affected set is exactly a 1-hop outbound traversal from the changed
+sentence---no multi-hop reachability is needed---which is the structural reason
+RippleKG avoids over-invalidation.
+
+\section{Evaluation}
+\label{sec:eval}
+
+\subsection{Setup}
+We build the initial $T_0$ graph directly from Re-DocRED~\cite{redocred}
+annotations (a deterministic corpus$\rightarrow$KG pair derived from
+DocRED~\cite{docred}) without running an LLM: \texttt{sents} become sentences,
+\texttt{vertexSet} becomes entities and mention edges, \texttt{labels} become
+relations, and \texttt{labels.evidence} becomes supporting edges. Synthetic edits
+carry authored \texttt{intended\_triples}. The store is ArangoDB~3.12; embeddings
+(optional) use \texttt{all-MiniLM-L6-v2}~\cite{sbert}.
+
+\subsection{Case studies}
+Two representative single-sentence edits exercise the policy paths
+(Table~\ref{tab:case}). doc0's opening sentence states that Schneider was born
+in Media\c{s}, Transylvania, and is a \emph{German} skeleton racer. In
+\emph{Case~A} we reorder it into ``Born on 13 March 1963 in
+Media\c{s}\dots{}, Schneider is a German skeleton racer'': the canonical
+triples are identical, so M1 returns only \textsc{Unchanged} deltas, all 12
+affected objects \textsc{Skip}, and the incremental cost is zero against a
+full-document rebuild of nominal cost~60. In \emph{Case~B} we rewrite the
+birthplace and nationality to \emph{Krak\'ow, Poland} and \emph{Polish}; M1
+reports the old place-of-birth and citizenship triples \textsc{removed} and the
+new ones \textsc{added} (date of birth \textsc{Unchanged}), and M2
+\textsc{Rebuild}s the relations whose last supporting evidence vanished while
+\textsc{Patch}ing those that retain evidence---touching only the affected
+objects at $\sim$$49\%$ of a full-document rebuild. Crucially, Case~A is exactly
+where reachability baselines over-invalidate: they would mark all 12 mentioned
+objects stale, whereas evidence-aware comparison correctly skips them.
+
+\begin{table}[t]
+\caption{Two representative edits on doc0 (A: paraphrase, B: factual change)}
+\label{tab:case}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcc}
+\toprule
+& \textbf{Case A} & \textbf{Case B}\\
+\midrule
+M1 (unchanged) & 12 & 3\\
+M1 (added / removed) & 0 / 0 & 4 / 9\\
+M2 \textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} & 12 / 0 / 0 & 3 / 6 / 7\\
+incremental cost & 0 & 41\\
+full-doc rebuild cost & 60 & 80\\
+reduction & 100\% & 48.75\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Baselines: correctness, over-invalidation, cost}
+We compare against three baselines (all optional sanity references): \textbf{B0}
+full rebuild (recompute every object's aggregate from active evidence), \textbf{B1}
+generic-traversal invalidation (mark all reachable objects stale), and \textbf{B2}
+naive invalidation (mark every mentioned object stale). Running 48 mixed edits
+over 50 documents (Table~\ref{tab:bench}):
+
+\emph{Correctness (B0).} After all incremental edits, the materialized
+\texttt{evidence\_count}/\texttt{status} of every object equals a from-scratch
+recomputation over active provenance edges: \textbf{0 mismatches} across 1{,}880
+relations and 1{,}033 entities. This is the classic IVM consistency invariant;
+incremental \textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} did not sacrifice
+correctness.
+
+\emph{Over-invalidation (B1/B2).} RippleKG marks 90 objects stale; both
+reachability baselines mark 421, i.e.\ $4.68\times$ more. The gap comes from
+paraphrase and non-evidence edits, which RippleKG \textsc{Skip}s but the
+baselines still invalidate.
+
+\emph{Cost (three granularities).} Nominal cost in \textsc{Rebuild} units shows
+the value of fine granularity: per-sentence (ours) $\ll$ per-document
+(GraphRAG-style) $\ll$ whole-corpus rebuild.
+
+\begin{table}[t]
+\caption{Baseline comparison (50 docs, 48 mixed edits)}
+\label{tab:bench}
+\centering
+\footnotesize
+\begin{tabular}{lrr}
+\toprule
+\textbf{Metric} & \textbf{Value} & \textbf{vs.\ ours}\\
+\midrule
+Decisions \textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} & 355/63/27 & ---\\
+\midrule
+Objects marked stale (ours) & 90 & $1\times$\\
+\quad B1 generic-traversal & 421 & $4.68\times$\\
+\quad B2 naive & 421 & $4.68\times$\\
+\midrule
+Cost: ours (sentence) & 198 & $1\times$\\
+\quad document rebuild (GraphRAG-style) & 18{,}730 & $94.6\times$\\
+\quad whole-KG rebuild (B0) & 693{,}750 & $3503.8\times$\\
+\midrule
+B0 correctness & \multicolumn{2}{r}{consistent, 0 mismatches}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Retrieval, relevance gate, and end-to-end}
+A hybrid front end can select \emph{which} sentences to edit before M1/M2 run.
+On a 50-fact evidence-retrieval benchmark, Transformer retrieval reaches
+Hit@1 $=86\%$, Hit@3 $=100\%$, MRR $=0.93$; graph provenance gives a high-recall
+(R$=100\%$) but lower-precision (P$=58.8\%$) affected set. An LLM relevance gate
+raises precision to $76.9\%$ at R$=100\%$ (F1 $=87\%$). End-to-end, after adding a
+deterministic replacement-aware verifier in front of M1, EditOp content accuracy
+is $95\%$ and M1 added/removed accuracy and end-to-end M2 accuracy both reach
+$100\%$ (Table~\ref{tab:e2e}); M2 policy-rule accuracy is $100\%$ throughout,
+confirming that residual end-to-end error originated in the intended-triple
+verifier, not the policy.
+
+\begin{table}[t]
+\caption{End-to-end accuracy (20 should-edit operations)}
+\label{tab:e2e}
+\centering
+\footnotesize
+\begin{tabular}{lcc}
+\toprule
+\textbf{Stage} & \textbf{before verifier} & \textbf{after}\\
+\midrule
+EditOp content accuracy & 80\% & \textbf{95\%}\\
+M1 added/removed accuracy & 80\% & \textbf{100\%}\\
+End-to-end M2 accuracy & 80\% & \textbf{100\%}\\
+M2 policy-rule accuracy & 100\% & 100\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Label audit}
+The should-edit gold set (30 replacement cases, 150 candidate sentences) was
+independently re-checked against its annotation rule: of 150 labels,
+\textbf{0 were overturned}; all 20 \textsc{True} labels genuinely assert the old
+fact, and 12 borderline \textsc{False} labels (the value appears in the sentence
+but is not asserted, e.g.\ ``the \emph{Canadian} province of Alberta'') were
+confirmed correct. The audit notably validates that the same word in one sentence
+is labeled \textsc{True} for the fact it asserts and \textsc{False} for a fact it
+merely mentions.
+
+\section{Limitations}
+Evidence is supplied as authored triples (option A); an LLM extractor (option B)
+shares the same interface but is left to future work. Costs are nominal units,
+not measured dollar/token cost. The reviewed benchmark is small (5--50 documents,
+a single \texttt{replace\_old\_fact} update type) and some synthetic replacements
+are semantically unnatural; the labels handle these correctly but the inputs are
+noisy. Query-time lazy refresh, \texttt{max\_staleness}, and entity-resolution
+ripple are designed but not implemented.
+
+\section{Conclusion}
+RippleKG reframes the maintenance of an LLM-generated knowledge graph as
+incremental view maintenance and realizes it entirely as durable ArangoDB state:
+a semantic evidence delta (M1), a cost-aware
+\textsc{Skip}/\textsc{Patch}/\textsc{Rebuild} policy (M2), and persisted per-object
+freshness. A corpus edit ripples only along the evidence that actually changed,
+yielding a KG provably consistent with a full rebuild while marking far fewer
+objects stale and costing orders of magnitude less. RAG brought semantic search
+into the database; RippleKG brings incremental view maintenance into
+LLM-generated knowledge graphs.
+
+\section{Member Contributions}
+The division of labor follows the ownership structure fixed in the project
+proposal. The percentages reflect each member's overall effort and sum to
+100\%.
+% TODO(team): replace <name> with real names/IDs and adjust the percentages
+% so they reflect each member's ACTUAL contribution (must still total 100).
+\begin{table}[h]
+\caption{Per-member contribution}
+\label{tab:contrib}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{0.18\columnwidth}p{0.56\columnwidth}c}
+\toprule
+\textbf{Member (role)} & \textbf{Primary contributions} & \textbf{\%}\\
+\midrule
+$\langle$name$\rangle$ (A) & Re-DocRED loader and $T_0$ build, synthetic edit set, B0/B1/B2 baselines & 25\\
+$\langle$name$\rangle$ (B) & ArangoDB schema (8 collections), indexes and provenance persistence, AQL 1-hop traversal and DB inspection & 25\\
+$\langle$name$\rangle$ (C) & M1 semantic evidence delta, M2 cost-aware policy, refresh execution & 25\\
+$\langle$name$\rangle$ (D) & Evaluation harness and metrics, label audit, report, slides, demo and video & 25\\
+\midrule
+\textbf{Total} & & \textbf{100}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{thebibliography}{10}
+\footnotesize
+\bibitem{docred} Y.~Yao \emph{et al.}, ``DocRED: A Large-Scale Document-Level
+Relation Extraction Dataset,'' in \emph{ACL}, 2019.
+\bibitem{redocred} Q.~Tan \emph{et al.}, ``Revisiting DocRED---Addressing the
+False Negative Problem in Relation Extraction,'' in \emph{EMNLP}, 2022.
+\bibitem{graphrag} D.~Edge \emph{et al.}, ``From Local to Global: A Graph RAG
+Approach to Query-Focused Summarization,'' \emph{arXiv:2404.16130}, 2024.
+\bibitem{lightrag} Z.~Guo \emph{et al.}, ``LightRAG: Simple and Fast
+Retrieval-Augmented Generation,'' \emph{arXiv:2410.05779}, 2024.
+\bibitem{itext2kg} Y.~Lairgi \emph{et al.}, ``iText2KG: Incremental Knowledge
+Graphs Construction Using Large Language Models,'' \emph{arXiv:2409.03284}, 2024.
+\bibitem{rippleedits} R.~Cohen \emph{et al.}, ``Evaluating the Ripple Effects of
+Knowledge Editing in Language Models,'' \emph{TACL}, 2024.
+\bibitem{guptamumick} A.~Gupta and I.~S.~Mumick, ``Maintenance of Materialized
+Views: Problems, Techniques, and Applications,'' \emph{IEEE Data Eng.\ Bull.}, 1995.
+\bibitem{dbtoaster} C.~Koch \emph{et al.}, ``DBToaster: Higher-order Delta
+Processing for Dynamic, Frequently Fresh Views,'' in \emph{VLDB}, 2014.
+\bibitem{diffdataflow} F.~McSherry \emph{et al.}, ``Differential Dataflow,'' in
+\emph{CIDR}, 2013.
+\bibitem{sbert} N.~Reimers and I.~Gurevych, ``Sentence-BERT: Sentence Embeddings
+using Siamese BERT-Networks,'' in \emph{EMNLP}, 2019.
+\end{thebibliography}
+
+\end{document}

@@ -15,3 +15,5 @@ data/docred/*_revised.json
 !**/.gitkeep
 
 out/
+
+.DS_Store
