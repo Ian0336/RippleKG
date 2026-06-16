@@ -345,7 +345,7 @@ all-rebuild policy over affected evidence and than document/corpus-granularity
 rebuilds.
 
 \begin{table}[t]
-\caption{Baseline comparison on 50 documents and 357 mixed edits}
+\caption{Baseline comparison on 50 documents and 357 mixed edits. B0 consistency checked 1{,}925 relations and 1{,}078 entities.}
 \label{tab:bench}
 \centering
 \footnotesize
@@ -363,7 +363,7 @@ B2 naive stale / over-invalidated & 2{,}631 & ---\\
 Document rebuild (GraphRAG-style) & 104{,}405 & $65.13\times$\\
 Whole-KG rebuild (B0 granularity) & 5{,}096{,}185 & $3179.15\times$\\
 \midrule
-B0 consistency & \multicolumn{2}{r}{0 mismatches over 1{,}925 relations / 1{,}078 entities}\\
+B0 consistency & 0 mismatches & ---\\
 \bottomrule
 \end{tabular}
 \end{table}
